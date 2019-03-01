@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>EAE 6320 Engineering II -  04 Application, Graphics Threads - Chen Mi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="Right now, all the rendering inputs are implemented within [Graphics] project, which belongs to engine module not game module.   In real world, a game programmer would not directly write codes in engi">
+<meta name="keywords" content="Entertainment Arts Engineering,Graphics,C++,Threads">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EAE 6320 Engineering II -  04 Application, Graphics Threads">
+<meta property="og:url" content="http://chenmi.ink/EAE 6320 Write-up 04/index.html">
+<meta property="og:site_name" content="Chen Mi">
+<meta property="og:description" content="Right now, all the rendering inputs are implemented within [Graphics] project, which belongs to engine module not game module.   In real world, a game programmer would not directly write codes in engi">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignFourInput%20Output.gif">
+<meta property="og:image" content="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignFourDefaultOutput.gif">
+<meta property="og:updated_time" content="2019-01-14T16:58:16.871Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EAE 6320 Engineering II -  04 Application, Graphics Threads">
+<meta name="twitter:description" content="Right now, all the rendering inputs are implemented within [Graphics] project, which belongs to engine module not game module.   In real world, a game programmer would not directly write codes in engi">
+<meta name="twitter:image" content="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignFourInput%20Output.gif">
+
+
+
+
+
+<link rel="icon" href="/images/favicon.jpg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/tomorrow-night.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="EAE 6320 Engineering II -  04 Application, Graphics Threads" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+<div id="icarus-notify-pre-release" class="notification is-warning">
+<button class="delete"></button>
+Now the page you are viewing is under upgrade. Please be aware that layout on this website are subject to change.
+</div>
+<script>
+!function () {
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    function removeHtml(selector) {
+        document.querySelector(selector).parentNode.removeChild(document.querySelector(selector));
+    }
+
+    if (getCookie('icarus-notify-pre-release')) {
+        removeHtml('#icarus-notify-pre-release');
+    }
+    if (document.querySelector('#icarus-notify-pre-release .delete')) {
+        document.querySelector('#icarus-notify-pre-release .delete').addEventListener('click', function () {
+            setCookie('icarus-notify-pre-release', true);
+            removeHtml('#icarus-notify-pre-release');
+        });
+    }
+}();
+</script>
+
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignFourBanner.jpg" alt="EAE 6320 Engineering II -  04 Application, Graphics Threads">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-09-18T12:50:00.000Z">2018-09-18</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Engineering/">Engineering</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Engineering/EAE-6320/">EAE 6320</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 minutes read (About 794 words)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                EAE 6320 Engineering II -  04 Application, Graphics Threads
+            
+        </h1>
+        <div class="content">
+            <p>Right now, all the rendering inputs are implemented within <code>[Graphics]</code> project, which belongs to engine module not game module.  </p>
+<p>In real world, a game programmer would not directly write codes in engine project. In this case, this time, I move mesh, effect, color inputs into <code>[MyGame] </code>project.</p>
+<p>It involves dealing with data in two threads. One is rendering thread which is used for rendering cached data, the other is application thread which manages data in application.<br><a id="more"></a> </p>
+<hr>
+<blockquote>
+<p>Click <a href="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320Zip/AssignFourMyGame_.zip" target="_blank" rel="noopener">Download</a> download the game.</p>
+</blockquote>
+<hr>
+<h1 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h1><p>In last post, the Graphics project becomes platform independent. It makes easier to move <code>cMesh </code> and <code>cEffect</code> to <code>MyGame</code> project. Since we decided to use two threads, it requires us to cache data rather than <del>draw it immediately</del>. </p>
+<p>In this case, we will submit all the data in Game project and store them in <code>[s_dataBeingSubmittedByApplicationThread]</code> and use reference counting to track their usages.</p>
+<h2 id="Submit-Render-Data"><a href="#Submit-Render-Data" class="headerlink" title="Submit Render Data"></a>Submit Render Data</h2><p>The struct <code>[sDataRequiredToRenderAFrame]</code> is used to cache information rendered in a frame. </p>
+<h2 id="Submit-Background-Color"><a href="#Submit-Background-Color" class="headerlink" title="Submit Background Color"></a>Submit Background Color</h2><p>First, I add a Color variable named <code>backgroundColor</code>. The variable would be assigned in <code>[MyGame.cpp]</code>. For the simulation time, I created a function in <code>cAppliction.h</code> which returns <code>simulationSecoundCount</code>.</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-comment">//Simulation Time</span></span><br><span class="line"><span class="hljs-keyword">auto</span> ctime= (<span class="hljs-keyword">float</span>)<span class="hljs-built_in">cos</span>(GetElapsedSecondCount_simulationTime());</span><br><span class="line"><span class="hljs-keyword">auto</span> stime= (<span class="hljs-keyword">float</span>)<span class="hljs-built_in">sin</span>(GetElapsedSecondCount_simulationTime());</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//Submission of color</span></span><br><span class="line">Graphics::Color c = Graphics::Color(ctime, stime, ctime+stime, <span class="hljs-number">1.0f</span>);</span><br><span class="line">Graphics::SubmitClearColor(c);</span><br></pre></td></tr></table></figure>
+<h2 id="Submit-Mesh-amp-Effect-Pairs"><a href="#Submit-Mesh-amp-Effect-Pairs" class="headerlink" title="Submit Mesh &amp; Effect Pairs"></a>Submit Mesh &amp; Effect Pairs</h2><p>Then, I add two pointer arrays. One is used to keep meshes data, the other is to keep effects data. Besides, I add a uint16 variable to keep the mesh &amp; effect pairs length. The struct now like below:<br><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">sDataRequiredToRenderAFrame</span></span></span><br><span class="line"><span class="hljs-class"> &#123;</span></span><br><span class="line"> 	<span class="hljs-comment">//...</span></span><br><span class="line">	eae6320::Graphics::Color backgroundColor;</span><br><span class="line">	eae6320::Graphics::cMesh** meshArray;</span><br><span class="line">	eae6320::Graphics::cEffect** effectArray;</span><br><span class="line">	<span class="hljs-keyword">uint16_t</span> i_meshSize;</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>The instances of mesh and effects are created in Initializes function.  In  <code>Game.cpp </code>, I defined these instances like below:<br><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">eae6320::Graphics::cEffect *s_effect_instance1;</span><br><span class="line">eae6320::Graphics::cMesh *s_mesh_instance1;</span><br></pre></td></tr></table></figure></p>
+<p> Since we added reference counting, users are not supposed manually create these instances directly. As a result, they could use functions to initialize its own data instead.</p>
+<p>  <code>cEffect </code> instance usage in below:</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-keyword">if</span> (!(result = Graphics::cEffect::EffectFactory(</span><br><span class="line"><span class="hljs-string">"data/Shaders/Vertex/standard.shader"</span>,</span><br><span class="line"><span class="hljs-string">"data/Shaders/Fragment/standard.shader"</span>,</span><br><span class="line">s_effect_instance1)))</span><br><span class="line">	<span class="hljs-comment">//....</span></span><br></pre></td></tr></table></figure>
+<p>Once we setup pairs data, users can submit them in <code> MyGame.cpp </code>:<br><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-keyword">void</span> cMyGame::SubmitDataToBeRendered(<span class="hljs-keyword">const</span> <span class="hljs-keyword">float</span> f1,<span class="hljs-keyword">const</span> <span class="hljs-keyword">float</span> f2)</span><br><span class="line">&#123;</span><br><span class="line"> <span class="hljs-comment">//...</span></span><br><span class="line">Graphics::SubmitMeshEffectPairs(s_mesh_instance, s_effect_instance);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<ul>
+<li>At first, It turns out messages says some assets still remains after closing the application. </li>
+</ul>
+<p>With <a href="http://yuxiandeng.info/Program/GameEngine2/Assignment4/Assignment4.html" target="_blank" rel="noopener">Yuxian’s</a> help, I realize I forget to clean up references of data in <code>[Application]</code> thread. </p>
+<hr>
+<h2 id="Memory-Usage"><a href="#Memory-Usage" class="headerlink" title="Memory Usage"></a>Memory Usage</h2><p><strong>cMesh</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Platform</th>
+<th style="text-align:center">Geometry Data</th>
+<th style="text-align:right">Index Length</th>
+<th style="text-align:center">Reference Count</th>
+<th style="text-align:right">Extra Alignment</th>
+<th style="text-align:right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">OpenGL</td>
+<td style="text-align:center">3 GLuint</td>
+<td style="text-align:right">1 uint16</td>
+<td style="text-align:center">1 uint16</td>
+<td style="text-align:right">No</td>
+<td style="text-align:right">16 bytes</td>
+</tr>
+<tr>
+<td style="text-align:left">DirectX</td>
+<td style="text-align:center">3 Pointer</td>
+<td style="text-align:right">1 uint16</td>
+<td style="text-align:center">1 uint16</td>
+<td style="text-align:right">Yes</td>
+<td style="text-align:right">32 bytes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>cEffect</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Platform</th>
+<th style="text-align:center">Handler</th>
+<th style="text-align:right">Render State</th>
+<th style="text-align:center">ProgramId</th>
+<th style="text-align:center">Reference Count</th>
+<th style="text-align:right">Extra Alignment</th>
+<th style="text-align:right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">OpenGL</td>
+<td style="text-align:center">2</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">1 GLuint</td>
+<td style="text-align:center">1 uint16</td>
+<td style="text-align:right">No</td>
+<td style="text-align:right">16 bytes</td>
+</tr>
+<tr>
+<td style="text-align:left">DirectX</td>
+<td style="text-align:center">2</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">NULL</td>
+<td style="text-align:center">1 uint16</td>
+<td style="text-align:right">Yes</td>
+<td style="text-align:right">48 bytes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Render State</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Platform</th>
+<th style="text-align:center">Struct Data</th>
+<th style="text-align:right">Extra Alignment</th>
+<th style="text-align:right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">OpenGL</td>
+<td style="text-align:center">1uint8</td>
+<td style="text-align:right">Yes</td>
+<td style="text-align:right">1 byte</td>
+</tr>
+<tr>
+<td style="text-align:left">DirectX</td>
+<td style="text-align:center">3 Pointer + 1uint8</td>
+<td style="text-align:right">Yes</td>
+<td style="text-align:right">32 bytes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>DataRequiredToRenderAFrame</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Platform</th>
+<th style="text-align:center">sPerFrame</th>
+<th style="text-align:right">Color</th>
+<th style="text-align:right">Pointer Arrays</th>
+<th style="text-align:right">Length</th>
+<th style="text-align:right">Extra Alignment</th>
+<th style="text-align:right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">OpenGL</td>
+<td style="text-align:center">1</td>
+<td style="text-align:right">4 floats</td>
+<td style="text-align:right">1 pMesh + 1 pEffect</td>
+<td style="text-align:right">1 uint16</td>
+<td style="text-align:right">Yes</td>
+<td style="text-align:right">172 byte</td>
+</tr>
+<tr>
+<td style="text-align:left">DirectX</td>
+<td style="text-align:center">1</td>
+<td style="text-align:right">4 floats</td>
+<td style="text-align:right">1 pMesh + 1 pEffect</td>
+<td style="text-align:right">1 uint16</td>
+<td style="text-align:right">Yes</td>
+<td style="text-align:right">184 byte</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note:</strong>  DirectX is x64 platform, which takes 8 bytes for each address. OpenGL is x86 platform, which takes 4 bytes for each address.<br><strong>Note:</strong>  The Handler is 4 bytes each.<br><strong>Note:</strong>  The sPerFrame is 144 bytes.<br><strong>Note:</strong>  The DataRequiredToRenderAFrame only contains pointer size. Combine mesh &amp; effect size manually.</p>
+</blockquote>
+<hr>
+<h1 id="Thoughts-amp-Discussion"><a href="#Thoughts-amp-Discussion" class="headerlink" title="Thoughts &amp; Discussion"></a>Thoughts &amp; Discussion</h1><ul>
+<li>We use two threads to separate logic and render tasks. This is helpful to deal with massive calculation of models, skin animations or particles.</li>
+</ul>
+<p><strong>Reason to Cache Data</strong></p>
+<ul>
+<li>Each render entity has two copies. The application and graphic threads update these two copies and sync at the end of a frame.<br>In this case, storing data in place could avoid swapping data constantly, which could also improve the performance.</li>
+</ul>
+<hr>
+<h1 id="Personalize"><a href="#Personalize" class="headerlink" title="Personalize"></a>Personalize</h1><h2 id="Controls"><a href="#Controls" class="headerlink" title="Controls"></a>Controls</h2><p>Hold <strong>[SPACE]</strong> key to slow down the color animation.  You may see slower animation transition like the images below. </p>
+<p>Hold <strong>[Shift]</strong> key to hide the square in the center.</p>
+<p>Hold <strong>[Ctrl]</strong> key to change four triangles color.</p>
+<hr>
+<h2 id="Input-Control-Output"><a href="#Input-Control-Output" class="headerlink" title="Input Control Output"></a>Input Control Output</h2><p><img src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignFourInput%20Output.gif" alt="Result"></p>
+<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><ul>
+<li>In order to detect user input, I override the implantation of <code>BaseOnSimulationInput</code>. Use two boolean values to keep key states.</li>
+</ul>
+<ul>
+<li>To make auto animation, I override the implantation of <code>UpdateSimulationBasedOnTime </code>. Inside, it will switch value of a boolean value which controls the visibility of four small triangles. Below is the default sreenshot.</li>
+</ul>
+<p><img src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignFourDefaultOutput.gif" alt="Result"></p>
+<hr>
+<h1 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h1><p>Click <a href="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320Zip/AssignFourMyGame_.zip" target="_blank" rel="noopener">Download</a> download the game.</p>
+<p>Version: x64 - DirectX.</p>
+
+        </div>
+        
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/C/">C++</a>, <a class="has-link-grey -link" href="/tags/Entertainment-Arts-Engineering/">Entertainment Arts Engineering</a>, <a class="has-link-grey -link" href="/tags/Graphics/">Graphics</a>, <a class="has-link-grey -link" href="/tags/Threads/">Threads</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5bd3445bee8c700011929deb&amp;product=inline-share-buttons" async="async"></script>
+
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="/gallery/donate/alipay.png" alt="Alipay"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="/gallery/donate/wechat.jpg" alt="Wechat"></div>
+</a>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
+    <span class="icon is-small">
+        <i class="fab fa-paypal"></i>
+    </span>
+    <span>Paypal</span>
+</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="paypal-donate-form">
+    <input type="hidden" name="cmd" value="_donations">
+    <input type="hidden" name="business" value="paypal@paypal.com">
+    <input type="hidden" name="currency_code" value="USD">
+</form>
+
+                
+                
+<a class="button is-danger donate" href="https://www.patreon.com/" target="_blank">
+    <span class="icon is-small">
+        <i class="fab fa-patreon"></i>
+    </span>
+    <span>Patreon</span>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/EAE 6320 Write-up 05/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">EAE 6320 Engineering II -  05 Camera, Rigid-body, Transforms, GameObject</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/EAE 6320 Part 03/">
+                <span class="level-item">EAE 6320 Engineering II -  03 Further Graphic Independent</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjk4My85NTQ1s">
+    <script type="text/javascript">
+        (function(d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') { return; }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript> Please activate JavaScript for write a comment in LiveRe</noscript>
+</div>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="Chen Mi (Lishtys)">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Chen Mi (Lishtys)
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Game Engineer &amp; Designer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Salt Lake City, USA</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        33
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        12
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        24
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/lishtys/">
+                Follow</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/lishtys/">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="https://www.facebook.com/lishtys/">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="linkedin" href="https://www.linkedin.com/in/lishtys/">
+                
+                <i class="fab fa-linkedin"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#Process">
+        <span class="has-mr-6">1</span>
+        <span>Process</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Submit-Render-Data">
+        <span class="has-mr-6">1.1</span>
+        <span>Submit Render Data</span>
+        </a></li><li>
+        <a class="is-flex" href="#Submit-Background-Color">
+        <span class="has-mr-6">1.2</span>
+        <span>Submit Background Color</span>
+        </a></li><li>
+        <a class="is-flex" href="#Submit-Mesh-amp-Effect-Pairs">
+        <span class="has-mr-6">1.3</span>
+        <span>Submit Mesh &amp; Effect Pairs</span>
+        </a></li><li>
+        <a class="is-flex" href="#Memory-Usage">
+        <span class="has-mr-6">1.4</span>
+        <span>Memory Usage</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Thoughts-amp-Discussion">
+        <span class="has-mr-6">2</span>
+        <span>Thoughts &amp; Discussion</span>
+        </a></li><li>
+        <a class="is-flex" href="#Personalize">
+        <span class="has-mr-6">3</span>
+        <span>Personalize</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Controls">
+        <span class="has-mr-6">3.1</span>
+        <span>Controls</span>
+        </a></li><li>
+        <a class="is-flex" href="#Input-Control-Output">
+        <span class="has-mr-6">3.2</span>
+        <span>Input Control Output</span>
+        </a></li><li>
+        <a class="is-flex" href="#Implementation">
+        <span class="has-mr-6">3.3</span>
+        <span>Implementation</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Download">
+        <span class="has-mr-6">4</span>
+        <span>Download</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://space.bilibili.com/2868116/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Bilibili</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">space.bilibili.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Engineering/">
+            <span class="level-start">
+                <span class="level-item">Engineering</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">15</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Engineering/EAE-6320/">
+            <span class="level-start">
+                <span class="level-item">EAE 6320</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">10</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Engineering/EAE-6320-Explore/">
+            <span class="level-start">
+                <span class="level-item">EAE 6320 Explore</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Game-AI/">
+            <span class="level-start">
+                <span class="level-item">Game AI</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Game-AI/EAE-6900-023/">
+            <span class="level-start">
+                <span class="level-item">EAE 6900 - 023</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Game-Engine/">
+            <span class="level-start">
+                <span class="level-item">Game Engine</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Game-Engine/EAE-6900-Realtime-Rendering/">
+            <span class="level-start">
+                <span class="level-item">EAE 6900 Realtime Rendering</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Unity/">
+            <span class="level-start">
+                <span class="level-item">Unity</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Unity/Hotfix-xLua/">
+            <span class="level-start">
+                <span class="level-item">Hotfix xLua</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/中文博客/">
+            <span class="level-start">
+                <span class="level-item">中文博客</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/中文博客/2018·暑期/">
+            <span class="level-start">
+                <span class="level-item">2018·暑期</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/中文博客/游而远行/">
+            <span class="level-start">
+                <span class="level-item">游而远行</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/Animation/" style="font-size: 14.29px;">Animation</a> <a href="/tags/Animator-Controller/" style="font-size: 10px;">Animator Controller</a> <a href="/tags/AssetBundle/" style="font-size: 11.43px;">AssetBundle</a> <a href="/tags/Binary/" style="font-size: 12.86px;">Binary</a> <a href="/tags/C/" style="font-size: 18.57px;">C++</a> <a href="/tags/Camera/" style="font-size: 10px;">Camera</a> <a href="/tags/Entertainment-Arts-Engineering/" style="font-size: 20px;">Entertainment Arts Engineering</a> <a href="/tags/FBX/" style="font-size: 10px;">FBX</a> <a href="/tags/Game-AI/" style="font-size: 10px;">Game AI</a> <a href="/tags/Graphics/" style="font-size: 18.57px;">Graphics</a> <a href="/tags/Lua/" style="font-size: 11.43px;">Lua</a> <a href="/tags/Maya/" style="font-size: 10px;">Maya</a> <a href="/tags/OpenFrameworks/" style="font-size: 10px;">OpenFrameworks</a> <a href="/tags/Realtime-Rendering/" style="font-size: 17.14px;">Realtime Rendering</a> <a href="/tags/Shader/" style="font-size: 10px;">Shader</a> <a href="/tags/Textrure/" style="font-size: 10px;">Textrure</a> <a href="/tags/Texture/" style="font-size: 11.43px;">Texture</a> <a href="/tags/Threads/" style="font-size: 10px;">Threads</a> <a href="/tags/Transforms/" style="font-size: 10px;">Transforms</a> <a href="/tags/Unity/" style="font-size: 12.86px;">Unity</a> <a href="/tags/Unity-Assets-Type/" style="font-size: 10px;">Unity Assets Type</a> <a href="/tags/xLua/" style="font-size: 11.43px;">xLua</a> <a href="/tags/游记/" style="font-size: 15.71px;">游记</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 Realtime Rendering  07/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/GPUMipLevel.gif" alt="EAE 6900 Realtime Rendering - Sampler, Mipmap, UV Animation">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-12T22:52:00.000Z">2019-02-12</time></div>
+                    <a href="/EAE 6900 Realtime Rendering  07/" class="has-link-black-ter is-size-6">EAE 6900 Realtime Rendering - Sampler, Mipmap, UV Animation</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-Engine/">Game Engine</a> / <a class="has-link-grey -link" href="/categories/Game-Engine/EAE-6900-Realtime-Rendering/">EAE 6900 Realtime Rendering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 Realtime Rendering  06/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/ScreenShotRT06.gif" alt="EAE 6900 Realtime Rendering - Texture">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-12T13:38:00.000Z">2019-02-12</time></div>
+                    <a href="/EAE 6900 Realtime Rendering  06/" class="has-link-black-ter is-size-6">EAE 6900 Realtime Rendering - Texture</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-Engine/">Game Engine</a> / <a class="has-link-grey -link" href="/categories/Game-Engine/EAE-6900-Realtime-Rendering/">EAE 6900 Realtime Rendering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 Realtime Rendering  05/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/ScreenShotRTR05.gif" alt="EAE 6900 Realtime Rendering - Transparent Material">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-12T12:29:00.000Z">2019-02-12</time></div>
+                    <a href="/EAE 6900 Realtime Rendering  05/" class="has-link-black-ter is-size-6">EAE 6900 Realtime Rendering - Transparent Material</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-Engine/">Game Engine</a> / <a class="has-link-grey -link" href="/categories/Game-Engine/EAE-6900-Realtime-Rendering/">EAE 6900 Realtime Rendering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 Realtime Rendering  04/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/RTR04Bannar.gif" alt="EAE 6900 Realtime Rendering - Materials">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-10T11:24:00.000Z">2019-02-10</time></div>
+                    <a href="/EAE 6900 Realtime Rendering  04/" class="has-link-black-ter is-size-6">EAE 6900 Realtime Rendering - Materials</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-Engine/">Game Engine</a> / <a class="has-link-grey -link" href="/categories/Game-Engine/EAE-6900-Realtime-Rendering/">EAE 6900 Realtime Rendering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 Realtime Rendering  02/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.slideplayer.com/34/8318378/slides/slide_11.jpg" alt="EAE 6900 Realtime Rendering - Shader &amp; Transforms">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-09T17:41:00.000Z">2019-02-09</time></div>
+                    <a href="/EAE 6900 Realtime Rendering  02/" class="has-link-black-ter is-size-6">EAE 6900 Realtime Rendering - Shader &amp; Transforms</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-Engine/">Game Engine</a> / <a class="has-link-grey -link" href="/categories/Game-Engine/EAE-6900-Realtime-Rendering/">EAE 6900 Realtime Rendering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Animation/">
+                        <span class="tag">Animation</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Animator-Controller/">
+                        <span class="tag">Animator Controller</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AssetBundle/">
+                        <span class="tag">AssetBundle</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Binary/">
+                        <span class="tag">Binary</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/C/">
+                        <span class="tag">C++</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Camera/">
+                        <span class="tag">Camera</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Entertainment-Arts-Engineering/">
+                        <span class="tag">Entertainment Arts Engineering</span>
+                        <span class="tag is-grey">23</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/FBX/">
+                        <span class="tag">FBX</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Game-AI/">
+                        <span class="tag">Game AI</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Graphics/">
+                        <span class="tag">Graphics</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Lua/">
+                        <span class="tag">Lua</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Maya/">
+                        <span class="tag">Maya</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/OpenFrameworks/">
+                        <span class="tag">OpenFrameworks</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Realtime-Rendering/">
+                        <span class="tag">Realtime Rendering</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Shader/">
+                        <span class="tag">Shader</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Textrure/">
+                        <span class="tag">Textrure</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Texture/">
+                        <span class="tag">Texture</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Threads/">
+                        <span class="tag">Threads</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Transforms/">
+                        <span class="tag">Transforms</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Unity/">
+                        <span class="tag">Unity</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Unity-Assets-Type/">
+                        <span class="tag">Unity Assets Type</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/xLua/">
+                        <span class="tag">xLua</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/游记/">
+                        <span class="tag">游记</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/随笔/">
+                        <span class="tag">随笔</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 Realtime Rendering  07/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/GPUMipLevel.gif" alt="EAE 6900 Realtime Rendering - Sampler, Mipmap, UV Animation">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-12T22:52:00.000Z">2019-02-12</time></div>
+                    <a href="/EAE 6900 Realtime Rendering  07/" class="has-link-black-ter is-size-6">EAE 6900 Realtime Rendering - Sampler, Mipmap, UV Animation</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-Engine/">Game Engine</a> / <a class="has-link-grey -link" href="/categories/Game-Engine/EAE-6900-Realtime-Rendering/">EAE 6900 Realtime Rendering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 Realtime Rendering  06/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/ScreenShotRT06.gif" alt="EAE 6900 Realtime Rendering - Texture">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-12T13:38:00.000Z">2019-02-12</time></div>
+                    <a href="/EAE 6900 Realtime Rendering  06/" class="has-link-black-ter is-size-6">EAE 6900 Realtime Rendering - Texture</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-Engine/">Game Engine</a> / <a class="has-link-grey -link" href="/categories/Game-Engine/EAE-6900-Realtime-Rendering/">EAE 6900 Realtime Rendering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 Realtime Rendering  05/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/ScreenShotRTR05.gif" alt="EAE 6900 Realtime Rendering - Transparent Material">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-12T12:29:00.000Z">2019-02-12</time></div>
+                    <a href="/EAE 6900 Realtime Rendering  05/" class="has-link-black-ter is-size-6">EAE 6900 Realtime Rendering - Transparent Material</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-Engine/">Game Engine</a> / <a class="has-link-grey -link" href="/categories/Game-Engine/EAE-6900-Realtime-Rendering/">EAE 6900 Realtime Rendering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 Realtime Rendering  04/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/RTR04Bannar.gif" alt="EAE 6900 Realtime Rendering - Materials">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-10T11:24:00.000Z">2019-02-10</time></div>
+                    <a href="/EAE 6900 Realtime Rendering  04/" class="has-link-black-ter is-size-6">EAE 6900 Realtime Rendering - Materials</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-Engine/">Game Engine</a> / <a class="has-link-grey -link" href="/categories/Game-Engine/EAE-6900-Realtime-Rendering/">EAE 6900 Realtime Rendering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 Realtime Rendering  02/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.slideplayer.com/34/8318378/slides/slide_11.jpg" alt="EAE 6900 Realtime Rendering - Shader &amp; Transforms">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-09T17:41:00.000Z">2019-02-09</time></div>
+                    <a href="/EAE 6900 Realtime Rendering  02/" class="has-link-black-ter is-size-6">EAE 6900 Realtime Rendering - Shader &amp; Transforms</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-Engine/">Game Engine</a> / <a class="has-link-grey -link" href="/categories/Game-Engine/EAE-6900-Realtime-Rendering/">EAE 6900 Realtime Rendering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Animation/">
+                        <span class="tag">Animation</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Animator-Controller/">
+                        <span class="tag">Animator Controller</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AssetBundle/">
+                        <span class="tag">AssetBundle</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Binary/">
+                        <span class="tag">Binary</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/C/">
+                        <span class="tag">C++</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Camera/">
+                        <span class="tag">Camera</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Entertainment-Arts-Engineering/">
+                        <span class="tag">Entertainment Arts Engineering</span>
+                        <span class="tag is-grey">23</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/FBX/">
+                        <span class="tag">FBX</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Game-AI/">
+                        <span class="tag">Game AI</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Graphics/">
+                        <span class="tag">Graphics</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Lua/">
+                        <span class="tag">Lua</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Maya/">
+                        <span class="tag">Maya</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/OpenFrameworks/">
+                        <span class="tag">OpenFrameworks</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Realtime-Rendering/">
+                        <span class="tag">Realtime Rendering</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Shader/">
+                        <span class="tag">Shader</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Textrure/">
+                        <span class="tag">Textrure</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Texture/">
+                        <span class="tag">Texture</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Threads/">
+                        <span class="tag">Threads</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Transforms/">
+                        <span class="tag">Transforms</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Unity/">
+                        <span class="tag">Unity</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Unity-Assets-Type/">
+                        <span class="tag">Unity Assets Type</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/xLua/">
+                        <span class="tag">xLua</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/游记/">
+                        <span class="tag">游记</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/随笔/">
+                        <span class="tag">随笔</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="EAE 6320 Engineering II -  04 Application, Graphics Threads" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Chen Mi (Lishtys)&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                </p>
+                
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/asuna_01.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-30},"mobile":{"show":false,"scale":0.2},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+</html>
