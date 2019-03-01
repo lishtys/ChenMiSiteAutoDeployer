@@ -1,0 +1,88 @@
+﻿{
+  "Pili Incredible": {
+    "title": "Pili Incredible",
+    "subTitle": "霹靂無敵",
+    "img_link": "https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/PiliCover.JPG",
+    "use" : ["RPG","Mutiplayer","Mobile","Unity"],
+    "link": "https://pli.wegames.com.tw/",
+    "date":"2016",
+	"typeC": "Commercial",
+    "direction": "Pili Incredible is Pili International Multimedia Co., Ltd. officially licensed IP game, taking the story of the Bing Xian series."
+	},
+   "The War Era": {
+    "title": "The War Era",
+    "subTitle": "Crown of Honor",
+    "img_link": "https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/WarEra_Cover.jpg",
+    "use" : ["MOARPG","Mobile","Unity"],
+    "link": "",
+    "date": "2018",
+	"typeC": "Commercial",
+    "direction":""
+  },
+    "Meaty McSkin Bones": {
+    "title": "Meaty McSkin Bones",
+    "subTitle": "Crown of Honor",
+    "img_link": "https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/MeatyMcSkinBones.png",
+    "use" : ["Platform Puzzle","Unreal","PC"],
+    "link": "",
+    "date": "2018",
+	"typeC": "Commercial",
+    "direction":
+        "A MMOARPG mobile game about to be shipped in 2018"
+  },
+   "The Surgery Checklist": {
+    "title": "The Surgery Checklist",
+    "subTitle": "Crown of Honor",
+    "img_link": "https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/SurgeryChecklist_Cover.PNG",
+    "use" : ["APP","Mobile","Unity"],
+    "link": "",
+    "date": "2018",
+	"typeC": "Commercial",
+    "direction":
+        "A MMOARPG mobile game about to be shipped in 2018"
+  },  
+   "The Red Moon": {
+    "title": "The Red Moon",
+    "subTitle": "The Red Moon",
+    "img_link": "https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/RedMoonCover.PNG",
+    "use" : ["Card","Unity"],
+    "link": "https://youtu.be/XqoOjGg4apQ",
+    "date": "2014",
+	"typeC": "Serious Game",
+    "direction":
+        "Gold Award of Best Original Non-Game Group, 2014 Unity Awards in the Greater China Region"
+  },
+     "Kinect Virtual Lab": {
+    "title": "Kinect Virtual Lab",
+    "subTitle": "Kinect Virtual Lab",
+    "img_link": "https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/Kinect Cover.png",
+    "use" : ["Kinect","Unity"],
+    "link": "https://youtu.be/XqoOjGg4apQ",
+    "date": "2014",
+	"typeC": "Serious Game",
+    "direction":
+        "Gold Award of Best Original Non-Game Group, 2014 Unity Awards in the Greater China Region"
+  },
+   "Fore Runner": {
+    "title": "Fore! Runner",
+    "subTitle": "",
+    "img_link": "https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/ForeRunner.png",
+    "use" : ["Mono Game","Lidgren"],
+    "link": "",
+    "date": "2017.9",
+	"typeC": "Prototype",
+    "direction":
+        " Two player network hosted co-op voice command driven endless runner game. The two players control one character, and the voice commands are split between the two players. One player controls left and right, while the other controls shooting and the speed."
+  },
+  	"Elec Force": {
+    "title": "Elec Force",
+    "subTitle": "",
+    "img_link": "https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/Elecforce.JPG",
+    "use" : ["Global Game Jam","Unity"],
+    "link": "",
+    "date": "2018.1",
+	"typeC": "Work Project",
+    "direction":
+        "Best Doodles On Global Game Jam 2018 "
+  }
+}

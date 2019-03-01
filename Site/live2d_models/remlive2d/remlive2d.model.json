@@ -1,0 +1,8 @@
+{
+	"type": "Live2D Model Setting",
+	"name": "remlive2d",
+	"model": "remlive2d.moc",
+	"textures": [
+		"remlive2d.4096/texture_00.png"
+	]
+}

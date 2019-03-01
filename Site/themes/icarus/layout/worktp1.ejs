@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html <%- has_config('language') ? ' lang="' + get_config('language').substring(0, 2) + '"' : '' %>>
+<head>
+    <%- partial('common/head') %>
+</head>
+<body class="is-3-column">
+    <%- partial('common/navbar', { page }) %>
+    <% function main_column_class() {
+        switch (3) {
+            case 1:
+                return 'is-12';
+            case 2:
+                return 'is-8-tablet is-8-desktop is-8-widescreen';
+            case 3:
+                return 'is-8-tablet is-8-desktop is-6-widescreen'
+        }
+        return '';
+    } %>
+	
+	 <% function show_type(t) {
+
+        switch (t) {
+            case 'All':
+                return 'all';
+            case 'Commercial':
+                return 'Commercial';
+            case '23':
+                return 'is-8-tablet is-8-desktop is-6-widescreen'
+        }
+        return '';
+    } %>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+			
+    <div class="column <%= main_column_class() %> has-order-1 column-main">
+	<% var index=0%>
+	<% for(var obj in site.data.project){ %>
+	<%if (site.data.project[obj].typeC == show_type(page.title) || show_type(page.title)== 'all') { index=index+1  %>
+	<%if (index%2!=0) { %>
+    <div class="card" style="transition: opacity 0.3s ease-out 0s, transform 0.3s ease-out 0s; opacity: 1; transform-origin: center top 0px;">
+    
+    
+	
+    <div class="card-image">
+        <a href="/EAE 6320 Write-up 15/" class="image is-7by1">
+            <img class="thumbnail" src="<%= site.data.project[obj].img_link %>" alt="<%= site.data.project[obj].title%>">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <span class="level-item has-text-grey" >  <%= site.data.project[obj].data %> &nbsp;/&nbsp; </time>
+                
+            
+				 <% for (var arrayVal in site.data.project[obj].use ){ %>
+				  <div class="level-item">
+					&nbsp;<a class="has-link-grey -link" href="/categories/Engineering/EAE-6320/"> <%= site.data.project[obj].use[arrayVal] %>
+                  </a>
+                </div>
+     			<% } %>
+				
+               
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/EAE 6320 Write-up 15/"><%= site.data.project[obj].title %></a>
+            
+        </h1>
+        <div class="content">
+             <%- site.data.project[obj].direction %>
+        </p></div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="<%= site.data.project[obj].link %>">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+	</div>
+	<% } %>
+		  <% } %>		
+				  <% } %>			
+				</div>
+				
+  
+
+
+  <div class="column <%= main_column_class() %> has-order-2 column-main">
+	<% index=0%>
+	<% for(var obj in site.data.project){ %>
+	<%if (site.data.project[obj].typeC == show_type(page.title)|| show_type(page.title)== 'all') { index=index+1  %>
+	<%if (index%2==0) { %>
+    <div class="card" style="transition: opacity 0.3s ease-out 0s, transform 0.3s ease-out 0s; opacity: 1; transform-origin: center top 0px;">
+    
+    
+	
+    <div class="card-image">
+        <a href="/EAE 6320 Write-up 15/" class="image is-7by1">
+            <img class="thumbnail" src="<%= site.data.project[obj].img_link %>" alt="<%= site.data.project[obj].title %>">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <span class="level-item has-text-grey" >  <%= site.data.project[obj].date %> &nbsp;/&nbsp; </time>
+                
+            
+				 <% for (var arrayVal in site.data.project[obj].use ){ %>
+				  <div class="level-item">
+					&nbsp;<a class="has-link-grey -link" href="/categories/Engineering/EAE-6320/"> <%= site.data.project[obj].use[arrayVal] %>
+                  </a>
+                </div>
+     
+				<% } %>
+				
+               
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/EAE 6320 Write-up 15/"><%= site.data.project[obj].title %></a>
+            
+        </h1>
+        <div class="content">
+             <%- site.data.project[obj].direction %>
+        </p></div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="<%= site.data.project[obj].link %>">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+	</div>
+	<% } %>
+		  <% } %>		
+			  <% } %>				
+				</div>
+
+
+			
+				
+                
+            </div>
+        </div>
+    </section>
+    <%- partial('common/footer') %>
+    <%- partial('common/scripts') %>
+
+    <% if (has_config('search.type')) { %>
+    <%- partial('search/' + get_config('search.type')) %>
+    <% } %>
+</body>
+</html>

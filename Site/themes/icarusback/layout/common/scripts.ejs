@@ -1,0 +1,13 @@
+<%- partial('comment/scripts', { page: page }) %>
+<%- partial('plugin/scripts') %>
+
+<!-- Custom Scripts -->
+<%- js('js/main') %>
+<% if (theme.mermaid.enable) { %>
+  <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'default'});
+    }
+  </script>
+<% } %>
