@@ -113,7 +113,7 @@ baidusitemap:
 baidu_url_submit:
   count: 10 
   host: chenmi.ink 
-  token: 3R92xqVjaZXeKdfw 
+  token: baidu_token 
   path: baidu_urls.txt 
 
 # Live2D
