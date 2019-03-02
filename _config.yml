@@ -83,7 +83,7 @@ theme: icarus
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
 - type: git
-  repo: https://github.com/lishtys/lishtys.github.io.git
+  repo: https://gh_token@github.com/lishtys/lishtys.github.io.git
   branch: master
 - type: git
   repo: git@git.coding.net:lishtys/lishtys.git
