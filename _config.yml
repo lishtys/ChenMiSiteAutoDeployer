@@ -86,7 +86,7 @@ deploy:
   repo: https://gh_token@github.com/lishtys/lishtys.github.io.git
   branch: master
 - type: git
-  repo: https://code_token@git.dev.tencent.com/lishtys/lishtys.git
+  repo: https://dt_ZeHhtS:code_token@git.dev.tencent.com/lishtys/lishtys.git
   branch: master
 - type: baidu_url_submitter
 
