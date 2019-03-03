@@ -6,8 +6,8 @@ tags:
 - Graphics
 - C++
 categories: 
-- Engineering
-- EAE 6320 Explore
+- Game Engine
+- Realtime Rendering
 thumbnail: https://media.giphy.com/media/nIEkrTYEy2DQY/giphy.gif
 toc: true
 ---

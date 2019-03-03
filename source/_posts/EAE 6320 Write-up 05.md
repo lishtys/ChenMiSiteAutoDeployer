@@ -8,8 +8,8 @@ tags:
 - Camera
 - Transforms
 categories: 
-- Engineering
-- EAE 6320
+- Game Engine
+- Realtime Rendering
 thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignFiveBanner.jpg
 toc: true
 ---

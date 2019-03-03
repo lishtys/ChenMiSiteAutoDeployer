@@ -6,8 +6,8 @@ tags:
 - Graphics
 - C++
 categories: 
-- Engineering
-- EAE 6320
+- Game Engine
+- Realtime Rendering
 thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/BannnerEngII01.jpg
 toc: true
 ---

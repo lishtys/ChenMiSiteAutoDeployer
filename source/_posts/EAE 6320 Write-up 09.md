@@ -8,9 +8,10 @@ tags:
 - Binary
 - Shader
 - Lua
+- EAE 6320 
 categories: 
-- Engineering
-- EAE 6320
+- Game Engine
+- Realtime Rendering
 thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/A09Banner.png
 toc: true
 ---

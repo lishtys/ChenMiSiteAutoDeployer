@@ -5,9 +5,10 @@ tags:
 - Entertainment Arts Engineering 
 - Realtime Rendering
 - Texture
+- EAE 6900 
 categories: 
 - Game Engine
-- EAE 6900 Realtime Rendering
+- Realtime Rendering
 thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/GPUMipLevel.gif
 toc: true
 ---

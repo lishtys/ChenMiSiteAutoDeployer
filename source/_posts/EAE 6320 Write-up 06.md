@@ -6,9 +6,10 @@ tags:
 - Graphics
 - C++
 - Lua
+- EAE 6320 
 categories: 
-- Engineering
-- EAE 6320
+- Game Engine
+- Realtime Rendering
 thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignSixBanner.png
 toc: true
 ---

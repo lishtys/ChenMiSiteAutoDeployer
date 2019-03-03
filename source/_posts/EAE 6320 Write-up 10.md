@@ -8,9 +8,10 @@ tags:
 - FBX
 - Animation
 - Texture
+- EAE 6320 
 categories: 
-- Engineering
-- EAE 6320 Explore
+- Game Engine
+- Realtime Rendering
 thumbnail: https://thumbs.gfycat.com/KindlyBoldLeafwing-max-1mb.gif
 toc: true
 ---

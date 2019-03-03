@@ -6,9 +6,10 @@ tags:
 - Graphics
 - C++
 - Animation
+- EAE 6320 
 categories: 
-- Engineering
-- EAE 6320 Explore
+- Game Engine
+- Realtime Rendering
 thumbnail: https://media.giphy.com/media/Lcx1BIYn47hra/giphy.gif
 toc: true
 ---

@@ -4,9 +4,11 @@ date: 2019-02-09 10:41:00
 tags: 
 - Entertainment Arts Engineering 
 - Realtime Rendering
+- EAE 6900 
 categories: 
 - Game Engine
-- EAE 6900 Realtime Rendering
+- Realtime Rendering
+- Shader
 thumbnail: https://images.slideplayer.com/34/8318378/slides/slide_11.jpg
 toc: true
 ---

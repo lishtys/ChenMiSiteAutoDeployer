@@ -7,9 +7,10 @@ tags:
 - C++
 - Animation
 - Binary
+- EAE 6320 
 categories: 
-- Engineering
-- EAE 6320 Explore
+- Game Engine
+- Realtime Rendering
 thumbnail: https://media.giphy.com/media/12kd8g767vzGXm/giphy.gif
 toc: true
 ---

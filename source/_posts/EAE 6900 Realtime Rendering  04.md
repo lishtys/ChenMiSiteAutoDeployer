@@ -4,9 +4,11 @@ date: 2019-02-10 04:24:00
 tags: 
 - Entertainment Arts Engineering 
 - Realtime Rendering
+- EAE 6900 
+- Materials
 categories: 
 - Game Engine
-- EAE 6900 Realtime Rendering
+- Realtime Rendering
 thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/RTR04Bannar.gif
 toc: true
 ---

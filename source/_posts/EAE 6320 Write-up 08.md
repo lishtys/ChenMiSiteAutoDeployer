@@ -6,9 +6,10 @@ tags:
 - Graphics
 - C++
 - Binary
+- EAE 6320 
 categories: 
-- Engineering
-- EAE 6320
+- Game Engine
+- Realtime Rendering
 thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignEightTrBanner_meitu_1.png 
 toc: true
 ---

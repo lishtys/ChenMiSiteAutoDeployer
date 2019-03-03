@@ -5,6 +5,7 @@ tags:
 - Entertainment Arts Engineering 
 - Realtime Rendering
 - Textrure
+- EAE 6900 
 categories: 
 - Game Engine
 - EAE 6900 Realtime Rendering
