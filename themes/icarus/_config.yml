@@ -24,11 +24,11 @@ navbar:
     # Navigation bar menu links
     menu:
         Home: /
+        Profile: /profile
+        Portfolio: /portfolio
         Archives: /archives
         Categories: /categories
         Tags: /tags
-        Portfolio: /portfolio
-        About: /about
     # Navigation bar links to be shown on the right
     links:
 # Footer section link settings
