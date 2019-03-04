@@ -8,7 +8,7 @@ tags:
 - EAE 6900 
 categories: 
 - Game Engine
-- EAE 6900 Realtime Rendering
+- EAE 6900
 thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/ScreenShotRT06.gif
 toc: true
 ---
