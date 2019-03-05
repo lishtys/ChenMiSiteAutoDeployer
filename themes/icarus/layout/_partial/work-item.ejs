@@ -1,0 +1,35 @@
+<article class="article project-item" itemprop="blogPost">
+    <div class="project-responsive-container">
+        <div class="project-dummy"></div>
+
+        <div class="project-img-container">
+            <img src="<%- url_for('img/projects/' + project.name + '.jpg') %>" alt='<%- project.description %>' class="preview" data-action="zoom">
+            <div class="project-centerer"></div>
+        </div>
+    </div>
+
+    <div class="project-item-details">
+        <%- partial('works/project-title') %>
+        <%- partial('works/project-links') %>
+
+        <div class="post-content project-description" id="post-content" itemprop="postContent">
+            <%- project.description %>
+        </div>
+        <div class="project-meta">
+            <ul class="article-tag-list">
+                <% for (var i in project.tags.sort()) { %>
+               <li class="article-tag-list-item">
+			 <div class="level is-mobile">
+				<div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="#<%-project.tags[i]%>"><%- project.tags[i] %></a>
+                </div>
+				</div>
+			</div>  
+</li>			
+				           
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</article>

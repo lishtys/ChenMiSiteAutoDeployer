@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <%
+  var title = page.title;
+
+  if (is_archive()){
+    title = 'Archives';
+
+    if (is_month()){
+      title += ': ' + page.year + '/' + page.month;
+    } else if (is_year()){
+      title += ': ' + page.year;
+    }
+  } else if (is_category()){
+    title = 'Category: ' + page.category;
+  } else if (is_tag()){
+    title = 'Tag: ' + page.tag;
+  }
+  %>
+  <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+  <meta name="google-site-verification" content="uUti8Shw9zIz5j2Rs_nwYT9VusmIOXijBuf2bBNYm78" />
+  <meta http-equiv="Cache-control" content="public">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <% if(theme.color){ %>
+  <meta name="theme-color" content="<%=theme.color%>">
+  <% } %>
+  <%
+    var keyWords = config.keywords;
+    if(page.tags){
+      keyWords = [];
+
+      _.isArray(page.tags) ? ( keyWords = page.tags )
+        : page.tags.each(function(k){
+            keyWords.push(k.name);
+          });
+   }
+  %>
+  <meta name="keywords" content="<%= keyWords %>">
+  <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
+  <% if (theme.rss){ %>
+    <link rel="alternative" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
+  <% } %>
+  <meta name="summary" content="<%=(page.excerpt || config.description)%>">
+  <%- favicon_tag(theme.favicon) %>
+  <%- css('css/style') %>
+  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel='manifest' href='/web-app-manifest.json'/>
+
+  <% if (theme.adsense) { %>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-1532347766435780",
+              enable_page_level_ads: true
+        });
+    </script>
+  <% } %>
+</head>

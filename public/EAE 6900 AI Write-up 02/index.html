@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>EAE 6900 Game AI - Pathfinding - Chen Mi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="SummaryThis writeup is a report of study research in pathfinding. It covers the following sections.  Representing the real world in a graph;  Dijkstra’s Algorithm, A* Pathfinding Heuristic search Stee">
+<meta name="keywords" content="Entertainment Arts Engineering,OpenFrameworks,Game AI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EAE 6900 Game AI - Pathfinding">
+<meta property="og:url" content="http://chenmi.ink/EAE 6900 AI Write-up 02/index.html">
+<meta property="og:site_name" content="Chen Mi">
+<meta property="og:description" content="SummaryThis writeup is a report of study research in pathfinding. It covers the following sections.  Representing the real world in a graph;  Dijkstra’s Algorithm, A* Pathfinding Heuristic search Stee">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.loli.net/2019/03/01/5c78a0e7b02d9.gif">
+<meta property="og:image" content="https://i.loli.net/2019/03/01/5c7865b0b579c.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/01/5c7866c4765e5.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/01/5c7867c1b34ec.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/01/5c78670cdbb0b.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/01/5c788e059ef72.gif">
+<meta property="og:image" content="https://i.loli.net/2019/03/01/5c7890baac739.gif">
+<meta property="og:image" content="https://i.loli.net/2019/03/01/5c789d8fba71f.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/01/5c789d91aa8a4.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/01/5c78940a2df4d.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/01/5c78940d6bc18.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/01/5c78924c04583.gif">
+<meta property="og:image" content="https://i.loli.net/2019/03/01/5c78933a2965f.gif">
+<meta property="og:updated_time" content="2019-03-05T16:04:15.021Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EAE 6900 Game AI - Pathfinding">
+<meta name="twitter:description" content="SummaryThis writeup is a report of study research in pathfinding. It covers the following sections.  Representing the real world in a graph;  Dijkstra’s Algorithm, A* Pathfinding Heuristic search Stee">
+<meta name="twitter:image" content="https://i.loli.net/2019/03/01/5c78a0e7b02d9.gif">
+
+
+
+
+
+<link rel="icon" href="/images/favicon.jpg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/tomorrow-night.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135283636-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-135283636-1');
+</script>
+
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="EAE 6900 Game AI - Pathfinding" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/profile">Profile</a>
+                
+                <a class="navbar-item" href="/portfolio">Portfolio</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+<div id="icarus-notify-pre-release" class="notification is-warning">
+<button class="delete"></button>
+Now the page you are viewing is under upgrade. Please be aware that layout on this website are subject to change.
+</div>
+<script>
+!function () {
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    function removeHtml(selector) {
+        document.querySelector(selector).parentNode.removeChild(document.querySelector(selector));
+    }
+
+    if (getCookie('icarus-notify-pre-release')) {
+        removeHtml('#icarus-notify-pre-release');
+    }
+    if (document.querySelector('#icarus-notify-pre-release .delete')) {
+        document.querySelector('#icarus-notify-pre-release .delete').addEventListener('click', function () {
+            setCookie('icarus-notify-pre-release', true);
+            removeHtml('#icarus-notify-pre-release');
+        });
+    }
+}();
+</script>
+
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="https://i.ytimg.com/vi/5p6OAEVKw-0/maxresdefault.jpg" alt="EAE 6900 Game AI - Pathfinding">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-02-28T20:14:00.000Z">2019-02-28</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Game-AI/">Game AI</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Game-AI/EAE-6900-023/">EAE 6900 - 023</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    14 minutes read (About 2107 words)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span> visits
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                EAE 6900 Game AI - Pathfinding
+            
+        </h1>
+        <div class="content">
+            <h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><p>This writeup is a report of study research in pathfinding. It covers the following sections.</p>
+<ul>
+<li>Representing the real world in a graph; </li>
+<li>Dijkstra’s Algorithm,</li>
+<li>A* Pathfinding</li>
+<li>Heuristic search</li>
+<li>Steer Integration </li>
+</ul>
+<a id="more"></a> 
+<p>The project is based on openFrameworks and contains several demos that help explain related analytic. For this part, the project now includes the following features.</p>
+<ol>
+<li>Map generator. It generates a graph from pictures. One is simpler size, the other is from Google Map.</li>
+<li>Pathfinding Visualization Editor. It contains implementation of Dijkstra, A* pathfinding algorithm. </li>
+<li>The demo also supports different heuristic search setting and performance report.</li>
+<li>It also has a  map editor, in which you can set start node, destination node as well as obstacle node. </li>
+<li>The integration of steer behavior from the last project.</li>
+</ol>
+<hr>
+<h1 id="AI-Model"><a href="#AI-Model" class="headerlink" title="AI Model"></a>AI Model</h1><p>In the class, we built a model for our game AI, in which, the pathfinding is between decision making and movement. Just as the picture shows, the Pathfinder is used simply to work out where to move to reach a goal.</p>
+<p>To move an entity along a path route in the game, we need to integrate the movement system. This is what we have built in the last update.</p>
+<p>Input: Graph search algorithms, including A <em>, take a “graph” as input. A graph is a set of locations (“nodes”) and the connections (“edges”) between them. Here’s the graph I gave to A</em>:</p>
+<p><img src="https://i.loli.net/2019/03/01/5c78a0e7b02d9.gif" alt="Maps"></p>
+<h1 id="World-Representations"><a href="#World-Representations" class="headerlink" title="World Representations"></a>World Representations</h1><h2 id="Quantization-and-Localization"><a href="#Quantization-and-Localization" class="headerlink" title="Quantization and Localization"></a>Quantization and Localization</h2><p>To begin, we can use a directed non-negative weighted graph to represent a level. The graph contains a set of nodes and connections. Depending on the implementation, the <code>node</code> or the <code>connection</code> has a weighted value as movement cost. </p>
+<p>Then pathfinding algorithms use this graph to calculate movement cost for each node. After calculation, it successfully finds a path; it would return a list of nodes that are connected to form a path.</p>
+<p>However, this is the only conceptual assumption, and real games not only have nodes and connection in the level. Therefore, we need to do some modifications to the level so that the Pathfinder can analyze map data. </p>
+<p>As we know, many RTS games use tile-based graphs extensively. In this project, I’ve implemented a world representation by using tile graphs. </p>
+<h2 id="Structure-amp-Implementation"><a href="#Structure-amp-Implementation" class="headerlink" title="Structure &amp; Implementation"></a>Structure &amp; Implementation</h2><h2 id="Structure-amp-Implementation-1"><a href="#Structure-amp-Implementation-1" class="headerlink" title="Structure &amp; Implementation"></a>Structure &amp; Implementation</h2><p>The map representation part has a <code>Cell</code> class as a <code>Node</code> in a weighted graph. It has some variables used by pathfinder algorithm such as <code>cost, known the cost, estimation cost</code>.<br><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ofPtr&lt;Cell&gt;parent;</span><br><span class="line">ofVec2f pos;          <span class="hljs-comment">//Tile Index </span></span><br><span class="line">ofVec2f worldPos;     <span class="hljs-comment">// Screen Position</span></span><br><span class="line"><span class="hljs-keyword">float</span> cost = <span class="hljs-number">1</span>;       <span class="hljs-comment">// Weighted Value</span></span><br><span class="line"><span class="hljs-keyword">float</span> estimate=<span class="hljs-number">0</span>, known=<span class="hljs-number">0</span>, total=<span class="hljs-number">0</span>;</span><br></pre></td></tr></table></figure></p>
+<p>Then we create a <code>TileMap</code> class. It contains a list of <code>cells (nodes)</code> and some util methods used by pathfinder algorithm. </p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ofPtr&lt;Cell&gt;&amp; GetNode(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;ofPtr&lt;Cell&gt;&gt; NodeList;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">float</span> width;</span><br><span class="line"><span class="hljs-keyword">float</span> height;</span><br></pre></td></tr></table></figure>
+<p>To set up a map, I implemented it in two ways. The first is to set up a map editor simply by rows and columns. It will split the screen into cells. By default, the weighted value is defined by the geometry information.</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Setup</span><span class="hljs-params">(<span class="hljs-keyword">int</span> col,<span class="hljs-keyword">int</span> row)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>The other way is to read pixel brightness from an image. By storing the geometry data into a picture, it will contain detailed information.</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Setup</span><span class="hljs-params">(ofPixels&amp; pix)</span></span>;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="hljs-comment">//....</span></span><br><span class="line">    <span class="hljs-comment">// Use Briteness as cost</span></span><br><span class="line">    </span><br><span class="line">    <span class="hljs-keyword">float</span> brightness = pix.getColor(x, y).getBrightness() / <span class="hljs-number">255.</span>;</span><br><span class="line">    <span class="hljs-keyword">if</span> (brightness &lt; <span class="hljs-number">0.85</span>)</span><br><span class="line">    &#123; </span><br><span class="line">        GetNode(x, y)-&gt;SetCost(<span class="hljs-number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (brightness &lt; <span class="hljs-number">1.</span>) </span><br><span class="line">    &#123; </span><br><span class="line">        GetNode(x, y)-&gt;SetCost(<span class="hljs-number">1.</span> / brightness);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="hljs-comment">//....</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Simple-Node-Map"><a href="#Simple-Node-Map" class="headerlink" title="Simple Node Map"></a>Simple Node Map</h2><p>In the project, the simple node map is based on the picture below. Since we will check the briteness, only white area are connected, which would be considered to be walkable. </p>
+<p><img src="https://i.loli.net/2019/03/01/5c7865b0b579c.png" alt=""></p>
+<p>In the game , it may represent a map like this.</p>
+<p><img src="https://i.loli.net/2019/03/01/5c7866c4765e5.png" alt=""></p>
+<hr>
+<p>We could also just define unwalkable area using the same map as below, which gives more area to move around in the game.</p>
+<p><img src="https://i.loli.net/2019/03/01/5c7867c1b34ec.png" alt=""></p>
+<p>After we convert it into grids. The tile map structure that pathfinder use to compute look like this.</p>
+<p><img src="https://i.loli.net/2019/03/01/5c78670cdbb0b.png" alt=""></p>
+<hr>
+<h2 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h2><p>You could watch this video to check all the other maps and how the editor works.</p>
+<p><img src="https://i.loli.net/2019/03/01/5c788e059ef72.gif" alt=""></p>
+<hr>
+<h1 id="Pathfinding-Algorithm"><a href="#Pathfinding-Algorithm" class="headerlink" title="Pathfinding Algorithm"></a>Pathfinding Algorithm</h1><h2 id="Dijkstra"><a href="#Dijkstra" class="headerlink" title="Dijkstra"></a>Dijkstra</h2><p><strong>Dijkstra</strong></p>
+<p>The structure of this algorithm is very similar to the Prim algorithm, which uses a priority queue for traversal. In the Dijkstra algorithm, the priority is a distance value estimate.</p>
+<p><strong>Implementation</strong></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def dijkstra(G, s):</span><br><span class="line">    D, P, Q, S = &#123;s: 0&#125;, &#123;&#125;, [(0, s)], set()</span><br><span class="line">    while Q:</span><br><span class="line">        _, u = heappop(Q)</span><br><span class="line">        if u in S:</span><br><span class="line">            continue</span><br><span class="line">        S.add(u)</span><br><span class="line">        for v in G[u]:</span><br><span class="line">            relax(G, u, v, D, P)</span><br><span class="line">            heappush(Q, (D[v], v))</span><br><span class="line">    return D, P</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="A"><a href="#A" class="headerlink" title="A*"></a>A*</h2><p><strong>A algorithm</strong></p>
+<p>The A<em> algorithm is a bit like the concept of heuristic search in artificial intelligence. Rather than blindly searching like DFS and BFS. Nor does it know nothing about the future direction like the Dijkstra algorithm. Because A</em> adds a potential function, it can also be called the heuristic function h(v).</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">w&apos;(u, v) = w(u, v) - h(u) + h(v)</span><br></pre></td></tr></table></figure>
+<p>Then you will find that after this adjustment, the algorithm has a preference for the low-cost edge (node). The A* algorithm is equivalent to the Dijkstra algorithm for the modified graph. If his feasible, the algorithm is correct.</p>
+<p><strong>Implementation</strong></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def a_star(G, s, t, h):</span><br><span class="line">    P, Q = dict(), [(h(s), None, s)]</span><br><span class="line">    while Q:</span><br><span class="line">        d, p, u = heappop(Q)</span><br><span class="line">        if u in P:</span><br><span class="line">            continue</span><br><span class="line">        P[u] = p</span><br><span class="line">        if u == t:</span><br><span class="line">            return d - h(t), P</span><br><span class="line">        for v in G[u]:</span><br><span class="line">            w = G[u][v] - h(u) + h(v)</span><br><span class="line">            heappush(Q, (d + w, u, v))</span><br><span class="line">    return inf, None</span><br></pre></td></tr></table></figure>
+<p>The running time of this algorithm is Q((mn)lgn), where m is the number of edges and n is the number of nodes.</p>
+<h2 id="Analysis-amp-Thoughts"><a href="#Analysis-amp-Thoughts" class="headerlink" title="Analysis &amp; Thoughts"></a>Analysis &amp; Thoughts</h2><h3 id="Project-Support"><a href="#Project-Support" class="headerlink" title="Project Support"></a>Project Support</h3><p><img src="https://i.loli.net/2019/03/01/5c7890baac739.gif" alt=""></p>
+<hr>
+<p>The <strong>Dijkstra’s algorithm</strong> spends more time, visits more nodes than <strong>A Star algorithm</strong>. It is greedy not motion planning. You can see the difference between these two algorithms. (Especially when getting to the end point.)</p>
+<p>When using  <strong>Dijkstra’s algorithm</strong>, the visited nodes in <code>Maze</code> are like below:</p>
+<p><img src="https://i.loli.net/2019/03/01/5c789d8fba71f.png" alt="Dijkstra&#39;s algorithm"></p>
+<hr>
+<p>When using <strong>A Star algorithm</strong>, the visited nodes in <code>Maze</code> are like below:</p>
+<p><img src="https://i.loli.net/2019/03/01/5c789d91aa8a4.png" alt="A Star algorithm"></p>
+<hr>
+<h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><p> A* is a <code>single source single destination algorithm</code>, its time complexity is O(|E|), E is the number of all the edges in the path. </p>
+<p>In other words, A<em> can be used to calculate the optimal path from one point to another. This also means that A</em> is suitable for path calculation of the dynamic environment, and the path can be calculated immediately according to the current environment. Correspondingly, Dijkstra’s algorithm and Floyd-Warshall are suitable for calculations in a constant environment.</p>
+<p>Given a point on the map, Dijkstra can be used to calculate the optimal path for all other path points on the map at one time. Dijkstra’s time complexity is O(|E|+|V|log|V|), where E is the number of edges and V is the number of a vertex. </p>
+<p>From above we can tell that if you need to calculate the left and right paths for all the points on the map at the same time, Dijkstra will be more convenient than using A*. This also explains why Dijkstra is suitable for computing in a static environment because the static environment will not change. </p>
+<p><strong>Generally</strong></p>
+<ul>
+<li><p>A* search: single source single destination, which is faster but depends on the design of the heuristic function. Suitable for RTS in dynamic environments. </p>
+</li>
+<li><p>Dijkstra’s Algorithm: single source all destinations, the speed is also faster, no heuristic function is needed, but backtrack is required when creating the navigation table. Pathfinding for static environments.</p>
+</li>
+</ul>
+<hr>
+<h1 id="Heuristics"><a href="#Heuristics" class="headerlink" title="Heuristics"></a>Heuristics</h1><h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">	switch (ofApp::HeuristicsType)</span><br><span class="line">	&#123;</span><br><span class="line">	case 0:</span><br><span class="line">		this-&gt;estimate = dx + dy;</span><br><span class="line">		break;</span><br><span class="line">	case 1:</span><br><span class="line">		this-&gt;estimate = max(dx, dy);</span><br><span class="line">		break;</span><br><span class="line">	case 2:</span><br><span class="line">		this-&gt;estimate = sqrt(dx * dx + dy * dy);</span><br><span class="line">		break;</span><br><span class="line">	case 3:</span><br><span class="line">		this-&gt;estimate = abs(dx - dy) + sqrt(2) * MIN(dx, dy);;</span><br><span class="line">		break;</span><br><span class="line">	case 4:</span><br><span class="line">		float F = sqrt(2) - 1;</span><br><span class="line">		this-&gt;estimate=(dx &lt; dy) ? F * dx + dy : F * dy + dx;</span><br><span class="line">		break;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	this-&gt;estimate*=ofApp::hWeight;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p><img src="https://i.loli.net/2019/03/01/5c78940a2df4d.png" alt="A*"></p>
+<p><img src="https://i.loli.net/2019/03/01/5c78940d6bc18.png" alt="Euclidean "></p>
+<hr>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><blockquote>
+<ul>
+<li><p>The heuristic function h(n) tells A* an estimate of the minimum cost from any vertex n to the goal. It’s important to choose a good heuristic function.</p>
+</li>
+<li><p>If h(n) is sometimes greater than the cost of moving from n to the goal, then A* is not guaranteed to find a shortest path, but it can run faster.</p>
+</li>
+<li>At the other extreme, if h(n) is very high relative to g(n), then only h(n) plays a role, and A* turns into Greedy Best-First-Search.</li>
+</ul>
+</blockquote>
+<hr>
+<ul>
+<li>Manhattan distance</li>
+</ul>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">H(n) = D * (abs ( n.x – goal.x ) + abs ( n.y – goal.y ) )</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Diagonal distance</li>
+</ul>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">h(n) = D * max(abs(n.x - goal.x), abs(n.y - goal.y))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Euclidean distance</li>
+</ul>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function heuristic(node) =</span><br><span class="line">    dx = abs(node.x - goal.x)</span><br><span class="line">    dy = abs(node.y - goal.y)</span><br><span class="line">    return D * sqrt(dx * dx + dy * dy)</span><br></pre></td></tr></table></figure>
+<h1 id="Steer"><a href="#Steer" class="headerlink" title="Steer"></a>Steer</h1><h2 id="Pathfollowing"><a href="#Pathfollowing" class="headerlink" title="Pathfollowing"></a>Pathfollowing</h2><p>In order to navigate thought the path, we need to make the boid move from node to node until it reaches the end of the route. Every point in the path can be seen as a target, so the <code>seek</code> and <code>arrive</code> behavior can be used. The following function defined as below:</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Follow : public Steering</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	std::vector&lt;ofPtr&lt;Cell&gt; &gt; path;</span><br><span class="line">	float pRadius;</span><br><span class="line">	int curIdx;</span><br><span class="line">	virtual void getSteering(SteeringOutput* output);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>The implementation is quite simple. It will go through the nodes one by one and call <code>Arrive</code> behavior.<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">if (character-&gt;Position.distance(targetNode-&gt;worldPos) &lt; pRadius)</span><br><span class="line">&#123;</span><br><span class="line">	if (curIdx &lt; path.size() - 1)</span><br><span class="line">	&#123;</span><br><span class="line">		curIdx++;</span><br><span class="line">	&#125;</span><br><span class="line">//....</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">if (curIdx &lt;= path.size() - 1)</span><br><span class="line">&#123;</span><br><span class="line">    DynamicArrive arrive;</span><br><span class="line">    //...</span><br><span class="line">    arrive.targetPosition = path[path.size() - curIdx - 1]-&gt;worldPos;</span><br><span class="line">	arrive.getSteering(output);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Analysis</strong></p>
+<p>When the node become too small like one pixel, the parameters of following behavior need to be precisely set . It may cause the boid move around or back and force when the velocity and range is too large while the cell range is too small. </p>
+<h2 id="Collision"><a href="#Collision" class="headerlink" title="Collision"></a>Collision</h2><p>I also create collision detection for the flocking behavior. Each unit has its own specific radius checking collision.</p>
+<p>If it’s heading toward the object, calculate a steering force that will lead the agent around or away from the obstacle based on its current velocity, position, and directing.</p>
+<p>Basic Implementation as below</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// If in collision detection </span></span><br><span class="line"> &#123;</span><br><span class="line"> <span class="hljs-comment">// Change the weight</span></span><br><span class="line">  <span class="hljs-comment">// If in collision  //Flee</span></span><br><span class="line">   </span><br><span class="line">     <span class="hljs-keyword">else</span></span><br><span class="line">     &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="hljs-comment">//if move towards the obstacle</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">abs</span>(character-&gt;Velocity.x) &lt;= <span class="hljs-built_in">abs</span>(character-&gt;Velocity.y)) &#123;</span><br><span class="line">            <span class="hljs-comment">// deal in vertical direction</span></span><br><span class="line">                output-&gt;linear = ofVec2f((character-&gt;Position.x - element.mRigidbody.Position.x), character-&gt;Velocity.y);</span><br><span class="line">                output-&gt;linear = output-&gt;linear.getNormalized()*(<span class="hljs-number">50</span>*((bound) / dist));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">             <span class="hljs-comment">// deal in horizontal direction</span></span><br><span class="line">                output-&gt;linear = ofVec2f(character-&gt;Velocity.x, (character-&gt;Position.y - element.mRigidbody.Position.y));</span><br><span class="line">                output-&gt;linear = output-&gt;linear.getNormalized()*(<span class="hljs-number">50</span>*((bound) / dist));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Video-1"><a href="#Video-1" class="headerlink" title="Video"></a>Video</h2><p><img src="https://i.loli.net/2019/03/01/5c78924c04583.gif" alt="Simple Node Map "></p>
+<hr>
+<p><img src="https://i.loli.net/2019/03/01/5c78933a2965f.gif" alt="Maze Map"></p>
+<hr>
+<h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><ol>
+<li>Add <code>ofxDatGui</code> Project. Download: <a href="https://github.com/braitsch/ofxDatGui" target="_blank" rel="noopener">https://github.com/braitsch/ofxDatGui</a>. </li>
+<li>Copy entire <code>ofxDatGui</code> project into your <code>OpenFrameswork</code> folder. The path is <code>OpenFrameswork/addons/ofxDatGui</code></li>
+<li>Use  <code>projectGenerator-vs/projectGenerator.exe</code> to Import the <code>GameAI</code>project. You should see the <code>Addons</code> section has the <code>ofxDatGui</code>.</li>
+<li>Click <code>Update</code> and <code>Open</code> IDE.</li>
+</ol>
+<hr>
+<h1 id="Control"><a href="#Control" class="headerlink" title="Control"></a>Control</h1><ul>
+<li>Use the GUI to change the parameters.</li>
+<li>Algorithm Dropdown: switch Dijkstra’s or A Star.</li>
+<li>Map Dropdown: switch editor mode or maps.</li>
+<li>Editor rows/columns: change cell number in editor mode.</li>
+<li>Image Dropdown: show nodes or original picture</li>
+<li>Heuristics Dropdown: switch heuristic calculation</li>
+<li>Show Boid: whether show the boid in A star mode.</li>
+<li>Reload Button: Refresh the map.</li>
+<li>Run Path Finding (Press[R]): Calculate path;</li>
+</ul>
+<hr>
+<p>In editor mode:</p>
+<ul>
+<li>Pressing Left Button: Drag Start Point.</li>
+<li>Pressing Right Button: Drag End Point.</li>
+<li>Pressing Left Button and Pressing [Z]: Put Obstacle Nodes. (Choose “Show Unwalkable Area” to be visible)</li>
+</ul>
+<hr>
+<h1 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h1><blockquote>
+<p>Click <a href="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/GameAI.zip" target="_blank" rel="noopener">Download</a> the project.</p>
+</blockquote>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li>Reynolds, C. W. (1999) Steering Behaviors For Autonomous Characters, in the proceedings of Game Developers Conference 1999 held in San Jose, California. Miller Freeman Game Group, San Francisco, California. Pages 763-782. <a href="https://www.red3d.com/cwr/steer/gdc99/" target="_blank" rel="noopener">https://www.red3d.com/cwr/steer/gdc99/</a></li>
+<li><p>Ian Millington and John Funge. 2009. Artificial Intelligence for Games, Second Edition (2nd ed.). Morgan Kaufmann Publishers Inc., San Francisco, CA, USA.</p>
+</li>
+<li><p>Red Blob Games, Heuristics, <a href="http://theory.stanford.edu/~amitp/GameProgramming/Heuristics.html" target="_blank" rel="noopener">http://theory.stanford.edu/~amitp/GameProgramming/Heuristics.html</a></p>
+</li>
+</ul>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Entertainment-Arts-Engineering/">Entertainment Arts Engineering</a>, <a class="has-link-grey -link" href="/tags/Game-AI/">Game AI</a>, <a class="has-link-grey -link" href="/tags/OpenFrameworks/">OpenFrameworks</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5bd3445bee8c700011929deb&amp;product=inline-share-buttons" async="async"></script>
+
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/EAE 6900 Realtime Rendering  08/">
+                <span class="level-item">EAE 6900 Realtime Rendering - Lighting</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+<div id="lv-container" data-id="city" data-uid="MTAyMC80Mjg4Ny8xOTQzMw==">
+    <script type="text/javascript">
+        (function(d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') { return; }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript> Please activate JavaScript for write a comment in LiveRe</noscript>
+</div>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="Chen Mi (Lishtys)">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Chen Mi (Lishtys)
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Game Engineer &amp; Designer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Salt Lake City, USA</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        35
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        10
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        27
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/lishtys/">
+                Follow</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Email" href="mailto:lishtys@gmail.com">
+                
+                <i class="fa fa-envelope"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Linkedin" href="https://www.linkedin.com/in/chenmi93/">
+                
+                <i class="fab fa-linkedin"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Portfolio" href="https://chenmi.ink/portfolio/">
+                
+                <i class="fas fa-cubes"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/lishtys/">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#Summary">
+        <span class="has-mr-6">1</span>
+        <span>Summary</span>
+        </a></li><li>
+        <a class="is-flex" href="#AI-Model">
+        <span class="has-mr-6">2</span>
+        <span>AI Model</span>
+        </a></li><li>
+        <a class="is-flex" href="#World-Representations">
+        <span class="has-mr-6">3</span>
+        <span>World Representations</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Quantization-and-Localization">
+        <span class="has-mr-6">3.1</span>
+        <span>Quantization and Localization</span>
+        </a></li><li>
+        <a class="is-flex" href="#Structure-amp-Implementation">
+        <span class="has-mr-6">3.2</span>
+        <span>Structure &amp; Implementation</span>
+        </a></li><li>
+        <a class="is-flex" href="#Structure-amp-Implementation-1">
+        <span class="has-mr-6">3.3</span>
+        <span>Structure &amp; Implementation</span>
+        </a></li><li>
+        <a class="is-flex" href="#Simple-Node-Map">
+        <span class="has-mr-6">3.4</span>
+        <span>Simple Node Map</span>
+        </a></li><li>
+        <a class="is-flex" href="#Video">
+        <span class="has-mr-6">3.5</span>
+        <span>Video</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Pathfinding-Algorithm">
+        <span class="has-mr-6">4</span>
+        <span>Pathfinding Algorithm</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Dijkstra">
+        <span class="has-mr-6">4.1</span>
+        <span>Dijkstra</span>
+        </a></li><li>
+        <a class="is-flex" href="#A">
+        <span class="has-mr-6">4.2</span>
+        <span>A*</span>
+        </a></li><li>
+        <a class="is-flex" href="#Analysis-amp-Thoughts">
+        <span class="has-mr-6">4.3</span>
+        <span>Analysis &amp; Thoughts</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Project-Support">
+        <span class="has-mr-6">4.3.1</span>
+        <span>Project Support</span>
+        </a></li><li>
+        <a class="is-flex" href="#Thoughts">
+        <span class="has-mr-6">4.3.2</span>
+        <span>Thoughts</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#Heuristics">
+        <span class="has-mr-6">5</span>
+        <span>Heuristics</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Implementation">
+        <span class="has-mr-6">5.1</span>
+        <span>Implementation</span>
+        </a></li><li>
+        <a class="is-flex" href="#Result">
+        <span class="has-mr-6">5.2</span>
+        <span>Result</span>
+        </a></li><li>
+        <a class="is-flex" href="#Analysis">
+        <span class="has-mr-6">5.3</span>
+        <span>Analysis</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Steer">
+        <span class="has-mr-6">6</span>
+        <span>Steer</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Pathfollowing">
+        <span class="has-mr-6">6.1</span>
+        <span>Pathfollowing</span>
+        </a></li><li>
+        <a class="is-flex" href="#Collision">
+        <span class="has-mr-6">6.2</span>
+        <span>Collision</span>
+        </a></li><li>
+        <a class="is-flex" href="#Video-1">
+        <span class="has-mr-6">6.3</span>
+        <span>Video</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Install">
+        <span class="has-mr-6">7</span>
+        <span>Install</span>
+        </a></li><li>
+        <a class="is-flex" href="#Control">
+        <span class="has-mr-6">8</span>
+        <span>Control</span>
+        </a></li><li>
+        <a class="is-flex" href="#Download">
+        <span class="has-mr-6">9</span>
+        <span>Download</span>
+        </a></li><li>
+        <a class="is-flex" href="#References">
+        <span class="has-mr-6">10</span>
+        <span>References</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://space.bilibili.com/2868116/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Bilibili</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">space.bilibili.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Game-AI/">
+            <span class="level-start">
+                <span class="level-item">Game AI</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Game-AI/EAE-6900-023/">
+            <span class="level-start">
+                <span class="level-item">EAE 6900 - 023</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Game-Engine/">
+            <span class="level-start">
+                <span class="level-item">Game Engine</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">22</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Game-Engine/Realtime-Rendering/">
+            <span class="level-start">
+                <span class="level-item">Realtime Rendering</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">22</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Unity/">
+            <span class="level-start">
+                <span class="level-item">Unity</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Unity/Hotfix-xLua/">
+            <span class="level-start">
+                <span class="level-item">Hotfix xLua</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/中文博客/">
+            <span class="level-start">
+                <span class="level-item">中文博客</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/中文博客/2018·暑期/">
+            <span class="level-start">
+                <span class="level-item">2018·暑期</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/中文博客/游而远行/">
+            <span class="level-start">
+                <span class="level-item">游而远行</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/Animation/" style="font-size: 13.75px;">Animation</a> <a href="/tags/Animator-Controller/" style="font-size: 10px;">Animator Controller</a> <a href="/tags/AssetBundle/" style="font-size: 11.25px;">AssetBundle</a> <a href="/tags/Binary/" style="font-size: 12.5px;">Binary</a> <a href="/tags/C/" style="font-size: 18.75px;">C++</a> <a href="/tags/Camera/" style="font-size: 10px;">Camera</a> <a href="/tags/EAE-6320/" style="font-size: 17.5px;">EAE 6320</a> <a href="/tags/EAE-6900/" style="font-size: 16.25px;">EAE 6900</a> <a href="/tags/Entertainment-Arts-Engineering/" style="font-size: 20px;">Entertainment Arts Engineering</a> <a href="/tags/FBX/" style="font-size: 10px;">FBX</a> <a href="/tags/Game-AI/" style="font-size: 11.25px;">Game AI</a> <a href="/tags/Graphics/" style="font-size: 18.75px;">Graphics</a> <a href="/tags/Lua/" style="font-size: 11.25px;">Lua</a> <a href="/tags/Materials/" style="font-size: 10px;">Materials</a> <a href="/tags/Maya/" style="font-size: 10px;">Maya</a> <a href="/tags/OpenFrameworks/" style="font-size: 11.25px;">OpenFrameworks</a> <a href="/tags/Realtime-Rendering/" style="font-size: 16.25px;">Realtime Rendering</a> <a href="/tags/Shader/" style="font-size: 10px;">Shader</a> <a href="/tags/Textrure/" style="font-size: 10px;">Textrure</a> <a href="/tags/Texture/" style="font-size: 12.5px;">Texture</a> <a href="/tags/Threads/" style="font-size: 10px;">Threads</a> <a href="/tags/Transforms/" style="font-size: 10px;">Transforms</a> <a href="/tags/Unity/" style="font-size: 12.5px;">Unity</a> <a href="/tags/Unity-Assets-Type/" style="font-size: 10px;">Unity Assets Type</a> <a href="/tags/xLua/" style="font-size: 11.25px;">xLua</a> <a href="/tags/游记/" style="font-size: 15px;">游记</a> <a href="/tags/随笔/" style="font-size: 11.25px;">随笔</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 AI Write-up 02/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.ytimg.com/vi/5p6OAEVKw-0/maxresdefault.jpg" alt="EAE 6900 Game AI - Pathfinding">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-28T20:14:00.000Z">2019-02-28</time></div>
+                    <a href="/EAE 6900 AI Write-up 02/" class="has-link-black-ter is-size-6">EAE 6900 Game AI - Pathfinding</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-AI/">Game AI</a> / <a class="has-link-grey -link" href="/categories/Game-AI/EAE-6900-023/">EAE 6900 - 023</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 Realtime Rendering  08/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/RTR08.gif" alt="EAE 6900 Realtime Rendering - Lighting">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-19T23:30:00.000Z">2019-02-19</time></div>
+                    <a href="/EAE 6900 Realtime Rendering  08/" class="has-link-black-ter is-size-6">EAE 6900 Realtime Rendering - Lighting</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-Engine/">Game Engine</a> / <a class="has-link-grey -link" href="/categories/Game-Engine/Realtime-Rendering/">Realtime Rendering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 Realtime Rendering  07/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/GPUMipLevel.gif" alt="EAE 6900 Realtime Rendering - Sampler, Mipmap, UV Animation">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-12T22:52:00.000Z">2019-02-12</time></div>
+                    <a href="/EAE 6900 Realtime Rendering  07/" class="has-link-black-ter is-size-6">EAE 6900 Realtime Rendering - Sampler, Mipmap, UV Animation</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-Engine/">Game Engine</a> / <a class="has-link-grey -link" href="/categories/Game-Engine/Realtime-Rendering/">Realtime Rendering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 Realtime Rendering  06/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/ScreenShotRT06.gif" alt="EAE 6900 Realtime Rendering - Texture">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-12T13:38:00.000Z">2019-02-12</time></div>
+                    <a href="/EAE 6900 Realtime Rendering  06/" class="has-link-black-ter is-size-6">EAE 6900 Realtime Rendering - Texture</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-Engine/">Game Engine</a> / <a class="has-link-grey -link" href="/categories/Game-Engine/Realtime-Rendering/">Realtime Rendering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 Realtime Rendering  05/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/RTR005.gif" alt="EAE 6900 Realtime Rendering - Transparent Material">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-12T12:29:00.000Z">2019-02-12</time></div>
+                    <a href="/EAE 6900 Realtime Rendering  05/" class="has-link-black-ter is-size-6">EAE 6900 Realtime Rendering - Transparent Material</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-Engine/">Game Engine</a> / <a class="has-link-grey -link" href="/categories/Game-Engine/Realtime-Rendering/">Realtime Rendering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Animation/">
+                        <span class="tag">Animation</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Animator-Controller/">
+                        <span class="tag">Animator Controller</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AssetBundle/">
+                        <span class="tag">AssetBundle</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Binary/">
+                        <span class="tag">Binary</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/C/">
+                        <span class="tag">C++</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Camera/">
+                        <span class="tag">Camera</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/EAE-6320/">
+                        <span class="tag">EAE 6320</span>
+                        <span class="tag is-grey">8</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/EAE-6900/">
+                        <span class="tag">EAE 6900</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Entertainment-Arts-Engineering/">
+                        <span class="tag">Entertainment Arts Engineering</span>
+                        <span class="tag is-grey">25</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/FBX/">
+                        <span class="tag">FBX</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Game-AI/">
+                        <span class="tag">Game AI</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Graphics/">
+                        <span class="tag">Graphics</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Lua/">
+                        <span class="tag">Lua</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Materials/">
+                        <span class="tag">Materials</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Maya/">
+                        <span class="tag">Maya</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/OpenFrameworks/">
+                        <span class="tag">OpenFrameworks</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Realtime-Rendering/">
+                        <span class="tag">Realtime Rendering</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Shader/">
+                        <span class="tag">Shader</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Textrure/">
+                        <span class="tag">Textrure</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Texture/">
+                        <span class="tag">Texture</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Threads/">
+                        <span class="tag">Threads</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Transforms/">
+                        <span class="tag">Transforms</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Unity/">
+                        <span class="tag">Unity</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Unity-Assets-Type/">
+                        <span class="tag">Unity Assets Type</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/xLua/">
+                        <span class="tag">xLua</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/游记/">
+                        <span class="tag">游记</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/随笔/">
+                        <span class="tag">随笔</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 AI Write-up 02/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.ytimg.com/vi/5p6OAEVKw-0/maxresdefault.jpg" alt="EAE 6900 Game AI - Pathfinding">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-28T20:14:00.000Z">2019-02-28</time></div>
+                    <a href="/EAE 6900 AI Write-up 02/" class="has-link-black-ter is-size-6">EAE 6900 Game AI - Pathfinding</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-AI/">Game AI</a> / <a class="has-link-grey -link" href="/categories/Game-AI/EAE-6900-023/">EAE 6900 - 023</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 Realtime Rendering  08/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/RTR08.gif" alt="EAE 6900 Realtime Rendering - Lighting">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-19T23:30:00.000Z">2019-02-19</time></div>
+                    <a href="/EAE 6900 Realtime Rendering  08/" class="has-link-black-ter is-size-6">EAE 6900 Realtime Rendering - Lighting</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-Engine/">Game Engine</a> / <a class="has-link-grey -link" href="/categories/Game-Engine/Realtime-Rendering/">Realtime Rendering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 Realtime Rendering  07/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/GPUMipLevel.gif" alt="EAE 6900 Realtime Rendering - Sampler, Mipmap, UV Animation">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-12T22:52:00.000Z">2019-02-12</time></div>
+                    <a href="/EAE 6900 Realtime Rendering  07/" class="has-link-black-ter is-size-6">EAE 6900 Realtime Rendering - Sampler, Mipmap, UV Animation</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-Engine/">Game Engine</a> / <a class="has-link-grey -link" href="/categories/Game-Engine/Realtime-Rendering/">Realtime Rendering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 Realtime Rendering  06/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/ScreenShotRT06.gif" alt="EAE 6900 Realtime Rendering - Texture">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-12T13:38:00.000Z">2019-02-12</time></div>
+                    <a href="/EAE 6900 Realtime Rendering  06/" class="has-link-black-ter is-size-6">EAE 6900 Realtime Rendering - Texture</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-Engine/">Game Engine</a> / <a class="has-link-grey -link" href="/categories/Game-Engine/Realtime-Rendering/">Realtime Rendering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/EAE 6900 Realtime Rendering  05/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/RTR005.gif" alt="EAE 6900 Realtime Rendering - Transparent Material">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-12T12:29:00.000Z">2019-02-12</time></div>
+                    <a href="/EAE 6900 Realtime Rendering  05/" class="has-link-black-ter is-size-6">EAE 6900 Realtime Rendering - Transparent Material</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Game-Engine/">Game Engine</a> / <a class="has-link-grey -link" href="/categories/Game-Engine/Realtime-Rendering/">Realtime Rendering</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Animation/">
+                        <span class="tag">Animation</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Animator-Controller/">
+                        <span class="tag">Animator Controller</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AssetBundle/">
+                        <span class="tag">AssetBundle</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Binary/">
+                        <span class="tag">Binary</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/C/">
+                        <span class="tag">C++</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Camera/">
+                        <span class="tag">Camera</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/EAE-6320/">
+                        <span class="tag">EAE 6320</span>
+                        <span class="tag is-grey">8</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/EAE-6900/">
+                        <span class="tag">EAE 6900</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Entertainment-Arts-Engineering/">
+                        <span class="tag">Entertainment Arts Engineering</span>
+                        <span class="tag is-grey">25</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/FBX/">
+                        <span class="tag">FBX</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Game-AI/">
+                        <span class="tag">Game AI</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Graphics/">
+                        <span class="tag">Graphics</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Lua/">
+                        <span class="tag">Lua</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Materials/">
+                        <span class="tag">Materials</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Maya/">
+                        <span class="tag">Maya</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/OpenFrameworks/">
+                        <span class="tag">OpenFrameworks</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Realtime-Rendering/">
+                        <span class="tag">Realtime Rendering</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Shader/">
+                        <span class="tag">Shader</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Textrure/">
+                        <span class="tag">Textrure</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Texture/">
+                        <span class="tag">Texture</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Threads/">
+                        <span class="tag">Threads</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Transforms/">
+                        <span class="tag">Transforms</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Unity/">
+                        <span class="tag">Unity</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Unity-Assets-Type/">
+                        <span class="tag">Unity Assets Type</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/xLua/">
+                        <span class="tag">xLua</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/游记/">
+                        <span class="tag">游记</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/随笔/">
+                        <span class="tag">随笔</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="EAE 6900 Game AI - Pathfinding" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Chen Mi (Lishtys)&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                Visited by <span id="busuanzi_value_site_uv">0</span> users
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="mask" id="mask"></div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/asuna_01.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-30},"mobile":{"show":false,"scale":0.2},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+</html>

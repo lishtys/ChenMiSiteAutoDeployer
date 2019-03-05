@@ -1,0 +1,25 @@
+<div class="project-links">
+    <% if (project.github) { %>
+        <a class="project-link" href="<%- project.github %>" target="_blank" title="github">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+        </a>
+    <% } %>
+
+    <% if (project.preview) { %>
+        <a class="project-link" href="<%- project.preview %>" target="_blank" title="project website">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+        </a>
+    <% } %>
+
+    <% if (project.youtube) { %>
+        <a class="project-link" href="<%- project.youtube %>" target="_blank" title="video">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+        </a>
+    <% } %>
+
+    <% if (project.download) { %>
+        <a class="project-link" href="<%- project.download %>" target="_blank" title="download executable">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+        </a>
+    <% } %>
+</div>

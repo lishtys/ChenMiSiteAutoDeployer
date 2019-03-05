@@ -1,0 +1,12 @@
+<header class="content-header">
+  <% if (page.layout !== 'aboutMe') { %>
+  <div class="container">
+    <h5 class="subtitle">
+        <% }  if (page.layout === 'works') { %>
+            <%- partial('works/head-meta') %>
+    </h5>
+  </div>
+  <% } else { %>
+      <%- partial('about/head-meta') %>
+  <% } %>
+</header>

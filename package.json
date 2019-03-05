@@ -28,6 +28,8 @@
     "hexo-tag-aplayer": "^3.0.4",
     "hexo-tag-bilibili": "^0.2.1",
     "hexo-tag-owl": "^1.2.2",
-    "live2d-widget-model-epsilon2_1": "^1.0.5"
+    "live2d-widget-model-epsilon2_1": "^1.0.5",
+    "lodash": "^4.17.11",
+    "lunr": "^0.7.2"
   }
 }

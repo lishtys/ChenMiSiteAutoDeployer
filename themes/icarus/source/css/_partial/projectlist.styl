@@ -1,0 +1,111 @@
+#plugin-search-input
+    display: none
+
+
+.project-item 
+    display: flex
+
+
+.preview 
+    max-width: 100%
+    height: auto
+
+
+.project-item-details 
+    margin: 10px 20px
+    width: 55%
+
+
+.project-list-item 
+    margin-bottom: 20px
+    border-bottom: 1px solid #DADADA
+    background: #fff
+    border-bottom: 1px solid #dadada
+    box-shadow: 0 1px 2px rgba(151, 151, 151, 0.58)
+
+
+.project-links 
+    font-size: 20px
+    margin-top: 5px
+
+
+.project-link:hover 
+    color: @accentColor
+
+
+.project-meta 
+    margin: 10px 0   
+
+
+.project-description 
+    margin: 20px 0
+
+
+.plugin 
+    display: none
+
+
+.on 
+    display: block
+
+
+
+.project-responsive-container 
+    position: relative
+    width: 55%
+
+
+.project-dummy 
+    padding-top: 62.5% /* img aspect ratio */
+
+
+.project-img-container 
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    
+    text-align:center /* Align center inline elements */
+    font: 0/0 a
+
+
+.project-img-container .project-centerer 
+    display: inline-block
+    vertical-align: middle
+    height: 100%
+
+
+.project-img-container img 
+    vertical-align: middle
+    display: inline-block
+    max-height: 100%  /* <-- Set maximum height to 100% of its parent */
+    max-width: 100%   /* <-- Set maximum width to 100% of its parent */
+
+
+@media screen and (max-width:760px) 
+    .project-responsive-container 
+        position: relative
+        width: 100%
+    
+
+    .project-item 
+        display: initial
+    
+    
+    .project-item-details 
+        width: initial
+        margin: 20px 10px
+    
+
+
+.post-list-item, .project-item-details 
+    p, h1, h2, h3, h4, h5, h6, blockquote, .post-meat 
+        margin-left: 0px
+        margin-right: 0px
+        font-size: 24px
+
+    img 
+        width: 100%
+        margin-left: 0 !important
+    
