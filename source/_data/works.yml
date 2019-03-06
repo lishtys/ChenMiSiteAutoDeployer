@@ -49,7 +49,7 @@
 
 - name: CM_Realtime_Engine
   title: CM Engine
-  thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/MeatyMcSkinBones.png
+  thumb: https://i.loli.net/2019/03/06/5c7f2b6847cb1.gif
   description: 'A platform independent graphics renderer that supports DirectX and OpenGL.'
   detail: https://www.meatymcskinbones.com/blog
   github: https://github.com/lishtys/CM_Realtime_Engine
