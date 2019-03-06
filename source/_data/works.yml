@@ -48,9 +48,21 @@
   title: Meaty McSkin Bones
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/MeatyMcSkinBones.png
   description: 'A PC puzzle game made in Unreal.'
-  detail: https://www.meatymcskinbones.com/blog
+  detail: http://chenmi.ink/categories/Game-Engine/Realtime-Rendering/
   youtube: https://www.youtube.com/watch?v=PurucN8ZaKM
   tags:
     - Unreal
     - C++
     - PC
+    
+- name: CM_Realtime_Engine
+  title: CM Engine
+  thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/MeatyMcSkinBones.png
+  description: 'A PC puzzle game made in Unreal.'
+  detail: https://www.meatymcskinbones.com/blog
+  github: https://github.com/lishtys/CM_Realtime_Engine
+  tags:
+    - Engine
+    - C++
+    - DirectX
+    - OpenGL
