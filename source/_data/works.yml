@@ -8,7 +8,7 @@
   tags:
     - Unity
     - Mobile
-    - Commercial Game
+    - Commercial_Game
     
 - name: Era_War
   title: Era War 
@@ -19,7 +19,7 @@
   tags:
     - Unity
     - Mobile
-    - Commercial Game
+    - Commercial_Game
     - C#
     
 - name: The_Surgery_Checklist
@@ -30,7 +30,7 @@
   youtube: https://www.youtube.com/watch?v=9_tmlpfFZcg
   tags:
     - Unity
-    - V.A. Hospital
+    - V.A._Hospital
     - Mobile
     - PC
     - C#
@@ -90,4 +90,4 @@
   tags:
     - Unity
     - C#  
-    - Global Game Jam
+    - Global_Game_Jam
