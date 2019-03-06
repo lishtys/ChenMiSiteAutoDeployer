@@ -20,6 +20,7 @@
     - Unity
     - Mobile
     - Commercial Game
+    - C#
     
 - name: The_Surgery_Checklist
   title: The Surgery Checklist
@@ -32,6 +33,7 @@
     - V.A. Hospital
     - Mobile
     - PC
+    - C#
   
 - name: Kinect_Virtual_Lab
   title: Kinect Virtual Lab
@@ -43,7 +45,20 @@
     - Unity
     - Kinect
     - PC
-  
+    - C#
+
+- name: CM_Realtime_Engine
+  title: CM Engine
+  thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/MeatyMcSkinBones.png
+  description: 'A platform independent graphics renderer that supports DirectX and OpenGL.'
+  detail: https://www.meatymcskinbones.com/blog
+  github: https://github.com/lishtys/CM_Realtime_Engine
+  tags:
+    - Engine
+    - C++
+    - DirectX
+    - OpenGL  
+
 - name: Meaty_McSkin_Bones
   title: Meaty McSkin Bones
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/MeatyMcSkinBones.png
@@ -54,15 +69,25 @@
     - Unreal
     - C++
     - PC
-    
-- name: CM_Realtime_Engine
-  title: CM Engine
-  thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/MeatyMcSkinBones.png
-  description: 'A PC puzzle game made in Unreal.'
-  detail: https://www.meatymcskinbones.com/blog
-  github: https://github.com/lishtys/CM_Realtime_Engine
+
+- name: The_Red_Moon
+  title: The Red Moon
+  thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/RedMoonCover.PNG
+  description: 'A multiplayer board games made in Unity with MySQL.'
+  detail: http://chenmi.ink/categories/Game-Engine/Realtime-Rendering/
+  youtube: https://youtu.be/XqoOjGg4apQ
   tags:
-    - Engine
-    - C++
-    - DirectX
-    - OpenGL
+    - Unity
+    - C#
+    - Networking
+    
+- name: Elec_Force
+  title: Elec Force
+  thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/Elecforce.JPG
+  description: 'Best Doodles On Global Game Jam 2018'
+  detail: http://chenmi.ink/categories/Game-Engine/Realtime-Rendering/
+  youtube: https://youtu.be/XqoOjGg4apQ
+  tags:
+    - Unity
+    - C#  
+    - Global Game Jam
