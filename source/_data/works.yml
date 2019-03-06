@@ -1,12 +1,56 @@
 - name: Pili_Incredible
   title: Pili Incredible
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/PiliCover.JPG
-  description: 'An OpenAI gym like Breakout environment but with more configurable options.'
+  description: 'Pili Incredible is Pili International Multimedia Co., Ltd. officially licensed IP game. Shipped in 2016. Entered Apple Store bestseller top 10.'
   page: https://pli.wegames.com.tw/
   detail: https://pli.wegames.com.tw/
+  youtube: https://www.youtube.com/watch?v=JB6LjrGF0Tc
   tags:
     - Unity
     - Mobile
     - Commercial Game
     
-- 
+- name: Era_War
+  title: Era War 
+  thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/WarEra_Cover.jpg
+  description: 'A MOARPG mobile game made in Unity. Shipped in China, 2018.'
+  page: http://zhjy.ingcle.com/
+  detail: http://zhjy.ingcle.com/
+  tags:
+    - Unity
+    - Mobile
+    - Commercial Game
+    
+- name: The_Surgery_Checklist
+  title: The Surgery Checklist
+  thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/SurgeryChecklist_Cover.PNG
+  description: 'Launched and built the Surgery Checklist suits using Unity for V.A. health care system.'
+  detail: https://www.youtube.com/watch?v=9_tmlpfFZcg
+  youtube: https://www.youtube.com/watch?v=9_tmlpfFZcg
+  tags:
+    - Unity
+    - V.A. Hospital
+    - Mobile
+    - PC
+  
+ - name: Kinect_Virtual_Lab
+  title: Kinect Virtual Lab
+  thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/Kinect Cover.png
+  description: 'Gold Award of Best Original Non-Game Group, 2014 Unity Awards in the Greater China Region'
+  detail: https://youtu.be/XqoOjGg4apQ
+  youtube: https://youtu.be/XqoOjGg4apQ
+  tags:
+    - Unity
+    - Kinect
+    - PC
+  
+- name: Meaty_McSkin_Bones
+  title: Meaty McSkin Bones
+  thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/MeatyMcSkinBones.png
+  description: 'A PC puzzle game made in Unreal.'
+  detail: https://www.meatymcskinbones.com/blog
+  youtube: https://www.youtube.com/watch?v=PurucN8ZaKM
+  tags:
+    - Unreal
+    - C++
+    - PC
