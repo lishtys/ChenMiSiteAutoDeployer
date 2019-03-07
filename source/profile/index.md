@@ -1,6 +1,7 @@
 title: "Chen Mi"
 layout: "profile"
 comment: false
+busuanzi: false
 thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/s_banner.jpg
 sidebar:
     # left sidebar settings
