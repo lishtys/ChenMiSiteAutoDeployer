@@ -1,6 +1,7 @@
 title: "Chen Mi"
-layout: "post"
+layout: "profile"
 comment: false
+thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/s_banner.jpg
 sidebar:
     # left sidebar settings
     right:
@@ -16,7 +17,7 @@ widgets:
         location: Salt Lake City, USA
         avatar: 
         gravatar: 
-        follow_link: 'https://github.com/lishtys/'
+        follow_link: 
         social_links:
             Email:
                 icon: fa fa-envelope
@@ -32,16 +33,18 @@ widgets:
                 url: 'https://github.com/lishtys/'
 ---
 
-Greetings, I'm Chen Mi, a game engineer in the Therapeutic Games and Apps Lab and a graduate student in University of Utah, going to receive the master degree from the Entertainment Arts and Engineering Program in May 2019. Our team received funding from V.A. National Innovators to create the Surgical Safety System with V.A. Health Care System Center, being deployed in Salt Lake City.
+> Greetings, I'm Chen Mi, a game engineer in the Therapeutic Games and Apps Lab and a graduate student in University of Utah, receiving the master degree from the Entertainment Arts and Engineering Program in May 2019. 
+
+> Our team received funding from V.A. National Innovators to create the Surgical Safety System with V.A. Health Care System Center, being deployed in Salt Lake City.
 
 # Experience
 
-I used to work in Beijing Boyhood Tech for 2 years as a unity engineer, where we shipped two multiple player mobile games: Pili Incredible, Era War, from which I learned great industrial experience in game development, built up professional skills, familiar with work pipeline, forme the motivation for further study in game filed.
+I used to work in Beijing Boyhood Tech for 2 years as a unity engineer, having shipped two multiple player mobile games: Pili Incredible, Era War. I learned great industrial experience in game development, built up professional skills, familiar with work pipeline, forme the motivation for further study in game filed.
 
 
+During my graduate study life, I developed my skills in game engineering. I built a datatable framework for The Red Moon with the experience in Unity, integrating a basic server made by myself.
 
-
-During my graduate study life, I developed my skills in game engineering. I built a datatable framework for The Red Moon with the experience in Unity, integrating a basic server made by myself. Currently, for interest in rendering, I'm working on CM_Engine project alone, and making MEATY MCSKIN BONES using Unreal, shipping in Steam this summer.
+Currently, for interest in rendering, I'm working on CM_Engine project alone, and making MEATY MCSKIN BONES using Unreal, shipping in Steam this summer.
 
 ---
 
@@ -54,5 +57,7 @@ I like sharing experiences with others. I've delivered over  70 hours of game de
 
 
 Besides, I love watching anime and movies in my spare time.
+
+{% pdf https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Resume/CHEN_MI_RESUME.pdf %}
 
 {% pdf https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Resume/CHEN_MI_RESUME.pdf %}
