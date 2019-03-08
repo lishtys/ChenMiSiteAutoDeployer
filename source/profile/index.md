@@ -33,7 +33,8 @@ widgets:
             Github:
                 icon: fab fa-github
                 url: 'https://github.com/lishtys/'
-	-
+   
+    -
         # Widget name
         type: toc
         # Where should the widget be placed, left or right
