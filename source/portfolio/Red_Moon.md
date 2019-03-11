@@ -2,7 +2,7 @@
 layout: "profile"
 comment: false
 busuanzi: false
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/PiliCover.JPG
+thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/RedMoonCover.PNG
 toc: true
 widgets: []
 ---
@@ -10,42 +10,31 @@ widgets: []
 
 # Overview
 
-Pili Incredible is a online RPG game based on a glove puppetry show from Taiwan.The TV series debuted in 1985, and it still continues today. The game has been shipped in 2016 in Taiwan, entered Apple Store bestseller top 10.
+Once every two years, when shadows devour the moon, the Guǐ become confident and unruly.  As the leader of your city, you must defend against   the   Guǐ, and ensure your city's prosperity.
+
+Defeat  Guǐ. Siege other cities. Cast powerful spells. And most of all, beware the red moon!
+
+"The Red Moon" is a digital board game about Town Building, Alliances, and   Magic.
+
 
 
 ---
 # Key Responsibility
 
-- Design MVC UI framework in NGUI.
+- Implemented a client to server model structure in Unity with .NET Socket and MySQL.
 
-- Build data-driven data table access solution from excel sheet converting data to binary files. Generate access scrpits called in client. 
-  
-- Work with artists, developing animation system that auto-generates animator state, auto-binds event and effect from animation sheets.
- 
--  Implementing battle system flow using state machines.
+- Designed and developed server defining protocals, implemented login, lobby matching, and battle logic.
 
-- Integrate mobile SDKs including account, billing systems on over 15 platforms.
-
--  Build assets processing editor tool that optimizes AssetBundle management. 
--  Programe hotfix solution for engineering updating resources, scripts based on xLua.
-
-
+- Developed resources system that builds client data into AssetBundle and combined to language localization system.
 ---
-# Gameplay Video
 
-{% youtube A2FNVO0MNTQ %}
+# Trailler
+{% youtube H6AnGr6IwuM %}
+
 
 ---
 # Awards
 
-• Apple Store Bestseller Top 10 (Taiwan)
+• Presented in EAE Play Day
 
-• Google Play Recommend List (Taiwan)
 
----
-# Media
-
-- Game Page ： https://pli.wegames.com.tw/
-- Release Vedio ： https://www.youtube.com/watch?v=JB6LjrGF0Tc
-
----
