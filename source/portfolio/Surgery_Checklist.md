@@ -12,6 +12,15 @@ widgets: []
 We've created Surgery Checklist, a software suite for iOS and PC, that adds more features, and corrects many of the problems inherent to the paper checklist. 
 
 ---
+
+# Links
+
+- Video
+
+{% youtube 9_tmlpfFZcg %}
+
+---
+
 # Key Responsibility
 
 1. We can track completion and adherence to the checklist protocol, and hospital administrators can easily identify problems with the use of the checklist without ever having to step foot in an operating room. PDF records are also automatically generated and exported so important documentation is never lost. 
@@ -21,10 +30,8 @@ We've created Surgery Checklist, a software suite for iOS and PC, that adds more
 3. We've made a casting application. Surgery Checklist may be quickly, easily, and securely be wirelessly displayed on any monitor connected to a PC computer with a quick scan of a QR code.
 
 
----
-# Video
 
-{% youtube 9_tmlpfFZcg %}
+
 
 # ScreenShots
 
