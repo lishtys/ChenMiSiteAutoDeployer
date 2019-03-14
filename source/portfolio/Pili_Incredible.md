@@ -12,7 +12,17 @@ widgets: []
 
 Pili Incredible is a online RPG game based on a glove puppetry show from Taiwan.The TV series debuted in 1985, and it still continues today. The game has been shipped in 2016 in Taiwan, entered Apple Store bestseller top 10.
 
+# Links
 
+- Game Page: https://pli.wegames.com.tw/
+
+- Release Video: 
+
+{% youtube JB6LjrGF0Tc %}
+
+- Release Video: 
+
+{% youtube A2FNVO0MNTQ %}
 
 ---
 # Key Responsibility
@@ -34,7 +44,7 @@ Pili Incredible is a online RPG game based on a glove puppetry show from Taiwan.
 ---
 # Gameplay Video
 
-{% youtube A2FNVO0MNTQ %}
+
 
 ---
 # Awards
@@ -42,11 +52,5 @@ Pili Incredible is a online RPG game based on a glove puppetry show from Taiwan.
 • Apple Store Bestseller Top 10 (Taiwan)
 
 • Google Play Recommend List (Taiwan)
-
----
-# Media
-
-- Game Page: https://pli.wegames.com.tw/
-- Release Video: https://www.youtube.com/watch?v=JB6LjrGF0Tc
 
 ---
