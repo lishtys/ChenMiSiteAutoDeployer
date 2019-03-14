@@ -21,6 +21,7 @@ By further analyzing and processing the image data that Kinect sensor has obtain
 {% youtube XqoOjGg4apQ %}
 
 ---
+
 # Key Responsibility
 
 
@@ -31,6 +32,7 @@ By further analyzing and processing the image data that Kinect sensor has obtain
 
 
 ---
+
 # Awards
 
 - 2014 Best Original Non-Game, Unity Awards in the Greater China Region
