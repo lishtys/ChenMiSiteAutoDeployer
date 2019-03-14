@@ -10,24 +10,25 @@ widgets: []
 
 # Overview
 
-his project uses Kinect as the sensor to match powerful Unity game engine which has powerful human-computer interactive functions, and also applies it the to education and experiments. 
-
-We build the scene by leading in models and controllingthe subjects logistically. Furthermore, we deploy the cross-platform project with the powerful Unity itself. 
+This project uses Kinect with Unity to build a virtual lab for education and experiments. 
 
 By further analyzing and processing the image data that Kinect sensor has obtained, it gets spatial coordinates information, skeleton data and other information to track user's body joints to recognize the pose, and then combine Unity's engine to achieve module functions. 
+
+# Link
+
+- Gameplay Video
+
+{% youtube XqoOjGg4apQ %}
 
 ---
 # Key Responsibility
 
 
--  Implemented Kinect Virtual Lab gesture recognition system based on Dynamic Time Warping using Kinect.
--  Use Finite State Machine manage the game flow.
-- Assistswith art resources data in Unity engines
+-  Implements Kinect Virtual Lab gesture recognition system based on Dynamic Time Warping using Kinect.
+-  Use Finite State Machine to manage the game flow.
+-  Assists with art resources data in Unity engines
 
----
-# Gameplay Video
 
-{% youtube XqoOjGg4apQ %}
 
 ---
 # Awards
