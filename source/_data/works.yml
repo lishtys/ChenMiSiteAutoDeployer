@@ -3,7 +3,7 @@
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/PiliCover.JPG
   description: 'Pili Incredible is Pili International Multimedia Co., Ltd. officially licensed IP game. Shipped in 2016. Entered Apple Store bestseller top 10.'
   page: https://pli.wegames.com.tw/
-  detail: https://pli.wegames.com.tw/
+  detail: https://chenmi.ink/portfolio/Pili_Incredible.html
   youtube: https://www.youtube.com/watch?v=JB6LjrGF0Tc
   tags:
     - Unity
@@ -15,43 +15,43 @@
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/WarEra_Cover.jpg
   description: 'A MOARPG mobile game made in Unity. Shipped in China, 2018.'
   page: http://zhjy.ingcle.com/
-  detail: http://zhjy.ingcle.com/
+  detail: https://chenmi.ink/portfolio/Era_War.html
   tags:
     - Unity
     - Mobile
     - Commercial_Game
-    - C#
+    - CSharp
     
 - name: The_Surgery_Checklist
   title: The Surgery Checklist
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/SurgeryChecklist_Cover.PNG
   description: 'Launched and built the Surgery Checklist suits using Unity for V.A. health care system.'
-  detail: https://www.youtube.com/watch?v=9_tmlpfFZcg
+  detail: https://chenmi.ink/portfolio/Surgery_Checklist.html
   youtube: https://www.youtube.com/watch?v=9_tmlpfFZcg
   tags:
     - Unity
     - V.A._Hospital
     - Mobile
     - PC
-    - C#
+    - CSharp
   
 - name: Kinect_Virtual_Lab
   title: Kinect Virtual Lab
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/Kinect Cover.png
   description: 'Gold Award of Best Original Non-Game Group, 2014 Unity Awards in the Greater China Region'
-  detail: https://youtu.be/XqoOjGg4apQ
+  detail: https://chenmi.ink/portfolio/Kinect_Lab.html
   youtube: https://youtu.be/XqoOjGg4apQ
   tags:
     - Unity
     - Kinect
     - PC
-    - C#
+    - CSharp
 
 - name: CM_Realtime_Engine
   title: CM Engine
   thumb: https://i.loli.net/2019/03/06/5c7f2b6847cb1.gif
   description: 'A platform independent graphics renderer that supports DirectX and OpenGL.'
-  detail: https://www.meatymcskinbones.com/blog
+  detail: https://chenmi.ink/portfolio/CM_Engine.html
   github: https://github.com/lishtys/CM_Realtime_Engine
   tags:
     - Engine
@@ -62,9 +62,10 @@
 - name: Meaty_McSkin_Bones
   title: Meaty McSkin Bones
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/MeatyMcSkinBones.png
-  description: 'A PC puzzle game made in Unreal.'
-  detail: http://chenmi.ink/categories/Game-Engine/Realtime-Rendering/
-  youtube: https://www.youtube.com/watch?v=PurucN8ZaKM
+  description: 'Meaty McSkinBones is a single-player puzzle/platformer where the character is split into three separate bodies. They each have unique abilities or can work together to solve puzzles and traverse the environment. It's quirky, hilarious, and a ton of fun!'
+  detail: https://www.meatymcskinbones.com/
+  youtube: https://www.youtube.com/watch?v=JuyxBguA4qQ
+  page: https://www.meatymcskinbones.com/
   tags:
     - Unreal
     - C++
@@ -74,20 +75,19 @@
   title: The Red Moon
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/RedMoonCover.PNG
   description: 'A multiplayer board games made in Unity with MySQL.'
-  detail: http://chenmi.ink/categories/Game-Engine/Realtime-Rendering/
+  detail: https://chenmi.ink/portfolio/Red_Moon.html
   youtube: https://youtu.be/XqoOjGg4apQ
   tags:
     - Unity
-    - C#
+    - CSharp
     - Networking
     
 - name: Elec_Force
   title: Elec Force
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/Elecforce.JPG
-  description: 'Best Doodles On Global Game Jam 2018'
-  detail: http://chenmi.ink/categories/Game-Engine/Realtime-Rendering/
-  youtube: https://youtu.be/XqoOjGg4apQ
+  description: 'The theme of GGj 2018 is transmission. So we use electrons as main characters. Best Doodles On Global Game Jam 2018'
+  detail: https://chenmi.ink/portfolio/Elecforce.html
   tags:
     - Unity
-    - C#  
+    - CSharp
     - Global_Game_Jam

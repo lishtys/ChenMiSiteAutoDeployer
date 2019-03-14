@@ -38,24 +38,26 @@ widgets:
         type: toc
         # Where should the widget be placed, left or right
         position: right
-toc: true
+
 ---
 
 > Greetings, I'm Chen Mi, a game engineer in the [Therapeutic Games and Apps Lab ](https://library.med.utah.edu/synapse/gapp/)and a graduate student in University of Utah, going to receive the master degree from the [Entertainment Arts and Engineering Program](https://games.utah.edu/) in May 2019. 
 
-> Our team received funding from V.A. National Innovators to create the [Surgical Safety System](https://www.youtube.com/watch?v=9_tmlpfFZcg) with V.A. Health Care System Center, being deployed in Salt Lake City.
+> Our team received funding from V.A. National Innovators to create the [Surgical Safety System](https://chenmi.ink/portfolio/Surgery_Checklist.html) with V.A. Health Care System Center, being deployed in Salt Lake City.
 
 # Experience
 
-I used to work in Beijing Boyhood Tech for 2 years as a unity engineer, having shipped two multiple player mobile games: [Pili Incredible](https://pli.wegames.com.tw/), and [Era War](http://zhjy.ingcle.com/). I learned great industrial experience in game development, built up professional skills, familiar with work pipeline, forme the motivation for further study in game filed.
-
-
+I used to work in Beijing Boyhood Tech for 2 years as a unity engineer, having shipped two multiple player mobile games: [Pili Incredible](https://chenmi.ink/portfolio/Pili_Incredible.html), and [Era War](https://chenmi.ink/portfolio/Era_War.html). I learned great industrial experience in game development, built up professional skills, familiar with work pipeline, forme the motivation for further study in game filed.
 
 
 
 During my graduate study life, I developed my skills in game engineering. I built a datatable framework for The Red Moon with the experience in Unity, integrating a basic server made by myself.
 
 Currently, for interest in rendering, I'm working on [CM_Engine](http://chenmi.ink/portfolio/#Engine) project alone, and making [MEATY MCSKIN BONES](https://www.meatymcskinbones.com/blog) using Unreal, shipping in Steam this summer.
+
+
+Check my [portfolio](http://chenmi.ink/portfolio/).
+
 
 ---
 
