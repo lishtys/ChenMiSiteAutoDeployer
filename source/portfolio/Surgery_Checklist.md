@@ -35,8 +35,11 @@ We've created Surgery Checklist, a software suite for iOS and PC, that adds more
 
 # ScreenShots
 
+![](https://i.loli.net/2019/03/14/5c8a34ddbc962.png)
 
+![](https://i.loli.net/2019/03/14/5c8a34d98725e.png)
 
+![](https://i.loli.net/2019/03/14/5c8a34d753ceb.png)
 
 ---
 # Awards
