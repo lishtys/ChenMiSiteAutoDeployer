@@ -12,7 +12,14 @@ widgets: []
 
 The game is a MMOARPG mobile game developed in Unity, shipped in 2018. The game continues three classic professions: warrior, mage,archer. Each occupation has mutiple skill genres, and player can freely transfer skills according to their own needs, experience the fun of crazy bosses in PVP and PVE battles.
 
+# Links
 
+- Game Page: http://zhjy.ingcle.com/
+
+
+- Gameplay Video: 
+
+{% youtube 6N3AbiD-U6Y %}
 
 ---
 # Key Responsibility
@@ -35,17 +42,5 @@ entities in Era War.
 
 ![](http://zhjy.ingcle.com/upload/image/20180530/1527652256861800.jpg)
 
-
-
----
-# Gameplay video 
-
----
-
-
-# Media
-
-- Game Page ： http://zhjy.ingcle.com/
-- Release Video ： 
 
 ---
