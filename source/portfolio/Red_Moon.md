@@ -17,7 +17,6 @@ Defeat  Guǐ. Siege other cities. Cast powerful spells. And most of all, beware 
 "The Red Moon" is a digital board game about Town Building, Alliances, and   Magic.
 
 
-
 ---
 # Key Responsibility
 
@@ -29,6 +28,7 @@ Defeat  Guǐ. Siege other cities. Cast powerful spells. And most of all, beware 
 ---
 
 # Trailler
+
 {% youtube H6AnGr6IwuM %}
 
 
