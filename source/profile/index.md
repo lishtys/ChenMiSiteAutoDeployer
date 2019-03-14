@@ -3,7 +3,6 @@ layout: "profile"
 comment: false
 busuanzi: false
 thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/s_banner.jpg
-toc: true
 sidebar:
     # left sidebar settings
     right:
@@ -39,6 +38,7 @@ widgets:
         type: toc
         # Where should the widget be placed, left or right
         position: right
+toc: true
 ---
 
 > Greetings, I'm Chen Mi, a game engineer in the [Therapeutic Games and Apps Lab ](https://library.med.utah.edu/synapse/gapp/)and a graduate student in University of Utah, going to receive the master degree from the [Entertainment Arts and Engineering Program](https://games.utah.edu/) in May 2019. 
