@@ -51,7 +51,7 @@
 - name: CM_Realtime_Engine
   title: CM Engine
   thumb: https://i.loli.net/2019/03/06/5c7f2b6847cb1.gif
-  description: 'A platform independent graphics renderer that supports DirectX and OpenGL.'
+  description: 'This project is an engine project I am working during the realtime rendering class. The first part focus on making an independent platform supports OpenGL & DirectX. The second part will focus on C++, Direct3D 11 API, and HLSL.'
   detail: https://chenmi.ink/portfolio/CM_Engine.html
   github: https://github.com/lishtys/CM_Realtime_Engine
   tags:
@@ -75,7 +75,7 @@
 - name: The_Red_Moon
   title: The Red Moon
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/RedMoonCover.PNG
-  description: 'A multiplayer board games made in Unity with MySQL.'
+  description: 'The Red Moon is a digital board game about Town Building, Alliances, and Magic made in Unity with MySQL'
   detail: https://chenmi.ink/portfolio/Red_Moon.html
   youtube: https://youtu.be/XqoOjGg4apQ
   tags:
