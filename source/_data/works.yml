@@ -26,7 +26,7 @@
 - name: The_Surgery_Checklist
   title: The Surgery Checklist
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/SurgeryChecklist_Cover.PNG
-  description: 'Launched and built the Surgery Checklist suits using Unity for V.A. health care system.'
+  description: 'We’ve created Surgery Checklist, a software suite for iOS and PC, that adds more features, and corrects many of the problems inherent to the paper checklist.'
   detail: https://chenmi.ink/portfolio/Surgery_Checklist.html
   youtube: https://www.youtube.com/watch?v=9_tmlpfFZcg
   tags:
@@ -39,7 +39,9 @@
 - name: Kinect_Virtual_Lab
   title: Kinect Virtual Lab
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/Kinect Cover.png
-  description: 'Gold Award of Best Original Non-Game Group, 2014 Unity Awards in the Greater China Region'
+  description: 'Gold Award of Best Original Non-Game Group, 2014 Unity Awards in the Greater China Region. This project uses Kinect with Unity to build a virtual lab for education and experiments.
+
+By further analyzing and processing the image data that Kinect sensor has obtained, it gets spatial coordinates information, skeleton data and other information to track user’s body joints to recognize the pose.'
   detail: https://chenmi.ink/portfolio/Kinect_Lab.html
   youtube: https://youtu.be/XqoOjGg4apQ
   tags:
