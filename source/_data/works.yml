@@ -1,7 +1,7 @@
 - name: Pili_Incredible
   title: Pili Incredible
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/PiliCover.JPG
-  description: 'Pili Incredible is Pili International Multimedia Co., Ltd. officially licensed IP game. Shipped in 2016. Entered Apple Store bestseller top 10.'
+  description: 'Pili Incredible is a online RPG game based on a glove puppetry show from Taiwan.The TV series debuted in 1985, and it still continues today. The game has been shipped in 2016 in Taiwan, entered Apple Store bestseller top 10.'
   page: https://pli.wegames.com.tw/
   detail: https://chenmi.ink/portfolio/Pili_Incredible.html
   youtube: https://www.youtube.com/watch?v=JB6LjrGF0Tc
@@ -13,8 +13,9 @@
 - name: Era_War
   title: Era War 
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/WarEra_Cover.jpg
-  description: 'A MOARPG mobile game made in Unity. Shipped in China, 2018.'
+  description: 'The game is a MMOARPG mobile game developed in Unity, shipped in 2018. Each occupation has multiple skill genres, and a player can freely transfer skills according to their own needs, experience the fun of crazy bosses in PVP and PVE battles.'
   page: http://zhjy.ingcle.com/
+  youtube: https://www.youtube.com/watch?v=6N3AbiD-U6Y
   detail: https://chenmi.ink/portfolio/Era_War.html
   tags:
     - Unity
