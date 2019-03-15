@@ -39,9 +39,7 @@
 - name: Kinect_Virtual_Lab
   title: Kinect Virtual Lab
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/Kinect Cover.png
-  description: 'Gold Award of Best Original Non-Game Group, 2014 Unity Awards in the Greater China Region. This project uses Kinect with Unity to build a virtual lab for education and experiments.
-
-By further analyzing and processing the image data that Kinect sensor has obtained, it gets spatial coordinates information, skeleton data and other information to track user’s body joints to recognize the pose.'
+  description: 'Gold Award of Best Original Non-Game Group, 2014 Unity Awards in the Greater China Region.\n By further analyzing and processing the image data that Kinect sensor has obtained, it gets spatial coordinates information, skeleton data and other information to track user’s body joints to recognize the pose.'
   detail: https://chenmi.ink/portfolio/Kinect_Lab.html
   youtube: https://youtu.be/XqoOjGg4apQ
   tags:
