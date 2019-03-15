@@ -1,7 +1,7 @@
 - name: Pili_Incredible
   title: Pili Incredible
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/PiliCover.JPG
-  description: 'Pili Incredible is a online RPG game based on a glove puppetry show from Taiwan.The TV series debuted in 1985, and it still continues today. The game has been shipped in 2016 in Taiwan, entered Apple Store bestseller top 10.'
+  description: 'Pili Incredible is a online RPG game based on a glove puppetry show from Taiwan. The TV series debuted in 1985, and it still continues today. The game has been shipped in 2016 in Taiwan, entered Apple Store bestseller top 10.'
   page: https://pli.wegames.com.tw/
   detail: https://chenmi.ink/portfolio/Pili_Incredible.html
   youtube: https://www.youtube.com/watch?v=JB6LjrGF0Tc
@@ -39,7 +39,10 @@
 - name: Kinect_Virtual_Lab
   title: Kinect Virtual Lab
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/Kinect Cover.png
-  description: 'Gold Award of Best Original Non-Game Group, 2014 Unity Awards in the Greater China Region.\n By further analyzing and processing the image data that Kinect sensor has obtained, it gets spatial coordinates information, skeleton data and other information to track user’s body joints to recognize the pose.'
+  description: |
+    Gold Award of Best Original Non-Game Group, 2014 Unity Awards in the Greater China Region.
+    
+    By further analyzing and processing the image data that Kinect sensor has obtained, it gets spatial coordinates information, skeleton data and other information to track user’s body joints to recognize the pose.
   detail: https://chenmi.ink/portfolio/Kinect_Lab.html
   youtube: https://youtu.be/XqoOjGg4apQ
   tags:
