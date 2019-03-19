@@ -4,7 +4,11 @@
             <i class="fas fa-home" aria-hidden="true"></i>
         </a>
     <% } %>
-
+    <% if (project.steam) { %>
+        <a class="project-link" href="<%- project.steam %>" target="_blank" title="Steam Page">
+            <i class="fab fa-steam" aria-hidden="true"></i>
+        </a>
+    <% } %>
     <% if (project.youtube) { %>
         <a class="project-link" href="<%- project.youtube %>" target="_blank" title="video">
             <i class="fab fa-youtube" aria-hidden="true"></i>

@@ -56,7 +56,7 @@
   github: https://github.com/lishtys/CM_Realtime_Engine
   tags:
     - Engine
-    - C++
+    - CPP
     - DirectX
     - OpenGL  
 
@@ -67,9 +67,10 @@
   detail: https://www.meatymcskinbones.com/
   youtube: https://www.youtube.com/watch?v=JuyxBguA4qQ
   page: https://www.meatymcskinbones.com/
+  steam: https://store.steampowered.com/app/1046370/Meaty_McSkinBones/
   tags:
     - Unreal
-    - C++
+    - CPP
     - PC
 
 - name: The_Red_Moon
@@ -86,7 +87,7 @@
 - name: Elec_Force
   title: Elec Force
   thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/Elecforce.JPG
-  description: 'The theme of GGj 2018 is transmission. So we use electrons as main characters. Best Doodles On Global Game Jam 2018'
+  description: 'The theme of GGJ 2018 is transmission. So we use electrons as main characters. Best Doodles On Global Game Jam 2018'
   detail: https://chenmi.ink/portfolio/Elecforce.html
   tags:
     - Unity
