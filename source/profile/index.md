@@ -47,9 +47,7 @@ widgets:
 
 # Experience
 
-I used to work in Beijing Boyhood Tech for 2 years as a unity engineer, having shipped two multiple player mobile games: [Pili Incredible](https://chenmi.ink/portfolio/Pili_Incredible.html), and [Era War](https://chenmi.ink/portfolio/Era_War.html). I learned great industrial experience in game development, built up professional skills, familiar with work pipeline, forme the motivation for further study in game filed.
-
-
+I used to work in Beijing Boyhood Tech for 2 years as a unity engineer, having shipped two multiple player mobile games: Pili Incredible, and Era War. I learned great industrial experience in game development, built up professional skills, familiarized with work pipeline, formed the motivation for further study in game filed.
 
 During my graduate study life, I developed my skills in game engineering. I built a datatable framework for The Red Moon with the experience in Unity, integrating a basic server made by myself.
 
@@ -68,8 +66,6 @@ I am also a member of Jiangxi Creative Entertainment Center. I joined there sinc
 
 I like sharing experiences with others. I've delivered over  70 hours of game development courses online as well as documents localization, contributing to Chinese Unity community. During the internship in Shenzhen Empowerwin, I was a co-founder of [Manew Edu](http://edu.manew.com/), which now becomes one of the biggest game dev online education platform in China.
 
-
-Besides, I love watching anime and movies in my spare time.
 
 ---
 # Resume
