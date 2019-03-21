@@ -26,8 +26,7 @@ The game is a MMOARPG mobile game developed in Unity, shipped in 2018. The game 
 
 -  Developed client-server pathfinding sync tool that converts NavMesh to data tiles for server calculation and validation
 
-- Programmed dynamic flocking behavior and behavior tree for
-entities in Era War.
+- Programmed dynamic flocking behavior and behavior tree for entities in Era War.
 
 - Build data-driven data table access solution from excel sheet converting data to binary files. Generate access scrpits called in client. 
   
