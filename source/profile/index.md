@@ -18,7 +18,7 @@ widgets:
         location: Salt Lake City, USA
         avatar: 
         gravatar: 
-        follow_link: 'https://github.com/lishtys/'
+        follow_link: 'https://www.linkedin.com/in/chenmi93/'
         social_links:
             Email:
                 icon: fa fa-envelope
@@ -41,17 +41,17 @@ widgets:
 
 ---
 
-> Greetings, I'm Chen Mi, a game engineer in the [Therapeutic Games and Apps Lab ](https://library.med.utah.edu/synapse/gapp/)and a graduate student in University of Utah, going to receive the master degree from the [Entertainment Arts and Engineering Program](https://games.utah.edu/) in May 2019. 
+> Greetings, I’m a game engineer at the [Therapeutic Games and Apps Lab ](https://library.med.utah.edu/synapse/gapp/)and going to graduate from the [Entertainment Arts and Engineering Program](https://games.utah.edu/) from the University of Utah in May 2019. 
 
-> Our team received funding from V.A. National Innovators to create the [Surgical Safety System](https://chenmi.ink/portfolio/Surgery_Checklist.html) with V.A. Health Care System Center, being deployed in Salt Lake City.
+> Our team receive funding from VA National Innovators to create the [Surgical Safety System](https://chenmi.ink/portfolio/Surgery_Checklist.html) with VA Health Care System Center, being deployed in Salt Lake City.
 
 # Experience
 
-I used to work in Beijing Boyhood Tech for 2 years as a unity engineer, having shipped two multiple player mobile games: Pili Incredible, and Era War. I learned great industrial experience in game development, built up professional skills, familiarized with work pipeline, formed the motivation for further study in game filed.
+I've worked in Beijing as a game engineer and shipped two commercial mobile games: [Pili Incredible](https://chenmi.ink/portfolio/Pili_Incredible.html), and [Era War](https://chenmi.ink/portfolio/Era_War.html). I learned great industrial experience in game development, built up professional skills, familiarized with work pipeline, formed the motivation for further study in game filed.
 
 During my graduate study life, I developed my skills in game engineering. I built a datatable framework for The Red Moon with the experience in Unity, integrating a basic server made by myself.
 
-Currently, for interest in rendering, I'm working on [CM_Engine](http://chenmi.ink/portfolio/#Engine) project alone, and making [MEATY MCSKIN BONES](https://www.meatymcskinbones.com/blog) using Unreal, shipping in Steam this summer.
+Currently, for interest in rendering, I'm working on [CM_Engine](http://chenmi.ink/portfolio/#Engine) project alone, and making [MEATY MCSKIN BONES](https://www.meatymcskinbones.com/blog) using Unreal, shipping on Steam this summer.
 
 
 Check my [portfolio](http://chenmi.ink/portfolio/).
@@ -59,7 +59,7 @@ Check my [portfolio](http://chenmi.ink/portfolio/).
 
 ---
 
-# Activity & Hobby
+# Activity
 
 I am also a member of Jiangxi Creative Entertainment Center. I joined there since undergraduate, focusing on the research of media interaction. My projects were awarded by Unity Awards, 2016 CUID, etc. Due to the contribution, I was awarded as Person of the Year among college students in Jiangxi, 2014.
 
