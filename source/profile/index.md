@@ -2,7 +2,7 @@ title: ""
 layout: "profile"
 comment: false
 busuanzi: false
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/s_banner.jpg
+thumbnail: http://chenmi.ink/images/Profile_Banner.jpg
 sidebar:
     # left sidebar settings
     right:
@@ -43,7 +43,7 @@ widgets:
 
 > Greetings, I’m a game engineer at the [Therapeutic Games and Apps Lab ](https://library.med.utah.edu/synapse/gapp/)and going to graduate from the [Entertainment Arts and Engineering Program](https://games.utah.edu/) from the University of Utah in May 2019. 
 
-> Our team receive funding from VA National Innovators to create the [Surgical Safety System](https://chenmi.ink/portfolio/Surgery_Checklist.html) with VA Health Care System Center, being deployed in Salt Lake City.
+> Our team receive funding from VA National Innovators to create the [Surgical Safety System](https://chenmi.ink/portfolio/Surgery_Checklist.html) with VA Health Care System Center. The project received Ensign College of Public Health Award with $15,000, being deployed in Salt Lake City.
 
 # Experience
 
