@@ -352,7 +352,7 @@ ID3 is a basic decision tree construction algorithm. As a classic decision-makin
 
 # Download
 
-Click Download the project.
+Click [Download](http://chenmi.ink/dwns/GameAI.zip) the project.
 
 # Ctrl
  
