@@ -34,7 +34,10 @@ Decision trees are fast, easily implemented, and simple to understand. They are 
 
 Each choice is made based on the character’s knowledge. Because decision trees are often used simple and fast decision mechanisms, characters usually refer directly to the global game state other than having a representation of what they know.
 
+---
+
 ## Implementation 
+
 
 In our project, we define a **Decision Tree** class; whether it is behavior or condition, we consider it a node. The node will execute into the next layer according to the condition results. The **Action** node is the leaf node. Operate an instance of AI to perform some action;
 
@@ -83,17 +86,7 @@ public:
 
 When constructing a decision tree, you need to specify a root node, and then to splice in Branch to form a decision tree. In each update, only the root node of the tree needs to be executed, and the corresponding action will be performed according to the situation;
 
-**Build A Tree**
 
-```
-    //SetUp
-    wall_dec_node.trueBranch = &wall_action_node;
-    wall_dec_node.falseBranch = &target_dec_node;
-
-
-    target_dec_node.trueBranch = &target_action_node;
-    target_dec_node.falseBranch = &arrive_action_node;
-```
 **Make Decision**
 
 ```
@@ -110,9 +103,23 @@ When constructing a decision tree, you need to specify a root node, and then to 
 
 In the Demo, we build the following case. You can see the following figure; the monster will chase for the target boid. When it hits the wall, it will go back to the center. The target boid will respawn after being caught.
 
+![](https://i.loli.net/2019/04/15/5cb447af858c4.jpg)
+
+**Build A Tree**
+
+```
+    //SetUp
+    wall_dec_node.trueBranch = &wall_action_node;
+    wall_dec_node.falseBranch = &target_dec_node;
 
 
+    target_dec_node.trueBranch = &target_action_node;
+    target_dec_node.falseBranch = &arrive_action_node;
+```
 
+Related Files : `DecisionTree.h,DecisionTree.cpp, DTDemo.h, DTDemo.cpp`
+
+---
 
 ## Thoughts
 
@@ -126,22 +133,30 @@ The behavior tree makes up for the shortcomings of the state machine, which simp
 Simplification is our focus. The behavior of artificial intelligence is the behavioral behavior specified by the human mind, which is expected by the human mind, not uncontrollable. It is what we need to create the logic of AI behavior that humans expect, and the way and process of production are within the tolerance of the human brain. The state machine method of making AI can theoretically achieve any AI, but the complexity is to a certain extent that the human brain can't bear it, but it is invalid or frustrating.
 
 
-
+---
 
 ## Composite Node 
 Composite nodes can be divided into three categories:
 
-One is the **Selector** Node, which selects the node. When this type of node is executed, it will iterate to execute its child node from beginning to end. If it encounters a child node and returns True after execution, it will stop iterating. The Node also returns True to its upper parent node, otherwise all child nodes. Both return False; then this Node returns False to its parent.
+The **Selector** Node, which selects the node. When this type of node is executed, it will iterate to execute its child node from beginning to end. If it encounters a child node and returns True after execution, it will stop iterating. The Node also returns True to its upper parent node, otherwise all child nodes. Both return False; then this Node returns False to its parent.
 
-One is the **Sequence** Node, the sequential node. When this type of Node is executed, it will iteratively execute its child nodes from start to finish. If it encounters a Child Node and returns False after execution, it stops iterating, and the Node returns False to its parent Node node. Otherwise, all Child Nodes return True, and the Node returns True to its Parent Node.
+The **Sequence** Node, the sequential node. When this type of Node is executed, it will iteratively execute its child nodes from start to finish. If it encounters a Child Node and returns False after execution, it stops iterating, and the Node returns False to its parent Node node. Otherwise, all Child Nodes return True, and the Node returns True to its Parent Node.
 
 There is also a **Parallel** Node, a concurrent node that concurrently executes all of its Child Node children.
 
 Also, to further increase the complexity and randomness of AI, Selector and Sequence can further provide weighted random variants of nonlinear iterations. For example, the Weight Random Selector, each time executing a different starting point, provides the possibility to execute a different First True Child Node each time. 
 
+---
+
 ## Decorator Node 
 
-Decorator Node, its function is just like its literal meaning: it will additionally modify the result value returned by its Child Node after execution, and then return it to its Parent Node. For example, the reverse modifier **Decorator Not** : the result is reversed and returned to the superior processing; The failure modifier **Decorator FailUtil**: will be modified and returned to the superior processing.
+ Its function is just like its literal meaning: it will additionally modify the result value returned by its Child Node after execution, and then return it to its Parent Node. 
+ 
+ For example, the reverse modifier `Decorator Not` : the result is reversed and returned to the superior processing; 
+ 
+ The failure modifier `Decorator FailUtil` : will be modified and returned to the superior processing.
+
+---
 
 ## Updates
 
@@ -154,19 +169,18 @@ The advantage of the behavior tree is here, and it is possible to create a suffi
 
 ## Structure
 
-In behavior tree class, it has three status like below.
+In behavior tree class, it has `three status` like below.
 
 ```
     enum class Status
     {
-        Invalid,
         Success,
         Failure,
         Running,
     };
 ```
 
-The behavior tree also has a Blackboard class, which use a group of hashmaps to store data.
+The behavior tree also has a `Blackboard` class, which use a group of hashmaps to store data.
 
 ```
     std::unordered_map<std::string, bool> bools;
@@ -199,7 +213,16 @@ Each node would override the `Update()` function and return the status to its pa
     }
 ```
 
-# Example
+---
+
+
+## Example
+
+
+![](https://i.loli.net/2019/04/15/5cb44b2f8e7e1.jpg)
+
+
+**Build A Tree**
 
 ```
     chase_node = std::make_shared<ChaseNode>();
@@ -208,14 +231,22 @@ Each node would override the `Update()` function and return the status to its pa
     
     //......
     
-    auto seq = std::make_shared<Sequence>();
-    boid_tree.setRoot(seq);
-    auto invert=std::make_shared<Inverter>();
-    invert->setChild(check_near_node);
-    seq->addChild(invert);
-    seq->addChild(wander_node);
+	auto select= std::make_shared<Selector>();
+	auto seq1 = std::make_shared<Sequence>();
+	seq1->addChild(check_near_node);
+	seq1->addChild(respawn_node);
+	select->addChild(seq1);
+
+	//
+	auto seq2 = std::make_shared<Sequence>();
+	seq2->addChild(chase_node);
+	select->addChild(seq2);
+	//
+	mon_tree.setRoot(select);
 
 ```
+
+---
 
 
 ## Thoghts & Analytics
@@ -230,6 +261,8 @@ Behavior trees are easier to write complex AI logic than state machines because 
 
  In machine learning, a decision tree is a predictive model that represents a mapping relationship between an object attribute and an object value. Each node represents an object, and each bifurcation path in the tree represents a certain Possible attribute values, and each leaf node corresponds to the value of the object represented by the path from the root node to the leaf node. Decision trees have only a single output, and if there are multiple outputs, separate decision trees can be built to handle different outputs.
  
+---
+
 ## ID3
  
  The ID3 algorithm is a kind of decision tree. It is based on the Occam razor principle, that is, to do more with a few things as possible. ID3 algorithm, namely Iterative Dichotomiser 3, iterative binary tree three generations, is a decision tree algorithm invented by Ross Quinlan. The basis of this algorithm is the Occam razor principle mentioned above. The smaller the decision tree, the better the big one. Decision trees, however, do not always generate the smallest tree structure, but a heuristic algorithm. 
@@ -237,7 +270,7 @@ Behavior trees are easier to write complex AI logic than state machines because 
  
  In information theory, the smaller the expected information, the greater the information gain and the higher the purity. The core idea of the ID3 algorithm is to measure the choice of attributes with information gain and to select the attribute with the largest information gain after splitting to split. The algorithm uses a top-down greedy search to traverse possible decision spaces.
  
-## Summary Analytics
+## Summary & Analytics
 
 ID3 is a basic decision tree construction algorithm. As a classic decision-making algorithm for decision trees, it has the characteristics of simple structure and clear and easy to understand. Although ID3 is more flexible and convenient, it has the following disadvantages: 
 
@@ -249,18 +282,18 @@ ID3 is a basic decision tree construction algorithm. As a classic decision-makin
 
 
 # Download
-Click Download the project.
+Click [Download](https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/GameAI.zip) the project.
 
 
 # Install
 
-- Add ofxDatGui Project. Download: https://github.com/braitsch/ofxDatGui.
-- Copy entire ofxDatGui project into your OpenFrameswork folder. The path is OpenFrameswork/addons/ofxDatGui
-- Use projectGenerator-vs/projectGenerator.exe to Import the GameAIproject. You should see the Addons section has the ofxDatGui.
-- Click Update and Open IDE.
+1.  Add `ofxDatGui` Project. Download: https://github.com/braitsch/ofxDatGui. 
+2.  Copy entire `ofxDatGui` project into your `OpenFrameswork` folder. The path is `OpenFrameswork/addons/ofxDatGui`
+2. Use  `projectGenerator-vs/projectGenerator.exe` to Import the `GameAI`project. You should see the `Addons` section has the `ofxDatGui`.
+3. Click `Update` and `Open` IDE.
 
 # References
 
 - Reynolds, C. W. (1999) Steering Behaviors For Autonomous Characters, in the proceedings of Game Developers Conference 1999 held in San Jose, California. Miller Freeman Game Group, San Francisco, California. Pages 763-782. https://www.red3d.com/cwr/steer/gdc99/
 - Ian Millington and John Funge. 2009. Artificial Intelligence for Games, Second Edition (2nd ed.). Morgan Kaufmann Publishers Inc., San Francisco, CA, USA.
-
+- Building Decision Trees with the ID3 Algorithm,Andrew Colin, Dr. Dobbs Journal, June 1996
