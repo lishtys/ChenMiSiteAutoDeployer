@@ -119,11 +119,19 @@ In the Demo, we build the following case. You can see the following figure; the 
 
 Related Files : `DecisionTree.h,DecisionTree.cpp, DTDemo.h, DTDemo.cpp`
 
+
+
 ---
 
 ## Thoughts
 
 The decision tree is easy to understand and implement. People don't need the user to understand a lot of background knowledge in the learning process. However, it is hard to build and maintain when the logic becomes complicated.
+
+## Demo
+
+![](https://i.loli.net/2019/04/15/5cb494f7aa17b.gif)
+
+---
 
 
 # Behavior Tree
@@ -270,6 +278,51 @@ Behavior trees are easier to write complex AI logic than state machines because 
  
  In information theory, the smaller the expected information, the greater the information gain and the higher the purity. The core idea of the ID3 algorithm is to measure the choice of attributes with information gain and to select the attribute with the largest information gain after splitting to split. The algorithm uses a top-down greedy search to traverse possible decision spaces.
  
+ 
+ 
+## Implementation
+
+### Attribute Data
+
+**Data processing:** 
+
+This part only uses three attributes of `"Status", "Distance", "In Respawn"`, and then according to whether the value of `distance` is greater than 20, the value of `distance` is classified into two categories. The value of `Chase Node` is the category label, only has `yes` and `no` two values.
+
+ **Code**
+
+```
+const unsigned att_num = 3;
+const unsigned rule_num = 14;
+string decision_tree_name("Chase Node ?");
+string attribute_names[] = { "Status", "Distance", "In Respawn" };
+string attribute_values[] = { "Visable", "invisible", "Respawn", 
+"<=20", ">20", "True", "False", "Yes", "No" };
+
+```
+
+---
+
+**Data**
+
+A line of training data is like {0, 4, 6, 7}.  
+
+The attributes corresponding to the first three column values correspond to the elements in `attribute names`, the last column is the value of the `category tag`. Therefore, {0, 4, 6, 7} means `visiable, distance>20, Not Respawn, Yes` 
+
+
+---
+
+## Comparation 
+
+In the **ID3Demo.cpp**, I use training data to build a decision tree. The tree structure printed as below.
+
+![](https://i.loli.net/2019/04/15/5cb48e1c04ac4.jpg)
+
+
+---
+
+![](https://i.loli.net/2019/04/15/5cb4937a5b9d7.jpg)
+
+ 
 ## Summary & Analytics
 
 ID3 is a basic decision tree construction algorithm. As a classic decision-making algorithm for decision trees, it has the characteristics of simple structure and clear and easy to understand. Although ID3 is more flexible and convenient, it has the following disadvantages: 
@@ -282,7 +335,7 @@ ID3 is a basic decision tree construction algorithm. As a classic decision-makin
 
 
 # Download
-Click [Download](https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/GameAI.zip) the project.
+Click Download the project.
 
 
 # Install
