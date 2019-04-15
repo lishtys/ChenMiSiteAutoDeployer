@@ -329,7 +329,14 @@ In the **ID3Demo.cpp**, I use training data to build a decision tree. The tree s
 
 ![](https://i.loli.net/2019/04/15/5cb4937a5b9d7.jpg)
 
- 
+---
+
+## Demo
+
+![](https://i.loli.net/2019/04/16/5cb4e55ead5b6.gif)
+
+---
+
 ## Summary & Analytics
 
 ID3 is a basic decision tree construction algorithm. As a classic decision-making algorithm for decision trees, it has the characteristics of simple structure and clear and easy to understand. Although ID3 is more flexible and convenient, it has the following disadvantages: 
@@ -338,6 +345,8 @@ ID3 is a basic decision tree construction algorithm. As a classic decision-makin
 1. Continuous data cannot be processed, only by discretization Continuous data is converted into discrete data.
 1. The default value cannot be processed.
 1. The decision tree is not pruned, and the over-fitting problem is likely to occur.
+
+---
 
 
 
