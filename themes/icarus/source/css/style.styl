@@ -417,6 +417,24 @@ figure.highlight
         display: block
 
 /* ---------------------------------
+ *        Fix Video
+ * --------------------------------- */
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 25px;
+	height: 0;
+}
+.video-container iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+/* ---------------------------------
  *        Fix Gist Snippet
  * --------------------------------- */
 .gist
@@ -427,10 +445,12 @@ figure.highlight
             border: none
     .file
         all: initial
-
-.content-header
-    margin-bottom: 20px;
-
+		
+		
+/* ---------------------------------
+ *        Fix Project 
+ * --------------------------------- */
+ 
 @import '_partial/article';
 @import '_partial/postlist';
 @import '_partial/projectlist';

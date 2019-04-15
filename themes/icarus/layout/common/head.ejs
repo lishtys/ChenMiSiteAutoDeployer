@@ -9,8 +9,13 @@
         twitter_site: get_config('open_graph.twitter_site'),
         google_plus: get_config('open_graph.google_plus'),
         fb_admins: get_config('open_graph.fb_admins'),
-        fb_app_id: get_config('open_graph.fb_app_id')
+        fb_app_id: get_config('open_graph.fb_app_id'),
+        image: get_og_image(page)
     }) %>
+<% } %>
+
+<% if (has_config('canonical_url')) { %>
+<link rel="canonical" href="<%- get_config('canonical_url') %>" />
 <% } %>
 
 <% if (has_config('rss')) { %>
