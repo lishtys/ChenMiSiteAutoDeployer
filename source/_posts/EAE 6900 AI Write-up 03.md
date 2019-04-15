@@ -335,7 +335,15 @@ ID3 is a basic decision tree construction algorithm. As a classic decision-makin
 
 
 # Download
+
 Click Download the project.
+
+# Ctrl
+ 
+-  Press [q]: Show Decision Tree Demo;
+ 
+-  Press [w]: Show Behavior Tree & Decision Tree Learning Demo;
+
 
 
 # Install
