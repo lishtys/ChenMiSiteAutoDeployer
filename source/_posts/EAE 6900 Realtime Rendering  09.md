@@ -1,6 +1,6 @@
 ﻿---
 title: EAE 6900 Realtime Rendering - sRGB, Gamma Correction
-date: 2019-04-21 14:40:00
+date: 2019-04-21 15:30:00
 tags: 
 - Entertainment Arts Engineering 
 - Realtime Rendering
@@ -107,7 +107,7 @@ Press **[I],[K],[J],[L]** keys to rotate Light up, down, left and right.
 
 # Download
 
-> Click [Download](http://chenmi.ink/dwns/GameAI.zip) the game.
+> Click [Download](http://chenmi.ink/dwns/MyGame_A09.zip) the game.
 
 Version: x64 - DirectX.
 
