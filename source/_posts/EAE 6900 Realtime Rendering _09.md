@@ -41,9 +41,12 @@ Most of the image files are corrected in advance, that is, the encoding gamma ha
 ![Normal Vevctor - From Opengl tutorial](http://www.opengl-tutorial.org/assets/images/tuto-13-normal-mapping/NormalVector.png)
 
 
+---
+
 # Difference
 
 Linear Rendering means that all calculations in the shader are performed in a linear space.
+
 Gamma Rendering is calculated directly in the shader without conversion to linear space.
 
 The calculation is different, which means that, for example, the liting surface will have different response curves and graphics effects.
@@ -75,6 +78,7 @@ In Unity.
 ![Before](https://i.loli.net/2019/04/22/5cbcd4705ac12.png)
 
 ![After](https://i.loli.net/2019/04/22/5cbcd46e7a3f5.png)
+
 ---
 
 # Personalize
@@ -100,8 +104,6 @@ Press **[A],[S],[D],[W]** keys to move around default gameobject.
 
 Press **[I],[K],[J],[L]** keys to rotate Light up, down, left and right.
 
-***
- 
 
 
 
