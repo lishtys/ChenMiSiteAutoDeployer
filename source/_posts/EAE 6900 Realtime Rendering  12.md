@@ -141,7 +141,7 @@ Press **[I],[K],[J],[L]** keys to rotate Light up, down, left and right.
 
 # Download
 
-> Click [Download](https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/MyGame_A12.zip) the game.
+> Click [Download](http://chenmi.ink/dwns/MyGame_A12.zip) the game.
 
 Version: x64 - DirectX.
 
