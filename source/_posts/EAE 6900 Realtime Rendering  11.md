@@ -9,7 +9,7 @@ tags:
 categories: 
 - Game Engine
 - Realtime Rendering
-thumbnail: https://i.loli.net/2019/04/22/5cbd3b1b28628.gif
+thumbnail: https://i.loli.net/2019/04/26/5cc218a0c16b3.gif
 toc: true
 ---
 
@@ -76,7 +76,9 @@ A point light is located at a point in space and sends light out in all directio
 ![image](https://docs.unity3d.com/uploads/Main/PointLightDiagram.svg)
 
 ## Point ScreenShot
-![](https://i.loli.net/2019/04/23/5cbe2f997274a.gif)
+
+
+![](https://i.loli.net/2019/04/26/5cc218a0c16b3.gif)
 
 ---
 
@@ -115,7 +117,7 @@ Press **[I],[K],[J],[L]** keys to rotate Light up, down, left and right.
 
 # Download
 
-> Click [Download](https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/RTR08.zip) the game.
+> Click [Download](http://chenmi.ink/dwns/MyGame_A11.zip) the game.
 
 Version: x64 - DirectX.
 
