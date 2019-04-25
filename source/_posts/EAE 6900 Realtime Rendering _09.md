@@ -48,7 +48,7 @@ Gamma Rendering is calculated directly in the shader without conversion to linea
 
 The calculation is different, which means that, for example, the liting surface will have different response curves and graphics effects.
 
-- Light Falloff 
+## Light Falloff 
 
 First, when we use Linear Rendering, performing a Gamma correction will make the lighting range larger. Gamma Rendering blurs the edges This shows the decrease in surface light intensity.
 
