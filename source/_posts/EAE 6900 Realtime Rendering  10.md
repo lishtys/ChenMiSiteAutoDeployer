@@ -79,7 +79,7 @@ cSpriteObject::cSpriteObject(float posX, float posY, float width, float height)
 
 ```
 
-For the right top eae icon, it is initialized like below.
+For the right top EAE icon, it is initialized like below.
 
 ```
 eae6320::Graphics::cSpriteObject eae_sprite_object(420,420,100,100);
@@ -156,7 +156,7 @@ Press **[I],[K],[J],[L]** keys to rotate Light up, down, left and right.
 
 # Download
 
-> Click [Download](https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/RTR08.zip) the game.
+> Click [Download](http://chenmi.ink/dwns/MyGame_A10.zip) the game.
 
 Version: x64 - DirectX.
 

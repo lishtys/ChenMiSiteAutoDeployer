@@ -107,7 +107,7 @@ Press **[I],[K],[J],[L]** keys to rotate Light up, down, left and right.
 
 # Download
 
-> Click [Download](https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/RTR08.zip) the game.
+> Click [Download](http://chenmi.ink/dwns/GameAI.zip) the game.
 
 Version: x64 - DirectX.
 
