@@ -1,6 +1,6 @@
 ﻿---
 title: EAE 6900 Realtime Rendering - CubeMap, Reflection, Metals
-date: 2019-04-25 21:12:00
+date: 2019-04-25 22:12:00
 tags: 
 - Entertainment Arts Engineering 
 - Realtime Rendering
@@ -25,7 +25,9 @@ In this post, we add cubemap and reflection into our engine.
 
 
 <!--more--> 
+
 ---
+
 #  Cube Map, Skybox
 
 
@@ -133,7 +135,7 @@ Press **[M],[N]** keys to increase/low down roughness factor.
 
 # Download
 
-> Click [Download](http://chenmi.ink/dwns/MyGame_A13.zip) the game.
+> Click [Download](http://chenmi.ink/dwns/MyGame_A14.zip) the game.
 
 Version: x64 - DirectX.
 
