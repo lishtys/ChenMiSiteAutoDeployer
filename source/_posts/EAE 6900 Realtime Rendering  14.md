@@ -1,6 +1,6 @@
 ﻿---
 title: EAE 6900 Realtime Rendering - PBR
-date: 2019-04-25 20:22:00
+date: 2019-04-22 14:22:00
 tags: 
 - Entertainment Arts Engineering 
 - Realtime Rendering
@@ -9,7 +9,7 @@ tags:
 categories: 
 - Game Engine
 - Realtime Rendering
-thumbnail: https://i.loli.net/2019/04/26/5cc27eb2a06d8.gif
+thumbnail: https://i.loli.net/2019/04/22/5cbd3b1b28628.gif
 toc: true
 ---
 
