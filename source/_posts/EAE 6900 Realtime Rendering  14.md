@@ -1,10 +1,10 @@
 ﻿---
-title: EAE 6900 Realtime Rendering - PBR
-date: 2019-04-25 21:22:00
+title: EAE 6900 Realtime Rendering - CubeMap, Reflection, Metals
+date: 2019-04-25 21:12:00
 tags: 
 - Entertainment Arts Engineering 
 - Realtime Rendering
-- PBR
+- CubeMap
 - EAE 6900
 categories: 
 - Game Engine
@@ -16,118 +16,87 @@ toc: true
 # Summary 
 
 
-In this post, we add PBR rendering into our engine and roughness map. 
+In this post, we add cubemap and reflection into our engine.
 
-- Microfacet
-- BRDF
-- Fresnel
-- Roughness Map 
+- Cube Map
+- Reflection
+- Metals
 
 
 
 <!--more--> 
 ---
-# Microfacet
+#  Cube Map, Skybox
 
 
-According to PBR theory, any plane can be drawn with a small mirror called a microfacets after reaching the microscopic scale. Depending on the roughness of the plane, the orientation of these tiny mirrors can be quite inconsistent.
+A cubemap is basically a texture that contains 6 individual 2D textures that each form one side of a cube. A skybox is a (large) cube that encompasses the entire scene and contains 6 images of a surrounding environment, giving the player the illusion that the environment he's in is actually much larger than it actually is. 
 
+We use the texassemble tool, made available by Microsoft and based on the same DirectXTex library that our TextureBuilder uses.  We combine six faces to make a skybox which is used to get reflection color.
 
-
-![image](https://learnopengl.com/img/pbr/microfacets_light_rays.png)
-
-
-In this case, if a plane is rougher, the micro-planes on this plane are more disorder. The effect of the disordered orientation of these tiny mirrors is that,  the incident light tends to diverge in completely different directions, resulting in a wider range of specular reflections. Whereas, for a smooth plane, the light will generally tend to reflect in the same direction, resulting in a smaller and sharper reflection.
+![example](https://learnopengl.com/img/advanced/cubemaps_skybox.png)
 
 
 
-![Roughness](https://learnopengl.com/img/pbr/ndf.png)
 
 ----
 
-# BRDF
+# Environment Mapping Reflection
+
+
+## Reflection
+
+
+> Reflection is the property that an object (or part of an object) reflects its surrounding environment e.g. the object's colors are more or less equal to its environment based on the angle of the viewer. A mirror for example is a reflective object: it reflects its surroundings based on the viewer's angle.
 
 
 
-
-Almost all real-time rendering pipelines use a model called the Cook-Torrance BRDF.
-Cook-Torrance BRDF combines diffuse and specular reflections:
-
-    Fr = Kd*F_lambert +  Ks*F_cook-torrance
-
-BRDF, bidirectional reflection distribution function, 
-It accepts a incident (light) direction `ωi`, an exit (observation) direction `ωo`, a plane normal `n` and a parameter `a` used to represent the roughness of the micro-plane as a function of the input parameters.
-
-The BRDF can get the amount of final reflected light on a plane a ray contributes based on material property.  For example, if a plane has a perfectly smooth surface (such as a mirror), the BRDF function returns 0.0 for all incident rays `ωi`, and only one beam has the same appearance as the exit ray `ωo`. The angle of light will get a return value of 1.0.
+![image](https://learnopengl.com/img/advanced/cubemaps_reflection_theory.png)
 
 
+In shader
+
+```
+half3 worldRefl = reflect(viewDir, N);
+float3 cReflect = SampleCubeTexture(g_cube_map, g_diffuse_samplerState, worldRefl).rgb;
+```
 
 
 --------------------- 
 
 
-# Fresnel
+## Fresnel
 
 
-The Fresnel equation  describes the ratio of the reflected light to the portion of the refracted light. This ratio will vary with the angle we observe. 
+The Fresnel equation describes the ratio of the reflected light to the portion of the refracted light. This ratio will vary with the angle we observe. 
 
-When the light hits a surface, the Fresnel equation tells us the percentage of the reflected light based on the angle of observation. Using this reflection ratio and energy conservation principle, we can directly derive the part of the light that is refracted and the energy remaining in the light.
+We can still use the Schlick approximation as below. The value of `f0` change material proporty. Below is a chart of common values. 
 
-![image](https://learnopengl.com/img/pbr/fresnel.png)
 
 ```
 float F = f0 + (1.0 - f0) * pow(1.0f - VoH, 5.0);
 ```
 
-# Roughness Map 
-
-
-The Roughness map specifies how rough a surface is in texels. The sampled roughness value of a surface. A rougher surface will result in a wider, more blurred specular reflection.  While a smoother surface will result in a concentrated and clear specular reflection. 
-
-Some PBR engines use Smoothness Map, which is more intuitive to some artists. When sampling, these values are converted to ( 1.0 - smoothness), Roughness.
-
-
-Sicnce we only use one channel, in our engine we use `BC1` texture compression.
-
-
-
-## Combine
-
-![Model](https://learnopengl.com/img/pbr/textures.png)
-
----
-
-## Roughness Parameter
-
-We can adjust different rough parameters to modify material properties.
-
-
-{% youtube mmBGvla46oI %}
-
+![](https://i.loli.net/2019/04/26/5cc27adb0b9a1.png)
 
 ---
 
 
-# Example Screenshots
+# Screenshots
 
-We use a roughness map like below.
+**Gold**
 
-![](https://i.loli.net/2019/04/26/5cc246e39470c.png)
+To create a gold, we don't need its diffuse color / material color, which means in our example, the material color is black. We only need to use right Fresnel value as listed above.
 
+{% youtube vIJ4Ee78_8Q %}
 
-## Screenshots
+**Standard**
 
-
-**with roughness**
-
-{% youtube o21ROUDNRmQ %}
+{% youtube WgzK-rB-2bY %}
 
 
-**previous**
-
-{% youtube YKJIfk5pqxM %}
 
 
+---
 
 
 # Personalize
