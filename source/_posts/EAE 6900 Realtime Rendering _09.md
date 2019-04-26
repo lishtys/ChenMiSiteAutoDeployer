@@ -30,6 +30,7 @@ If these textures are calculated in the same way as calculating lighting and ima
 
 # sRGB
 
+
 A standard format used by personal computers is called sRGB. Its encoding gamma  is about 0.45 (1/2.2). This value works with a device with a display gamma of 2.5. In this case, the deviation after two gamma corrections is 0.45 * 2.5 = 1.125, So that it is visually compensated.
 
 
