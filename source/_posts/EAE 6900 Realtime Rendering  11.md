@@ -9,7 +9,7 @@ tags:
 categories: 
 - Game Engine
 - Realtime Rendering
-thumbnail: https://i.loli.net/2019/04/26/5cc218a0c16b3.gif
+thumbnail: https://i.loli.net/2019/04/28/5cc4f743788c2.gif
 toc: true
 ---
 

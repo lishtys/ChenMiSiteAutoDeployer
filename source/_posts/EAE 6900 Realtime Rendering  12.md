@@ -9,7 +9,7 @@ tags:
 categories: 
 - Game Engine
 - Realtime Rendering
-thumbnail: https://i.loli.net/2019/04/26/5cc2349d5ebf6.png
+thumbnail: https://i.loli.net/2019/04/28/5cc50dc021113.png
 toc: true
 ---
 
@@ -91,8 +91,9 @@ The Normal Map is like below.
 
 ## Screen Shots
 
+Normal map from height map :
 
-{% youtube PYH4QE6t9Tc %}
+{% youtube RAVV22QyhVU %}
 
 
 ---
@@ -104,7 +105,7 @@ The Normal Map is like below.
 
 We use a plane mesh, a diffuse texture and a normal map to create a tile wall like below.
 
-{% youtube YKJIfk5pqxM %}
+{% youtube -u7fsa7GYrI %}
 
 
 ---
@@ -127,7 +128,7 @@ Press **[↑, ↓, ←, →]** keys to move around the camera.
 
 Press **[Q],[E],[Z],[C]** keys to rotate camera left, right, up and down.
 
-Press **[A],[S],[D],[W]** keys to move around default gameobject.
+Press **[A],[S],[D],[W]** keys to move around pointlight gameobject.
 
 ---
 
