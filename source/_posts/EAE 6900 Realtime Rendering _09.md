@@ -76,9 +76,10 @@ In Unity.
 
 # Screen Shot
 
-![Before](https://i.loli.net/2019/04/22/5cbcd4705ac12.png)
+![Before](https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/After.png)
 
-![After](https://i.loli.net/2019/04/22/5cbcd46e7a3f5.png)
+![After](https://i.loli.net/2019/04/28/5cc4f3d1ae4c5.png)
+
 
 ---
 
