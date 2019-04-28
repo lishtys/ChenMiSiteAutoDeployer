@@ -9,7 +9,7 @@ tags:
 categories: 
 - Game Engine
 - Realtime Rendering
-thumbnail: https://i.loli.net/2019/04/26/5cc2864221093.gif
+thumbnail: https://i.loli.net/2019/04/28/5cc51e8f39bcf.png
 toc: true
 ---
 
@@ -89,11 +89,11 @@ float F = f0 + (1.0 - f0) * pow(1.0f - VoH, 5.0);
 
 To create a gold, we don't need its diffuse color / material color, which means in our example, the material color is black. We only need to use right Fresnel value as listed above.
 
-{% youtube vIJ4Ee78_8Q %}
+{% youtube RN0TVOR5AZs %}
 
 **Standard**
 
-{% youtube WgzK-rB-2bY %}
+{% youtube 6RgUvFJmVsA %}
 
 
 
