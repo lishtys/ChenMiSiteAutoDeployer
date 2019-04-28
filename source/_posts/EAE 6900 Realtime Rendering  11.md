@@ -78,7 +78,7 @@ A point light is located at a point in space and sends light out in all directio
 ## Point ScreenShot
 
 
-![](https://i.loli.net/2019/04/26/5cc218a0c16b3.gif)
+![](https://i.loli.net/2019/04/28/5cc4f743788c2.gif)
 
 ---
 
@@ -103,7 +103,9 @@ Press **[↑, ↓, ←, →]** keys to move around the camera.
 
 Press **[Q],[E],[Z],[C]** keys to rotate camera left, right, up and down.
 
-Press **[A],[S],[D],[W]** keys to move around default gameobject.
+---
+
+Press **[A],[S],[D],[W]** keys to move around point light.
 
 ---
 
