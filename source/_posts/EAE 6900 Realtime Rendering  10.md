@@ -81,13 +81,37 @@ cSpriteObject::cSpriteObject(float posX, float posY, float width, float height)
 
 For the right top EAE icon, it is initialized like below.
 
-```
-eae6320::Graphics::cSpriteObject eae_sprite_object(420,420,100,100);
 
 ```
+eae6320::Graphics::cSpriteObject mi_sprite_object(-0.8f,0,0.2f,0.2f);
+eae6320::Graphics::cSpriteObject eae_sprite_object(0.0f,0,0.2f,0.2f);
+
+```
+
+# Screen Shot
+
+```
+mi_sprite_object(-0.8f,0,0.2f,0.2f)
+
+```
+
+![512x512](https://i.loli.net/2019/04/30/5cc8062edd237.gif)
+
+---
+
+```
+mi_sprite_object(0.8f,0,0.2f,0.2f)
+
+```
+
+![512x512](https://i.loli.net/2019/04/30/5cc8077da9a96.gif)
+
+---
 
 
+![700x700](https://i.loli.net/2019/04/30/5cc808a18694a.gif)
 
+---
 
 # Shader 
 
@@ -113,14 +137,16 @@ Then in sprite vertex shader, we use the projected matrix to transform the quad.
 
 # Screen Shot
 
-![](https://i.loli.net/2019/04/22/5cbd3b1b28628.gif)
+![](https://i.loli.net/2019/04/30/5cc8062edd237.gif)
+
+
 ---
 
 
 # GPU 
 
 
-
+![](https://i.loli.net/2019/04/30/5cc80fec73235.png)
 
 
 ---
