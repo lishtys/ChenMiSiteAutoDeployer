@@ -128,16 +128,7 @@ Press **[A],[S],[D],[W]** keys to move around point light
 Press **[M],[N]** keys to increase/low down roughness factor. 
 
 
-***
- 
 
-
-
-# Download
-
-> Click [Download](http://chenmi.ink/dwns/MyGame_A14.zip) the game.
-
-Version: x64 - DirectX.
 
 
 
