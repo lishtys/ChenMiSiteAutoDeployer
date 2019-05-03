@@ -109,7 +109,22 @@ Normal map from height map :
 
 ---
 
-# PBR Screen Shots
+
+## EAE Height Map
+
+Then I used Photoshop creating a custom height like below
+
+![](https://i.loli.net/2019/05/03/5ccba8f33117e.png)
+
+Here is the screen shot
+
+{% youtube VlV89NZyzEg %}
+
+
+---
+
+
+# Standard Asset Screen Shots
 
 
 **Mesh**
