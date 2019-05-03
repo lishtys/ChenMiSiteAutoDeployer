@@ -87,7 +87,7 @@ The Roughness map specifies how rough a surface is in texels. The sampled roughn
 Some PBR engines use Smoothness Map, which is more intuitive to some artists. When sampling, these values are converted to ( 1.0 - smoothness), Roughness.
 
 
-Sicnce we only use one channel, in our engine we use `BC1` texture compression.
+Since we only use one channel, in our engine we use `BC4` texture compression.
 
 
 

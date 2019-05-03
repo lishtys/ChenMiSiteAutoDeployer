@@ -9,7 +9,7 @@ tags:
 categories: 
 - Game Engine
 - Realtime Rendering
-thumbnail: https://i.loli.net/2019/04/28/5cc51e8f39bcf.png
+thumbnail: https://i.loli.net/2019/05/04/5ccc9232632d0.jpg
 toc: true
 ---
 
@@ -75,7 +75,7 @@ We can still use the Schlick approximation as below. The value of `f0` change ma
 
 
 ```
-float F = f0 + (1.0 - f0) * pow(1.0f - VoH, 5.0);
+float F = f0 + (1.0 - f0) * pow(1.0f - NOV, 5.0);
 ```
 
 ![](https://i.loli.net/2019/04/26/5cc27adb0b9a1.png)
@@ -85,18 +85,26 @@ float F = f0 + (1.0 - f0) * pow(1.0f - VoH, 5.0);
 
 # Screenshots
 
-**Gold**
+
+
+**Gold (Daytime)**
 
 To create a gold, we don't need its diffuse color / material color, which means in our example, the material color is black. We only need to use right Fresnel value as listed above.
 
-{% youtube RN0TVOR5AZs %}
+{% youtube HhuembPhf-Q %}
 
-**Standard**
+**Standard(Daytime)**
 
-{% youtube 6RgUvFJmVsA %}
+{% youtube mPLtULkg8Lw %}
 
 
 
+
+**Different CubeMap**
+
+Night
+
+![](https://i.loli.net/2019/05/04/5ccc9232632d0.jpg)
 
 ---
 
