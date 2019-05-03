@@ -84,7 +84,18 @@ Then in Photoshop, we change the blue channel into white color.
 
 > Positive X should correspond to positive red, and positive Y should correspond to positive green. It should look like light is coming from the top right.
 
-The Normal Map is like below.
+The Normal Map I created is like below.
+
+![](https://i.loli.net/2019/05/03/5ccb9e4a70b1e.png)
+
+## Screen Shots
+
+{% youtube 6MqrVM38PnM %}
+
+---
+
+A better example from Nick's normal map is as following:
+
 
 ![](https://i.loli.net/2019/04/26/5cc233f956dda.png)
 
