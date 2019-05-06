@@ -83,6 +83,7 @@ The ramp texture is just a black and white picture randonmly created via photosh
 
 
 In shader
+
 ```
 float2 newUV = float2(xx, yy) / InnnerAdjust.w + InnnerAdjust.xy;
 maskColor.a = (maskColor.r + maskColor.g + maskColor.b) / 3;
@@ -100,7 +101,15 @@ Use this mask texture as well as recaculated UV values. We can define the Alpha 
 ## Animation
 
 
-Then I want to add some animation to the horse. I choose to simulate some physic effect for the tail .  At first I tried to create a mask texture based on its diffuse texture. It looks like following.
+Then I want to add some animation to the horse. I choose to simulate some animation like following video. You can see most of the models keep static. Only some parts like cloth and hair is moving.
+
+{% youtube g0uhhxN_bbk %}  
+
+
+
+
+
+At first I tried to create a mask texture based on its diffuse texture. It looks like following.
 
 ![](https://i.loli.net/2019/05/06/5ccfba66d9a1f.png)
 
