@@ -49,7 +49,7 @@ I download a free use model from Unity Asset Store. The model contains a diffuse
 
 As you can see from the picture above, we don't need to use an albedo texture at the beginning. Instead, we simply apply black color to the model.
 
-![](https://i.loli.net/2019/05/06/5ccfb885de8cc.jpg)
+![](https://i.imgur.com/Q0b75R9.jpg)
 
 
 ## Edge Detection
