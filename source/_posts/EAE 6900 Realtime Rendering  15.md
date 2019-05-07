@@ -75,9 +75,9 @@ if(NOV>threshold)
 
 ## Inner color
 
-To create a ink effect, we also need to mix color. I decided to recaculate the UV for inner vertices using `cos` and `sin` combined with a ramp texture.
+To create a ink effect, we also need to mix color. I decided to recalculate the UV for inner vertices using `cos` and `sin` combined with a ramp texture.
 
-The ramp texture is just a black and white picture randonmly created via photoshop brush.
+The ramp texture is just a black and white picture randomly created via photoshop brush.
 
 ![](https://i.loli.net/2019/05/06/5ccfba68a9901.jpg)
 
@@ -89,10 +89,10 @@ float2 newUV = float2(xx, yy) / InnnerAdjust.w + InnnerAdjust.xy;
 maskColor.a = (maskColor.r + maskColor.g + maskColor.b) / 3;
 ```
 
-Use this mask texture as well as recaculated UV values. We can define the Alpha value for the inner part. Then put the shader into our horse model. You can see the screen shots
+Use this mask texture as well as recalculated UV values. We can define the Alpha value for the inner part. Then put the shader into our horse model. You can see the screen shots
 
 
-![](https://i.loli.net/2019/05/06/5ccfb7adc275d.jpg)
+![](https://i.imgur.com/YfR0vGi.jpg)
 
 
 --------------------- 
