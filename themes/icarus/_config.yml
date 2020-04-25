@@ -1,37 +1,94 @@
-# Version of the Icarus theme that is currently used
-version: 2.3.0
-# Path or URL to the website's icon
-favicon: /images/favicon.jpg
-# Path or URL to RSS atom.xml
-rss:
-# Path or URL to the website's logo to be shown on the left of the navigation bar or footer
-logo: /images/logo.png
-# Open Graph metadata
-# https://hexo.io/docs/helpers.html#open-graph
-open_graph:
-    # Facebook App ID
-    fb_app_id:
-    # Facebook Admin ID
-    fb_admins:
-    # Twitter ID
-    twitter_id:
-    # Twitter site
-    twitter_site:
-    # Google+ profile link
-    google_plus:
-# Navigation bar link settings
+# Version of the configuration file
+version: 3.0.0
+# Path or URL to the website's logo
+logo: /img/logo.png 
+# Page metadata configurations
+head:
+    # URL or path to the website's icon
+    favicon: /img/favicon.png
+    # Canonical URL of the current page
+    canonical_url:
+    # Open Graph metadata
+    # https://hexo.io/docs/helpers.html#open-graph
+    open_graph:
+        # Page title (og:title) (optional)
+        # You should leave this blank for most of the time
+        title: Forrest Mi
+        # Page type (og:type) (optional)
+        # You should leave this blank for most of the time
+        type: 
+        # Page URL (og:url) (optional)
+        # You should leave this blank for most of the time
+        url: 
+        # Page cover (og:image) (optional) Default to the Open Graph image or thumbnail of the page
+        # You should leave this blank for most of the time
+        image: 
+        # Site name (og:site_name) (optional)
+        # You should leave this blank for most of the time
+        site_name: 
+        # Page author (article:author) (optional)
+        # You should leave this blank for most of the time
+        author: Forrest Mi
+        # Page description (og:description) (optional)
+        # You should leave this blank for most of the time
+        description: Game Dev, Interactive Media, Creative World. Chen Mi | Forrest Mi | 糜棽
+        # Twitter card type (twitter:card)
+        twitter_card:
+        # Twitter ID (twitter:creator)
+        twitter_id:
+        # Twitter ID (twitter:creator)
+        twitter_site:
+        # Google+ profile link (deprecated)
+        google_plus:
+        # Facebook admin ID
+        fb_admins:
+        # Facebook App ID
+        fb_app_id:
+    # Structured data of the page
+    # https://developers.google.com/search/docs/guides/intro-structured-data
+    structured_data:
+        # Page title (optional)
+        # You should leave this blank for most of the time
+        title: 
+        # Page description (optional)
+        # You should leave this blank for most of the time
+        description: 
+        # Page URL (optional)
+        # You should leave this blank for most of the time
+        url: 
+        # Page author (article:author) (optional)
+        # You should leave this blank for most of the time
+        author: 
+        # Page images (optional) Default to the Open Graph image or thumbnail of the page
+        # You should leave this blank for most of the time
+        image: /img/avatar.png
+    # Additional HTML meta tags in an array
+    meta:
+        # Meta tag specified in <attribute>=<value> style
+        # E.g., name=theme-color;content=#123456 => <meta name="theme-color" content="#123456">
+        - ''
+    # URL or path to the website's RSS atom.xml
+    rss: /atom.xml
+# Page top navigation bar configurations
 navbar:
-    # Navigation bar menu links
+    # Naviagtion menu items
     menu:
         Home: /
         Profile: /profile
-        Portfolio: /portfolio
+        Portfilio: /portfolio
         Archives: /archives
         Categories: /categories
         Tags: /tags
-    # Navigation bar links to be shown on the right
+        Media: /media
+        Album: /album
+        # Friend: /friend
+        Notes: /self-talking
+        # Message: /message
+        About: /about
+    # Links to be shown on the right of the navigation bar
     links:
-# Footer section link settings
+
+# Page footer configurations
 footer:
     # Links to be shown on the right of the footer section
     links:
@@ -41,30 +98,28 @@ footer:
         Attribution 4.0 International:
             icon: fab fa-creative-commons-by
             url: 'https://creativecommons.org/licenses/by/4.0/'
-# Article display settings
+
+# Article related configurations
 article:
-    # Code highlight theme
-    # https://github.com/highlightjs/highlight.js/tree/master/src/styles
-    highlight: tomorrow-night
-    # Whether to show article thumbnail images
+    # Code highlight settings
+    highlight:
+        # Code highlight themes
+        # https://github.com/highlightjs/highlight.js/tree/master/src/styles
+        theme: atom-one-dark
+        # Show copy code button
+        clipboard: true
+        # Default folding status of the code blocks. Can be "", "folded", "unfolded"
+        fold: unfolded
+    # Whether to show thumbnail image for every article
     thumbnail: true
-    # Whether to show estimate article reading time
+    # Whether to show estimated article reading time
     readtime: true
-# Search plugin settings
-# http://ppoffice.github.io/hexo-theme-icarus/categories/Configuration/Search-Plugins
+# Search plugin configurations
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Search/
 search:
-    # Name of the search plugin
     type: insight
-# Comment plugin settings
-# http://ppoffice.github.io/hexo-theme-icarus/categories/Configuration/Comment-Plugins
-comment:
-    # Name of the comment plugin
-    type: livere
-    uid: MTAyMC80Mjg4Ny8xOTQzMw==
-# Donation entries
-# http://ppoffice.github.io/hexo-theme-icarus/categories/Donation/
-# Donation entries
-# http://ppoffice.github.io/hexo-theme-icarus/categories/Donation/
+
+# Donate plugin configurations
 # donate:
 #     -
 #         # Donation entry name
@@ -88,38 +143,68 @@ comment:
 #         type: patreon
 #         # URL to the Patreon page
 #         url: https://www.patreon.com/
-# Share plugin settings
-# http://ppoffice.github.io/hexo-theme-icarus/categories/Configuration/Share-Plugins
+#    -
+#    -
+#        type: patreon
+#        # URL to the Patreon page
+#        url: ''
+#    # Paypal donate button configurations
+#    -
+#        type: paypal
+#        # Paypal business ID or email address
+#        business: ''
+#        # Currency code
+#        currency_code: USD
+#    # Wechat donate button configurations
+#    -
+#        type: wechat
+#        # Wechat qrcode image URL
+#        qrcode: ''
+# Share plugin configurations
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Share/
 share:
     # Share plugin name
     type: sharethis
     install_url: //platform-api.sharethis.com/js/sharethis.js#property=5bd3445bee8c700011929deb&product=inline-share-buttons
-# Sidebar settings.
+# Sidebar configurations.
 # Please be noted that a sidebar is only visible when it has at least one widget
 sidebar:
-    # left sidebar settings
+    # Left sidebar configurations
     left:
-        # Whether the left sidebar is sticky when page scrolls
-        # http://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/make-a-sidebar-sticky-when-page-scrolls/
-        sticky: false
-    # right sidebar settings
+        # Whether the sidebar sticks to the top when page scrolls
+        sticky: true
+    # Right sidebar configurations
     right:
-        # Whether the right sidebar is sticky when page scrolls
-        # http://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/make-a-sidebar-sticky-when-page-scrolls/
+        # Whether the sidebar sticks to the top when page scrolls
         sticky: false
-# Sidebar widget settings
+# Sidebar widget configurations
 # http://ppoffice.github.io/hexo-theme-icarus/categories/Widgets/
+# 注释对应的节点，包括”-“一起注释掉，相应的widget不显示
 widgets:
     -
-        # Widget name
-        type: profile
+        # Where should the widget be placed, left sidebar or right sidebar
         position: left
-        author: Chen Mi (Lishtys) 
-        author_title: Game Engineer & Designer
-        location: Salt Lake City, USA
-        avatar: 
-        gravatar: 
+        type: toc
+    # Profile widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: left
+        type: profile
+        # Author name
+        author: Forrest Mi 
+        # Title of the author to be shown in the profile widget
+        author_title: Game Engineer
+        # Author's current location to be shown in the profile widget
+        location: San Jose, CA
+        # Path or URL to the avatar to be shown in the profile widget
+        avatar: /img/avatar.png
+        # Whether show the rounded avatar image
+        avatar_rounded: true
+        # Email address for the Gravatar
+        gravatar:
+        # URL or path for the follow button
         follow_link: 'https://github.com/lishtys/'
+        # Links to be shown on the bottom of the profile widget
         social_links:
             Email:
                 icon: fa fa-envelope
@@ -133,83 +218,102 @@ widgets:
             Github:
                 icon: fab fa-github
                 url: 'https://github.com/lishtys/'
+            RSS:
+                icon: fas fa-rss
+                url: /atom.xml
+        has_hitokoto: true #左边一言开关，true-开，false-关       
+
+    # Recommendation links widget configurations
+    # Table of contents widget configurations
     -
-        # Widget name
-        type: toc
-        # Where should the widget be placed, left or right
-        position: left
+        position: right
+        type: latest_comment
+#    -
+#        # Where should the widget be placed, left sidebar or right sidebar
+#        position: left
+#        type: links
+#        # Names and URLs of the sites
+#        links:
+#            Hexo: 'https://hexo.io'
+#            Bulma: 'https://bulma.io'
+    # Recent posts widget configurations
     -
-        # Widget name
-        type: links
-        # Where should the widget be placed, left or right
-        position: left
-        # Links to be shown in the links widget
-        links:
-            Bilibili: 'https://space.bilibili.com/2868116/'
-    -
-        # Widget name
-        type: category
-        # Where should the widget be placed, left or right
-        position: left
-    -
-        # Widget name
-        type: tagcloud
-        # Where should the widget be placed, left or right
-        position: left
-    -
-        # Widget name
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
         type: recent_posts
-        # Where should the widget be placed, left or right
-        position: right
+    # Categories widget configurations
     -
-        # Widget name
-        type: archive
-        # Where should the widget be placed, left or right
+        # Where should the widget be placed, left sidebar or right sidebar
         position: right
+        type: categories
+    # Archives widget configurations
     -
-        # Widget name
-        type: tag
-        # Where should the widget be placed, left or right
+        # Where should the widget be placed, left sidebar or right sidebar
         position: right
-# Other plugin settings
+        type: archives
+    # Tags widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
+        type: tags
+    # Google FeedBurner email subscription widget configurations
+    # -
+        # Where should the widget be placed, left sidebar or right sidebar
+        # position: right
+        # type: subscribe_email
+        # # Hint text under the email input
+        # description: Enter the mailbox to start subscribing
+        # # Feedburner ID
+        # feedburner_id: removeifFeedsId
+    # Google AdSense unit configurations
+#    -
+#        # Where should the widget be placed, left sidebar or right sidebar
+#        position: left
+#        type: adsense
+#        # AdSense client ID
+#        client_id: ''
+#        # AdSense AD unit ID
+#        slot_id: ''
+# Plugin configurations
 plugins:
-    # Enable page animations
+    # Enable page startup animations
     animejs: true
-    # Enable the lightGallery and Justified Gallery plugins
-    # http://ppoffice.github.io/hexo-theme-icarus/Plugins/General/gallery-plugin/
-    gallery: true
-    # Enable the Outdated Browser plugin
-    # http://outdatedbrowser.com/
-    outdated-browser: true
-    # Enable the MathJax plugin
-    # http://ppoffice.github.io/hexo-theme-icarus/Plugins/General/mathjax-plugin/
-    mathjax: true
-    # Show the back to top button on mobile devices
-    back-to-top: true
-    # Google Analytics plugin settings
-    # http://ppoffice.github.io/hexo-theme-icarus/Plugins/General/site-analytics-plugin/#Google-Analytics
-    google-analytics:
-        # Google Analytics tracking id
-        tracking_id: UA-135283636-1
+    # Show the "back to top" button
+    back_to_top: true
     # Baidu Analytics plugin settings
-    # http://ppoffice.github.io/hexo-theme-icarus/Plugins/General/site-analytics-plugin/#Baidu-Analytics
-    baidu-analytics:
-        # Baidu Analytics tracking id
+    # https://tongji.baidu.com
+    baidu_analytics:
+        # Baidu Analytics tracking ID
         tracking_id:
-    # Hotjar user feedback plugin
-    # http://ppoffice.github.io/hexo-theme-icarus/Plugins/General/site-analytics-plugin/#Hotjar
-    hotjar:
-        # Hotjar site id
-        site_id:
-    # Show a loading progress bar at top of the page
-    progressbar: true
-    # Show the copy button in the highlighted code area
-    clipboard: true
     # BuSuanZi site/page view counter
     # https://busuanzi.ibruce.info
     busuanzi: true
+    # Enable the lightGallery and Justified Gallery plugins
+    # https://ppoffice.github.io/hexo-theme-icarus/Plugins/General/gallery-plugin/
+    gallery: true
+    # Google Analytics plugin settings
+    # https://analytics.google.com
+    google_analytics:
+        # Google Analytics tracking ID
+        tracking_id: UA-135283636-1
+    # Hotjar user feedback plugin
+    # https://www.hotjar.com/
+    hotjar:
+        # Hotjar site id
+        site_id:
+    # Enable the KaTeX math typesetting supprot
+    # https://katex.org/
+    katex: false
+    # Enable the MathJax math typesetting support
+    # https://www.mathjax.org/
+    mathjax: false
+    # Enable the Outdated Browser plugin
+    # http://outdatedbrowser.com/
+    outdated_browser: false
+    # Show a progress bar at top of the page on page loading
+    progressbar: true
 # CDN provider settings
-# http://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/speed-up-your-site-with-custom-cdn/
+# https://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/speed-up-your-site-with-custom-cdn/
 providers:
     # Name or URL of the JavaScript and/or stylesheet CDN provider
     cdn: jsdelivr
@@ -217,3 +321,72 @@ providers:
     fontcdn: google
     # Name or URL of the webfont Icon CDN provider
     iconcdn: fontawesome
+    # https://cdn.jsdelivr.net/gh/removeif/removeif.github.io@v1.0.6/json_data/record.json, cdn前缀，对于hexo new page 页面中引用的资源文件不生效，需要手动改，如friend友链页中引用的资源
+    my_cdn_pre: #https://cdn.jsdelivr.net/gh/removeif/removeif.github.io@v2.2.1
+
+# Comment plugin configurations
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Comment/
+comment:
+    # type: gitalk
+    # language: zh-CN #zh-CN #Localization language key, en, zh-CN and zh-TW are currently available.
+    # owner: removeif         # (required) GitHub user name
+    # repo: blog_comment          # (required) GitHub repository name
+    # client_id: 46a9f3481b46ea0129d8     # (required) OAuth application client id
+    # client_secret: 79c7c9cb847e141757d7864453bcbf89f0655b24 # (required) OAuth application client secret
+    # admin: ['removeif']
+    # create_issue_manually: true
+    # distraction_free_mode: false
+    # has_hot_recommend: true # 是否有热门推荐
+    # has_latest_comment: true #是否有最新评论
+
+    # Name of the comment plugin
+    type: livere
+    uid: MTAyMC80Mjg4Ny8xOTQzMw==
+
+# comment:
+#     type: valine
+#     app_id: rOtVIhvG3kd7QkMKe3naSU9R-gzGzoHsz
+#     app_key: F2sNV0CkqvbPat45di3DEn3z
+#     notify: false
+#     verify: false
+#     avatar: 'mp'
+#     placeholder: '留下您的高见！'
+#     has_latest_comment: true #是否有最新评论 true-有，false-无
+#     owner: 辣椒の酱 #博主名 最新评论标注[博主]
+
+
+# utteranc site: https://utteranc.es/
+# comment:
+#     type: utteranc
+#     repo: removeif/utteranc_comment # (required) GitHub userName & repository name
+#     issue_term: pathname 
+#     issue_number: 
+#     label: 
+#     theme: github-light
+  
+global_gray: false #true 全局灰色，特定时期可以开启，false-不开启
+
+has_banner: false #首页是否有banner，true-是，false-否，如果配置了热门推荐显示热门推荐，banner配置数据在json_data/banner.json里按照配置格式配置好，至少三条
+
+has_latest_modify_time: true #是否显示最后修改时间 true开启，false-关闭   
+
+busuanzi_only_count: false #当上面plugins中busuanzi: true时，此配置busuanzi_only_count为true时，网站不显示不蒜子统计数据，但是会每次统计。false时显示统计数据。
+
+has_copyright: true # 文中是否显示copyright true开启，false-关闭   
+
+# http://sachinchoolur.github.io/lightGallery/docs/api.html 
+lightgallery_is_full: true #图片灯箱是否显示完整的插件(包括放大，分享等)，true-显示，false-显示简洁版
+
+website_start_time: 2017/12/15 00:00:00 #网站运行开始时间,不填不显示
+
+footer_registered_no: #川ICP备88888888号-8 #备案号
+
+footer_copyright_dsec: 
+
+has_live_2D_switch: false #live2D开关 true-开 false-关
+
+side_music_netease_id: 36227867 #侧边栏网易云歌单id
+
+use_pjax: false #是否开启pjax，false-不开启，true-开启，开启后局部更新网页信息，切换页面背景音乐不间断等特性
+
+index_show_tags_cateories: true #首页文章item面板是否显示tag和categories
