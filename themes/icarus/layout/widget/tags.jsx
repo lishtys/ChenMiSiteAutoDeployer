@@ -27,7 +27,7 @@ class Tags extends Component {
                     {!isPage && count >= 20 ?
                         <div className="field is-grouped is-grouped-multiline">
                             <a className="tags has-addons" href={allUrl}>
-                                <span className="tag">查看全部>></span>
+                                <span className="tag">View All>></span>
                             </a>
                         </div> : null
                     }

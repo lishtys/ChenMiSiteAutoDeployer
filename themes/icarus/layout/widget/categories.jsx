@@ -37,7 +37,7 @@ class Categories extends Component {
                         {count.n >= 10 && !isPage ?
                             <a className="level is-mobile is-marginless" href={allUrl}>
                                 <span className="level-start">
-                                    <span className="level-item">查看全部>></span>
+                                    <span className="level-item">View All>></span>
                                 </span>
                             </a> : null
                         }
