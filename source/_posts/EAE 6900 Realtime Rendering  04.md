@@ -1,5 +1,5 @@
 ﻿---
-title: EAE 6900 Realtime Rendering - Materials
+title: Realtime Rendering - Materials
 date: 2019-02-10 04:24:00
 tags: 
 - Entertainment Arts Engineering 

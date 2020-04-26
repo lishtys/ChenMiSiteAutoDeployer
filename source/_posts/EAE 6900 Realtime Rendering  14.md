@@ -1,5 +1,5 @@
 ﻿---
-title: EAE 6900 Realtime Rendering - CubeMap, Reflection, Metals
+title: Realtime Rendering - CubeMap, Reflection, Metals
 date: 2019-04-25 22:12:00
 tags: 
 - Entertainment Arts Engineering 

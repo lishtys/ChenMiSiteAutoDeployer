@@ -1,5 +1,5 @@
 ﻿---
-title: EAE 6900 Realtime Rendering - Normal Map
+title: Realtime Rendering - Normal Map
 date: 2019-04-25 14:22:00
 tags: 
 - Entertainment Arts Engineering 

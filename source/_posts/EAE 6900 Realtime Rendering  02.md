@@ -1,5 +1,5 @@
 ﻿---
-title: EAE 6900 Realtime Rendering - Shader & Transforms
+title: Realtime Rendering - Shader & Transforms
 date: 2019-02-09 10:41:00
 tags: 
 - Entertainment Arts Engineering 
@@ -8,7 +8,6 @@ tags:
 categories: 
 - Game Engine
 - Realtime Rendering
-- Shader
 thumbnail: https://images.slideplayer.com/34/8318378/slides/slide_11.jpg
 toc: true
 ---

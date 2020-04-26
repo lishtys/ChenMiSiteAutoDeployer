@@ -1,5 +1,5 @@
 ﻿---
-title: EAE 6900 Realtime Rendering - PBR
+title: Realtime Rendering - PBR
 date: 2019-04-25 20:22:00
 tags: 
 - Entertainment Arts Engineering 

@@ -1,5 +1,5 @@
 ﻿---
-title: EAE 6900 Realtime Rendering - Sprite, UI
+title: Realtime Rendering - Sprite, UI
 date: 2019-04-21 20:30:00
 tags: 
 - Entertainment Arts Engineering 

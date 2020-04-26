@@ -1,5 +1,5 @@
 ﻿---
-title: EAE 6900 Realtime Rendering - Sampler, Mipmap, UV Animation
+title: Realtime Rendering - Sampler, Mipmap, UV Animation
 date: 2019-02-12 15:52:00
 tags: 
 - Entertainment Arts Engineering 

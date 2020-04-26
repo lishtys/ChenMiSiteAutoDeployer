@@ -1,5 +1,5 @@
 ﻿---
-title: EAE 6900 Realtime Rendering - Transparent Material
+title: Realtime Rendering - Transparent Material
 date: 2019-02-12 05:29:00
 tags: 
 - Entertainment Arts Engineering 

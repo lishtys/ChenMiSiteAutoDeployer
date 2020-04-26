@@ -1,5 +1,5 @@
 ﻿---
-title: EAE 6900 Realtime Rendering - Specular Light, Point Light
+title: Realtime Rendering - Specular Light, Point Light
 date: 2019-04-22 14:22:00
 tags: 
 - Entertainment Arts Engineering 

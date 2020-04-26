@@ -1,5 +1,5 @@
 ﻿---
-title: EAE 6900 Realtime Rendering - Texture
+title: Realtime Rendering - Texture
 date: 2019-02-12 06:38:00
 tags: 
 - Entertainment Arts Engineering 

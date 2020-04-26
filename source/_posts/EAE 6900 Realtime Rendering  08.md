@@ -1,5 +1,5 @@
 ﻿---
-title: EAE 6900 Realtime Rendering - Lighting
+title: Realtime Rendering - Lighting
 date: 2019-02-19 16:30:00
 tags: 
 - Entertainment Arts Engineering 

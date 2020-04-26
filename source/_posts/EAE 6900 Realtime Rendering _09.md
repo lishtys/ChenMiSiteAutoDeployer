@@ -1,5 +1,5 @@
 ﻿---
-title: EAE 6900 Realtime Rendering - sRGB, Gamma Correction
+title: Realtime Rendering - sRGB, Gamma Correction
 date: 2019-04-21 15:30:00
 tags: 
 - Entertainment Arts Engineering 
