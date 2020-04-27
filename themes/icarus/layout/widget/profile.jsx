@@ -1,6 +1,6 @@
 const { Component } = require('inferno');
 const gravatrHelper = require('hexo-util').gravatar;
-const { cacheComponent } = require('../util/cache');
+const { cacheComponent } = require('hexo-component-inferno/lib/util/cache');
 
 class Profile extends Component {
     renderSocialLinks(links) {
@@ -9,7 +9,7 @@ class Profile extends Component {
         }
         return <div class="level is-mobile">
             {links.filter(link => typeof link === 'object').map(link => {
-                return <a class="level-item button is-transparent is-white is-marginless"
+                return <a class="level-item button is-transparent is-marginless"
                     target="_blank" rel="noopener" title={link.name} href={link.url}>
                     {'icon' in link ? <i class={link.icon}></i> : link.name}
                 </a>;
@@ -27,21 +27,8 @@ class Profile extends Component {
             counter,
             followLink,
             followTitle,
-            socialLinks,
-            hasHitokoto,
-            hitokotoFrom,
-            hitokotoProvider
+            socialLinks
         } = this.props;
-
-        const hitokotoJs = `function getYiyan(){
-                                $.getJSON("https://v1.hitokoto.cn/", function (data) {
-                                if(data){
-                                    $('#hitokoto').html("");
-                                    $('#hitokoto').append("<strong style='color: #3273dc;'>"+data.hitokoto+"</strong>"+
-                                    "<p>"+"${hitokotoFrom}《"+data.from+"》</p><p>${hitokotoProvider}-"+data.creator+"</p>");
-                                }});}
-                                $(function (){getYiyan();$('#hitokoto').click(function(){getYiyan();})});`;
-
         return <div class="card widget">
             <div class="card-content">
                 <nav class="level">
@@ -88,19 +75,13 @@ class Profile extends Component {
                 {followLink ? <div class="level">
                     <a class="level-item button is-primary is-rounded" href={followLink} target="_blank" rel="noopener">{followTitle}</a>
                 </div> : null}
-                {this.renderSocialLinks(socialLinks)}
-                {hasHitokoto == undefined || hasHitokoto ? <div>
-                    <hr />
-                    <p id="hitokoto">:D 一言句子获取中...</p>
-                    <script type="text/javascript" dangerouslySetInnerHTML={{ __html: hitokotoJs }} defer={true}></script>
-                </div> : null}
-
+                {socialLinks ? this.renderSocialLinks(socialLinks) : null}
             </div>
         </div>;
     }
 }
 
-module.exports = cacheComponent(Profile, 'widget.profile', props => {
+Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
     const { site, helper, widget } = props;
     const {
         avatar,
@@ -110,8 +91,7 @@ module.exports = cacheComponent(Profile, 'widget.profile', props => {
         author_title,
         location,
         follow_link,
-        social_links,
-        has_hitokoto
+        social_links
     } = widget;
     const { url_for, _p, __ } = helper;
 
@@ -129,7 +109,7 @@ module.exports = cacheComponent(Profile, 'widget.profile', props => {
     const categoryCount = site.categories.filter(category => category.length).length;
     const tagCount = site.tags.filter(tag => tag.length).length;
 
-    const socialLinks = Object.keys(social_links).map(name => {
+    const socialLinks = social_links ? Object.keys(social_links).map(name => {
         const link = social_links[name];
         if (typeof link === 'string') {
             return {
@@ -142,7 +122,7 @@ module.exports = cacheComponent(Profile, 'widget.profile', props => {
             url: url_for(link.url),
             icon: link.icon
         };
-    });
+    }) : null;
 
     return {
         avatar: getAvatar(),
@@ -169,9 +149,8 @@ module.exports = cacheComponent(Profile, 'widget.profile', props => {
         },
         followLink: url_for(follow_link),
         followTitle: __('widget.follow'),
-        hitokotoFrom: __('widget.hitokoto_from'),
-        hitokotoProvider: __('widget.hitokoto_provider'),
-        socialLinks,
-        hasHitokoto: has_hitokoto
+        socialLinks
     };
 });
+
+module.exports = Profile;

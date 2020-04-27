@@ -1,31 +1,13 @@
 const logger = require('hexo-log')();
 const { Component } = require('inferno');
-const classname = require('../util/classname');
+const view = require('hexo-component-inferno/lib/core/view');
+const classname = require('hexo-component-inferno/lib/util/classname');
 
 function formatWidgets(widgets) {
     const result = {};
     if (Array.isArray(widgets)) {
         widgets.filter(widget => typeof widget === 'object').forEach(widget => {
             if ('position' in widget && (widget.position === 'left' || widget.position === 'right')) {
-                if (!(widget.position in result)) {
-                    result[widget.position] = [widget];
-                } else {
-                    result[widget.position].push(widget);
-                }
-            }
-        });
-    }
-    return result;
-}
-
-function formatAllWidgets(widgets) {
-    const result = {};
-    if (Array.isArray(widgets)) {
-        widgets.filter(widget => typeof widget === 'object').forEach(widget => {
-            if ('position' in widget && (widget.position === 'left' || widget.position === 'right')) {
-                if(widget.position === 'right'){
-                    widget.position = 'left';
-                }
                 if (!(widget.position in result)) {
                     result[widget.position] = [widget];
                 } else {
@@ -78,8 +60,7 @@ function isColumnSticky(config, position) {
 class Widgets extends Component {
     render() {
         const { site, config, helper, page, position } = this.props;
-        // 左右槽
-        const widgets = (page.layout == 'post' || page.layout == 'page') ? formatAllWidgets(config.widgets)[position] || [] : formatWidgets(config.widgets)[position] || [];
+        const widgets = formatWidgets(config.widgets)[position] || [];
         const columnCount = getColumnCount(config.widgets);
 
         if (!widgets.length) {
@@ -100,15 +81,14 @@ class Widgets extends Component {
                     return null;
                 }
                 try {
-                    const Widget = require('../widget/' + widget.type);
+                    let Widget = view.require('widget/' + widget.type);
+                    Widget = Widget.Cacheable ? Widget.Cacheable : Widget;
                     return <Widget site={site} helper={helper} config={config} page={page} widget={widget} />;
                 } catch (e) {
                     logger.w(`Icarus cannot load widget "${widget.type}"`);
                 }
                 return null;
             })}
-
-            {/*此处放开可以在非桌面设备上并且非文章情况下展示right widget,否则不展示*/}
             {position === 'left' && hasColumn(config.widgets, 'right') ? <div class={classname({
                 'column-right-shadow': true,
                 'is-hidden-widescreen': true,
