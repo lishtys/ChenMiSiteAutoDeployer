@@ -1,14 +1,14 @@
-﻿---
-title: Data Oriented Technology Stack -  Structure 
-date: 2020-04-26 18:14:00
-tags: 
-- Unity
-- DOTS
-categories: 
-- Unity
-- DOTS
-
+---
+title: Data Oriented Technology Stack -  Structure
+tags:
+  - Unity
+  - DOTS
+categories:
+  - Unity
+  - DOTS
 toc: true
+abbrlink: 34545
+date: 2020-04-26 18:14:00
 ---
 
 # DOTS Structure
