@@ -60,95 +60,7 @@ $colors = merge($colors, $custom-colors)
 /* ---------------------------------
  *          Custom Layout
  * --------------------------------- */
-+widescreen()
-    .is-1-column .container
-    .is-2-column .container
-    .is-3-column .container {
-        /* 关闭评论图片 后调节 原94%*/
-        max-width: 85%; /*screen-widescreen + 2 * extend-width - 2 * gap*/
-        width: 85%;
-    }
-    max-width: $desktop - 2 * $gap
-    width: $desktop - 2 * $gap
-    .column.is-3-widescreen {
-        flex: none;
-        width: 24%;
-    }
-    .column.is-6-widescreen {
-        width: 52%;
-    }
-    .column.is-4-widescreen {
-        flex: none;
-        width: 24%;
-    }
-    .column.is-8-widescreen {
-        width: 76%;
-    }
-    .column.is-9-widescreen {
-        width: 65%;
-    }
-    //screen-widescreen + 2 * extend-width - 2 * gap
-    .navbar > .container .navbar-brand, .container > .navbar .navbar-brand {
-        margin-left: 0%;
-    }
 
-    .navbar > .container .navbar-menu, .container > .navbar .navbar-menu {
-        margin-right: 0.5%;
-    }
-
-    .level-end {
-        margin-right: -1.5%;
-    }
-
-+fullhd()
-    .is-2-column .container
-        max-width: $widescreen - 2 * $gap
-        width: $widescreen - 2 * $gap
-    .is-1-column .container
-        max-width: $desktop - 2 * $gap
-        width: $desktop - 2 * $gap
-    .is-1-column .container
-    .is-2-column .container
-    .is-3-column .container {
-        max-width: 80%;
-        width: 80%;
-    }
-
-+tablet()
-    .column-main,
-    .column-left,
-    .column-right,
-    .column-right-shadow
-    .widget
-        &.is-sticky
-            align-self: flex-start
-            position: -webkit-sticky
-            position: sticky
-            top: .75rem
-    .column-right-shadow
-        &.is-sticky
-            top: 1.5rem
-    //参考自 https://github.com/ppoffice/hexo-theme-icarus/pull/616/files
-    .has-navbar-fixed-top
-        .column-main,
-        .column-left,
-        .column-right,
-        .column-right-shadow
-        .widget
-            &.is-sticky
-                top: 5.5rem;
-
-.section
-    padding: 3rem 1.5rem;
-
-+mobile()
-    .section
-        padding: 7rem 1.5rem;
-    .friend-card-item
-        width: 100% !important;
-    .content .gt-container .gt-comment-header {
-        width: 100%;
-    }
 
 .title
     color: $black-ter
@@ -187,104 +99,104 @@ $colors = merge($colors, $custom-colors)
 /* ---------------------------------
  *        Fix Gist Snippet
  * --------------------------------- */
-.gist
-    table
-        tr:hover
-            background: transparent
-        td
-            border: none
-    .file
-        all: initial
+// .gist
+//     table
+//         tr:hover
+//             background: transparent
+//         td
+//             border: none
+//     .file
+//         all: initial
 
 
 /* ---------------------------------
  *        Fix code highlight
  * --------------------------------- */
-figure.highlight
-    padding: 0
-    width: 100%
-    position: relative
-    margin: 1em 0 1em !important
-    &.folded
-        .highlight-body
-            height: 0
+// figure.highlight
+//     padding: 0
+//     width: 100%
+//     position: relative
+//     margin: 1em 0 1em !important
+//     &.folded
+//         .highlight-body
+//             height: 0
 
-    pre,
-    table tr:hover
-        color: inherit
-        background: transparent
+//     pre,
+//     table tr:hover
+//         color: inherit
+//         background: transparent
 
-    table
-        width: auto
+//     table
+//         width: auto
 
-        tr td
-            border: none
-        tr:not(:first-child) td
-            padding-top: 0
-        tr:not(:last-child) td
-            padding-bottom: 0
+//         tr td
+//             border: none
+//         tr:not(:first-child) td
+//             padding-top: 0
+//         tr:not(:last-child) td
+//             padding-bottom: 0
 
-    pre
-        padding: 0
-        overflow: visible
+//     pre
+//         padding: 0
+//         overflow: visible
 
-        .line,
-        code .hljs
-            line-height: 1.5rem
+//         .line,
+//         code .hljs
+//             line-height: 1.5rem
 
-    figcaption,
-    .gutter
-        background: rgba(200, 200, 200, 0.15)
+//     figcaption,
+//     .gutter
+//         background: rgba(200, 200, 200, 0.15)
 
-    figcaption
-        margin: 0 !important
-        padding: .3em .0em .3em .75em
-        font-style: normal
-        font-size: .8em
+//     figcaption
+//         margin: 0 !important
+//         padding: .3em .0em .3em .75em
+//         font-style: normal
+//         font-size: .8em
 
-        *
-            color: $grey
+//         *
+//             color: $grey
 
-        span
-            font-weight: 500
-            font-family: $family-code
+//         span
+//             font-weight: 500
+//             font-family: $family-code
 
-        .level-left *:not(:last-child)
-            margin-right: .5em
+//         .level-left *:not(:last-child)
+//             margin-right: .5em
 
-        .level-right *:not(:first-child)
-            margin-left: .5em
+//         .level-right *:not(:first-child)
+//             margin-left: .5em
 
-        .fold
-            cursor: pointer
+//         .fold
+//             cursor: pointer
 
-        &.level
-            overflow : auto
-            .level-right
-                a
-                    padding: .0em 0.75em
+//         &.level
+//             overflow : auto
+//             .level-right
+//                 a
+//                     padding: .0em 0.75em
 
 
-    .highlight-body
-        overflow: auto
+//     .highlight-body
+//         overflow: auto
 
-    .gutter
-        text-align: right
+//     .gutter
+//         text-align: right
 
-    .tag,
-    .title,
-    .number,
-    .section
-        display: inherit
-        font: inherit
-        margin: inherit
-        padding: inherit
-        background: inherit
-        height: inherit
-        text-align: inherit
-        vertical-align: inherit
-        min-width: inherit
-        border-radius: inherit
+//     .tag,
+//     .title,
+//     .number,
+//     .section
+//         display: inherit
+//         font: inherit
+//         margin: inherit
+//         padding: inherit
+//         background: inherit
+//         height: inherit
+//         text-align: inherit
+//         vertical-align: inherit
+//         min-width: inherit
+//         border-radius: inherit
 
 
 /* ---------------------------------
@@ -349,85 +261,7 @@ figure.highlight
 //                 margin-left: 0.75rem
 //                 margin-right: 0
 
-.donate
-    position: relative
-    .qrcode
-        display: none
-        position: absolute
-        z-index: 99
-        bottom: 2.5em
-        line-height: 0
-        overflow: hidden
-        border-radius: 4px
-        box-shadow: 0 4px 10px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.2)
-        img
-            max-width: 140px
-    &:hover
-        .qrcode
-            display: block
-    &:first-child:not(:last-child)
-        .qrcode
-            left: -0.75rem
-    &:last-child:not(:first-child)
-        .qrcode
-            right: -0.75rem
 
-.gallery-item
-    .caption
-        color: $grey
-
-+mobile()
-    #toc
-        display: none
-        position: fixed
-        margin: 1rem
-        left: 0
-        right: 0
-        bottom: 0
-        z-index: 100
-        max-height: calc(100vh - 2rem)
-        overflow-y: auto
-    #toc-mask
-        display: none
-        position: fixed
-        top: 0
-        left: 0
-        right: 0
-        bottom: 0
-        z-index: 99
-        background: rgba(0, 0, 0, 0.7)
-    #toc,
-    #toc-mask
-        &.is-active
-            display: block
-
-#back-to-top
-    position: fixed
-    padding: 8px 0
-    transition: 0.4s ease opacity, 0.4s ease width, 0.4s ease transform, 0.4s ease border-radius
-    opacity: 0
-    line-height: 24px
-    outline: none
-    transform: translateY(120px)
-    &.fade-in
-        opacity: 1
-    &.rise-up
-        transform: translateY(0)
-
-.pace
-    user-select: none
-    pointer-events: none
-    .pace-progress
-        top: 0
-        right: 100%
-        width: 100%
-        height: 2px
-        z-index: 2000
-        position: fixed
-        background: $primary
-
-.pace-inactive
-    display: none
 
 /* ---------------------------------
 *        ToC Extension
