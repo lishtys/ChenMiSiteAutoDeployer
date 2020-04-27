@@ -1,17 +1,18 @@
-﻿---
-title: EAE 6320  - Gameobject Animation System, Keyframes, Table
-date: 2018-11-08 07:00:00
-tags: 
-- Entertainment Arts Engineering 
-- Graphics
-- C++
-- Animation
-- EAE 6320 
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://media.giphy.com/media/Lcx1BIYn47hra/giphy.gif
+---
+title: 'EAE 6320  - Gameobject Animation System, Keyframes, Table'
+tags:
+  - Entertainment Arts Engineering
+  - Graphics
+  - C++
+  - Animation
+  - EAE 6320
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: 'https://media.giphy.com/media/Lcx1BIYn47hra/giphy.gif'
 toc: true
+abbrlink: 10090
+date: 2018-11-08 07:00:00
 ---
 
 # Updates

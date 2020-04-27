@@ -1,18 +1,20 @@
-﻿---
+---
 title: EAE 6320  - Game System Review - Animator and Animation Controller
-date: 2018-11-21 14:18:00
-tags: 
-- Entertainment Arts Engineering 
-- Graphics
-- C++
-- Animation
-- Animator Controller
-- EAE 6320 
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/Pre/AnimationCurveWindow.PNG
+tags:
+  - Entertainment Arts Engineering
+  - Graphics
+  - C++
+  - Animation
+  - Animator Controller
+  - EAE 6320
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/Pre/AnimationCurveWindow.PNG
 toc: true
+abbrlink: 13286
+date: 2018-11-21 14:18:00
 ---
 
 # Summary

@@ -1,15 +1,17 @@
-﻿---
+---
 title: EAE 6900 Realtime Rendering - Render Command
-date: 2019-02-04 10:41:00
-tags: 
-- Entertainment Arts Engineering 
-- Realtime Rendering
-- EAE 6900 
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/RTR1Banner.PNG
+tags:
+  - Entertainment Arts Engineering
+  - Realtime Rendering
+  - EAE 6900
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/RTR1Banner.PNG
 toc: true
+abbrlink: 5041
+date: 2019-02-04 10:41:00
 ---
 
 # Summary 

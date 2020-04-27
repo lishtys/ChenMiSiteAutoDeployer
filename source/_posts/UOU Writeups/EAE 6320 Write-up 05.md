@@ -1,17 +1,19 @@
-﻿---
-title: EAE 6320 Engineering II -  05 Camera, Rigid-body, Transforms, GameObject
-date: 2018-09-24 14:07:00
-tags: 
-- Entertainment Arts Engineering 
-- Graphics
-- C++
-- Camera
-- Transforms
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignFiveBanner.jpg
+---
+title: 'EAE 6320 Engineering II -  05 Camera, Rigid-body, Transforms, GameObject'
+tags:
+  - Entertainment Arts Engineering
+  - Graphics
+  - C++
+  - Camera
+  - Transforms
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignFiveBanner.jpg
 toc: true
+abbrlink: 1005
+date: 2018-09-24 14:07:00
 ---
 
 

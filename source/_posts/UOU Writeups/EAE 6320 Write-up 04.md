@@ -1,16 +1,18 @@
-﻿---
-title: EAE 6320 Engineering II -  04 Application, Graphics Threads
-date: 2018-09-18 06:50:00
-tags: 
-- Entertainment Arts Engineering 
-- Graphics
-- C++
-- Threads
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignFourBanner.jpg
+---
+title: 'EAE 6320 Engineering II -  04 Application, Graphics Threads'
+tags:
+  - Entertainment Arts Engineering
+  - Graphics
+  - C++
+  - Threads
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignFourBanner.jpg
 toc: true
+abbrlink: 35772
+date: 2018-09-18 06:50:00
 ---
 
 Right now, all the rendering inputs are implemented within <code>[Graphics]</code> project, which belongs to engine module not game module.  

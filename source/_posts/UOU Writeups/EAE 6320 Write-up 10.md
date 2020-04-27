@@ -1,19 +1,20 @@
-﻿---
+---
 title: EAE 6320  -  Engine System Proposal
-date: 2018-11-01 18:37:00
-tags: 
-- Entertainment Arts Engineering 
-- Graphics
-- C++
-- FBX
-- Animation
-- Texture
-- EAE 6320 
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://thumbs.gfycat.com/KindlyBoldLeafwing-max-1mb.gif
+tags:
+  - Entertainment Arts Engineering
+  - Graphics
+  - C++
+  - FBX
+  - Animation
+  - Texture
+  - EAE 6320
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: 'https://thumbs.gfycat.com/KindlyBoldLeafwing-max-1mb.gif'
 toc: true
+abbrlink: 58439
+date: 2018-11-01 18:37:00
 ---
 
 # General Functions

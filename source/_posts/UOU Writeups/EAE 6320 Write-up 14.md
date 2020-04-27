@@ -1,15 +1,16 @@
-﻿---
+---
 title: EAE 6320  - Final Project Proposal - 3D Flappy Bird.
-date: 2018-12-02 14:18:00
-tags: 
-- Entertainment Arts Engineering 
-- Graphics
-- C++
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://media.giphy.com/media/nIEkrTYEy2DQY/giphy.gif
+tags:
+  - Entertainment Arts Engineering
+  - Graphics
+  - C++
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: 'https://media.giphy.com/media/nIEkrTYEy2DQY/giphy.gif'
 toc: true
+abbrlink: 62671
+date: 2018-12-02 14:18:00
 ---
 
 # Summary

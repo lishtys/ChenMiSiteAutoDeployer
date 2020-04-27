@@ -1,15 +1,17 @@
-﻿---
+---
 title: EAE 6320  - Final Project - 3D Flappy Bird.
-date: 2018-12-12 08:11:00
-tags: 
-- Entertainment Arts Engineering 
-- Graphics
-- C++
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/fBanner.png
+tags:
+  - Entertainment Arts Engineering
+  - Graphics
+  - C++
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/fBanner.png
 toc: true
+abbrlink: 32174
+date: 2018-12-12 08:11:00
 ---
 # Summary 
 

@@ -1,16 +1,17 @@
-﻿---
+---
 title: Realtime Rendering - PBR
-date: 2019-04-25 20:22:00
-tags: 
-- Entertainment Arts Engineering 
-- Realtime Rendering
-- PBR
-- EAE 6900
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://i.loli.net/2019/04/26/5cc27eb2a06d8.gif
+tags:
+  - Entertainment Arts Engineering
+  - Realtime Rendering
+  - PBR
+  - EAE 6900
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: 'https://i.loli.net/2019/04/26/5cc27eb2a06d8.gif'
 toc: true
+abbrlink: 9742
+date: 2019-04-25 20:22:00
 ---
 
 # Summary 

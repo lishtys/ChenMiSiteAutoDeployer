@@ -1,9 +1,11 @@
 ---
 title: 去美国，学游戏
-date: 2017-08-03 22:30:37
 tags: 随笔
 categories: 中文博客
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/Banner-Start.jpg
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/Banner-Start.jpg
+abbrlink: 42210
+date: 2017-08-03 22:30:37
 ---
 
 

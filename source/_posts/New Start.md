@@ -1,11 +1,12 @@
 ---
 title: 在美国，三两事
-date: 2017-08-11 20:48:42
 tags: 游记
-categories: 
-- 中文博客
-- 游而远行
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/21.jpg
+categories:
+  - 中文博客
+  - 游而远行
+thumbnail: 'https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/21.jpg'
+abbrlink: 8824
+date: 2017-08-11 20:48:42
 ---
 
 

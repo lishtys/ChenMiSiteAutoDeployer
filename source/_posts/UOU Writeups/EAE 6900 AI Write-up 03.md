@@ -1,15 +1,16 @@
-﻿---
+---
 title: EAE 6900 Game AI - Decision Making
-date: 2019-04-14 13:14:00
-tags: 
-- Entertainment Arts Engineering 
-- OpenFrameworks
-- Game AI
-categories: 
-- Game AI
-- EAE 6900 - 023
-thumbnail: https://i.ytimg.com/vi/5p6OAEVKw-0/maxresdefault.jpg
+tags:
+  - Entertainment Arts Engineering
+  - OpenFrameworks
+  - Game AI
+categories:
+  - Game AI
+  - EAE 6900 - 023
+thumbnail: 'https://i.ytimg.com/vi/5p6OAEVKw-0/maxresdefault.jpg'
 toc: true
+abbrlink: 886
+date: 2019-04-14 13:14:00
 ---
 
 # Summary 

@@ -1,16 +1,17 @@
-﻿---
-title: Realtime Rendering - CubeMap, Reflection, Metals
-date: 2019-04-25 22:12:00
-tags: 
-- Entertainment Arts Engineering 
-- Realtime Rendering
-- CubeMap
-- EAE 6900
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://i.loli.net/2019/05/04/5ccc9232632d0.jpg
+---
+title: 'Realtime Rendering - CubeMap, Reflection, Metals'
+tags:
+  - Entertainment Arts Engineering
+  - Realtime Rendering
+  - CubeMap
+  - EAE 6900
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: 'https://i.loli.net/2019/05/04/5ccc9232632d0.jpg'
 toc: true
+abbrlink: 51177
+date: 2019-04-25 22:12:00
 ---
 
 # Summary 

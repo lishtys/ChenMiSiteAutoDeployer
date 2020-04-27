@@ -1,15 +1,17 @@
-﻿---
+---
 title: EAE 6320 Engineering II - 01 Project Setup
-date: 2018-08-27 22:18:00
-tags: 
-- Entertainment Arts Engineering 
-- Graphics
-- C++
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/BannnerEngII01.jpg
+tags:
+  - Entertainment Arts Engineering
+  - Graphics
+  - C++
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/BannnerEngII01.jpg
 toc: true
+abbrlink: 28950
+date: 2018-08-27 22:18:00
 ---
 
 

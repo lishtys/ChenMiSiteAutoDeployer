@@ -1,15 +1,17 @@
-﻿---
+---
 title: EAE 6320 Engineering II -  03 Further Graphic Independent
-date: 2018-09-12 06:42:00
-tags: 
-- Entertainment Arts Engineering 
-- Graphics
-- C++
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignThreeBanner.png
+tags:
+  - Entertainment Arts Engineering
+  - Graphics
+  - C++
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignThreeBanner.png
 toc: true
+abbrlink: 26488
+date: 2018-09-12 06:42:00
 ---
 
 

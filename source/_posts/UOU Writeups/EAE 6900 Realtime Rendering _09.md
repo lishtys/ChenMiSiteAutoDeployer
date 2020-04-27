@@ -1,16 +1,17 @@
-﻿---
-title: Realtime Rendering - sRGB, Gamma Correction
-date: 2019-04-21 15:30:00
-tags: 
-- Entertainment Arts Engineering 
-- Realtime Rendering
-- Gamma
-- EAE 6900
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://i.loli.net/2019/04/22/5cbcd4ee5101a.jpg
+---
+title: 'Realtime Rendering - sRGB, Gamma Correction'
+tags:
+  - Entertainment Arts Engineering
+  - Realtime Rendering
+  - Gamma
+  - EAE 6900
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: 'https://i.loli.net/2019/04/22/5cbcd4ee5101a.jpg'
 toc: true
+abbrlink: 8686
+date: 2019-04-21 15:30:00
 ---
 
 # Summary 

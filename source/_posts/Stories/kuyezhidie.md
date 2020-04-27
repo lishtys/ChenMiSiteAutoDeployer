@@ -1,12 +1,14 @@
 ---
 title: 残阳销雪，枯叶舞蝶
-date: 2012-02-07 22:22:56
 tags: 谁没有段旧时光
-categories: 
-- 中文博客
-- 谁没有段旧时光
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/TripBeijing1.JPG
+categories:
+  - 中文博客
+  - 谁没有段旧时光
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/TripBeijing1.JPG
 toc: true
+abbrlink: 42013
+date: 2012-02-07 22:22:56
 ---
 
 

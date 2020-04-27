@@ -1,19 +1,21 @@
-﻿---
-title: EAE 6320 Engineering II -  09 Binary Effects, Shader Independent 
-date: 2018-10-31 12:12:00
-tags: 
-- Entertainment Arts Engineering 
-- Graphics
-- C++
-- Binary
-- Shader
-- Lua
-- EAE 6320 
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/A09Banner.png
+---
+title: 'EAE 6320 Engineering II -  09 Binary Effects, Shader Independent'
+tags:
+  - Entertainment Arts Engineering
+  - Graphics
+  - C++
+  - Binary
+  - Shader
+  - Lua
+  - EAE 6320
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/A09Banner.png
 toc: true
+abbrlink: 4575
+date: 2018-10-31 12:12:00
 ---
 
 

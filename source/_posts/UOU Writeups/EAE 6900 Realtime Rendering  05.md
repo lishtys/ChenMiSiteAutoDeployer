@@ -1,15 +1,17 @@
-﻿---
+---
 title: Realtime Rendering - Transparent Material
-date: 2019-02-12 05:29:00
-tags: 
-- Entertainment Arts Engineering 
-- Realtime Rendering
-- EAE 6900 
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/RTR005.gif
+tags:
+  - Entertainment Arts Engineering
+  - Realtime Rendering
+  - EAE 6900
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/RTR005.gif
 toc: true
+abbrlink: 7603
+date: 2019-02-12 05:29:00
 ---
 
 # Summary 

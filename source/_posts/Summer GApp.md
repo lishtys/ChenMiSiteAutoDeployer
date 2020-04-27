@@ -1,11 +1,12 @@
 ---
 title: 归国前后（四）— 暑期
-date: 2018-06-29 01:50:56
 tags: 游记
-categories: 
-- 中文博客
-- 游而远行
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/lagoon.jpg
+categories:
+  - 中文博客
+  - 游而远行
+thumbnail: 'https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/lagoon.jpg'
+abbrlink: 57626
+date: 2018-06-29 01:50:56
 ---
 {% aplayer "故梦" "双笙" "https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/Music/%E5%8F%8C%E7%AC%99%20-%20%E6%95%85%E6%A2%A6.mp3" "https://p1.music.126.net/GZJY3Iz7TacxI3pr4jvQYQ==/18007801439911769.jpg" %}
 

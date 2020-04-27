@@ -1,18 +1,19 @@
-﻿---
-title: EAE 6320  - Multiple Animation Clips, Binary  
-date: 2018-11-14 20:49:00
-tags: 
-- Entertainment Arts Engineering 
-- Graphics
-- C++
-- Animation
-- Binary
-- EAE 6320 
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://media.giphy.com/media/12kd8g767vzGXm/giphy.gif
+---
+title: 'EAE 6320  - Multiple Animation Clips, Binary'
+tags:
+  - Entertainment Arts Engineering
+  - Graphics
+  - C++
+  - Animation
+  - Binary
+  - EAE 6320
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: 'https://media.giphy.com/media/12kd8g767vzGXm/giphy.gif'
 toc: true
+abbrlink: 53438
+date: 2018-11-14 20:49:00
 ---
 
 # Updates

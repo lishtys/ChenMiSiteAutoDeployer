@@ -1,11 +1,13 @@
-﻿---
+---
 title: 盐湖城の所遇
-date: 2017-11-21 00:14:56
 tags: 游记
-categories: 
-- 中文博客
-- 游而远行
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/WeChat%20Image_20171121034757.jpg
+categories:
+  - 中文博客
+  - 游而远行
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/WeChat%20Image_20171121034757.jpg
+abbrlink: 8330
+date: 2017-11-21 00:14:56
 ---
 
 

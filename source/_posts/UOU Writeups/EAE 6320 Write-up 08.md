@@ -1,17 +1,19 @@
-﻿---
+---
 title: EAE 6320 Engineering II -  08  Binary Mesh Loader
-date: 2018-10-24 13:27:00
-tags: 
-- Entertainment Arts Engineering 
-- Graphics
-- C++
-- Binary
-- EAE 6320 
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignEightTrBanner_meitu_1.png 
+tags:
+  - Entertainment Arts Engineering
+  - Graphics
+  - C++
+  - Binary
+  - EAE 6320
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignEightTrBanner_meitu_1.png
 toc: true
+abbrlink: 39646
+date: 2018-10-24 13:27:00
 ---
 
 

@@ -1,16 +1,18 @@
-﻿---
-title: Realtime Rendering - Sampler, Mipmap, UV Animation
-date: 2019-02-12 15:52:00
-tags: 
-- Entertainment Arts Engineering 
-- Realtime Rendering
-- Texture
-- EAE 6900 
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/GPUMipLevel.gif
+---
+title: 'Realtime Rendering - Sampler, Mipmap, UV Animation'
+tags:
+  - Entertainment Arts Engineering
+  - Realtime Rendering
+  - Texture
+  - EAE 6900
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/GPUMipLevel.gif
 toc: true
+abbrlink: 20611
+date: 2019-02-12 15:52:00
 ---
 
 # Summary 

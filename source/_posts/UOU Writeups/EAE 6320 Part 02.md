@@ -1,15 +1,17 @@
-﻿---
-title: EAE 6320 Engineering II - Assignment 02 Mesh, Effects
-date: 2018-09-04 11:42:00
-tags: 
-- Entertainment Arts Engineering 
-- Graphics
-- C++
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/assigntwoBanner.jpg
+---
+title: 'EAE 6320 Engineering II - Assignment 02 Mesh, Effects'
+tags:
+  - Entertainment Arts Engineering
+  - Graphics
+  - C++
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/assigntwoBanner.jpg
 toc: true
+abbrlink: 6362
+date: 2018-09-04 11:42:00
 ---
 
 

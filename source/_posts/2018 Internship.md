@@ -1,11 +1,12 @@
 ---
 title: 归国前后（二）— 实习前奏
-date: 2018-06-28 10:29:56
 tags: 随笔
-categories: 
-- 中文博客
-- 2018·暑期
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/Banner1.JPG
+categories:
+  - 中文博客
+  - 2018·暑期
+thumbnail: 'https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/Banner1.JPG'
+abbrlink: 45615
+date: 2018-06-28 10:29:56
 ---
 
 ## 暑期实习

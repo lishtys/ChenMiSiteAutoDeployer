@@ -1,16 +1,17 @@
-﻿---
-title: Realtime Rendering - Specular Light, Point Light
-date: 2019-04-22 14:22:00
-tags: 
-- Entertainment Arts Engineering 
-- Realtime Rendering
-- Specular
-- EAE 6900
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://i.loli.net/2019/04/28/5cc4f743788c2.gif
+---
+title: 'Realtime Rendering - Specular Light, Point Light'
+tags:
+  - Entertainment Arts Engineering
+  - Realtime Rendering
+  - Specular
+  - EAE 6900
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: 'https://i.loli.net/2019/04/28/5cc4f743788c2.gif'
 toc: true
+abbrlink: 39899
+date: 2019-04-22 14:22:00
 ---
 
 # Summary 

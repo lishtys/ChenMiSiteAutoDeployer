@@ -1,17 +1,19 @@
-﻿---
+---
 title: EAE 6320 Engineering II -  07  Maya Mesh Exporter Plug-in
-date: 2018-10-18 02:27:00
-tags: 
-- Entertainment Arts Engineering 
-- Graphics
-- C++
-- Maya
-- EAE 6320 
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignSevenBanner.PNG
+tags:
+  - Entertainment Arts Engineering
+  - Graphics
+  - C++
+  - Maya
+  - EAE 6320
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignSevenBanner.PNG
 toc: true
+abbrlink: 33474
+date: 2018-10-18 02:27:00
 ---
 
 

@@ -1,16 +1,17 @@
-﻿---
-title: Realtime Rendering - Sprite, UI
-date: 2019-04-21 20:30:00
-tags: 
-- Entertainment Arts Engineering 
-- Realtime Rendering
-- Gamma
-- EAE 6900
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://i.loli.net/2019/04/22/5cbd3b1b28628.gif
+---
+title: 'Realtime Rendering - Sprite, UI'
+tags:
+  - Entertainment Arts Engineering
+  - Realtime Rendering
+  - Gamma
+  - EAE 6900
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: 'https://i.loli.net/2019/04/22/5cbd3b1b28628.gif'
 toc: true
+abbrlink: 63007
+date: 2019-04-21 20:30:00
 ---
 
 # Summary 

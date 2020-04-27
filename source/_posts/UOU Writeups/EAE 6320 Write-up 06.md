@@ -1,17 +1,19 @@
-﻿---
-title: EAE 6320 Engineering II -  06  Assets Builder, External Mesh File, Handle, Lua
-date: 2018-10-03 15:27:00
-tags: 
-- Entertainment Arts Engineering 
-- Graphics
-- C++
-- Lua
-- EAE 6320 
-categories: 
-- Game Engine
-- Realtime Rendering
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignSixBanner.png
+---
+title: 'EAE 6320 Engineering II -  06  Assets Builder, External Mesh File, Handle, Lua'
+tags:
+  - Entertainment Arts Engineering
+  - Graphics
+  - C++
+  - Lua
+  - EAE 6320
+categories:
+  - Game Engine
+  - Realtime Rendering
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/AssignSixBanner.png
 toc: true
+abbrlink: 5698
+date: 2018-10-03 15:27:00
 ---
 
 
