@@ -29,6 +29,7 @@ article
             a
                 word-wrap: break-word
 
+
 .rtl
     direction: rtl
 
@@ -66,3 +67,70 @@ article
         left: 0
         width: 100%
         height: 100%
+
+
+// Custom
+
+.article hr {
+    background-image: repeating-linear-gradient(-45deg, #ddd, #ddd 4px, transparent 4px, transparent 8px);
+    border: 0;
+    height: 3px;
+    margin: 40px 0;
+    box-sizing: content-box;
+    overflow: visible;
+}
+
+.article .content .markdown-body a img {
+    margin-right: 1%;
+    margin-top: 1%;
+    display: unset;
+}
+
+article.article .article-meta {
+    height: 41px;
+}
+
+
+.content
+    blockquote
+        background-color: whitesmoke;
+        border-left: 3px solid #6190e8;
+        padding: 1.0em 1.0em;
+        overflow auto
+
+content-h-color = #555555
+.content h1 {
+    font-size: 2em;
+    color: content-h-color
+}
+
+.content h5 {
+    color: content-h-color
+}
+
+.content h2 {
+    font-size: 1.8em;
+    color: content-h-color
+}
+
+.content h3 {
+    font-size: 1.3em;
+    color: content-h-color
+}
+
+.content h4 {
+    font-size: 1.2em;
+    color: content-h-color
+}
+
+.content h5 {
+    color: content-h-color
+}
+
+.hljs-comment, .hljs-quote {
+    color: #23d160ad !important;
+}
+
+.button.is-small {
+    border-radius: 2px;
+}
