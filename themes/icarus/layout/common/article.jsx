@@ -25,15 +25,20 @@ module.exports = class extends Component {
         const indexLaunguage = config.language || 'en';
         const language = page.lang || page.language || config.language || 'en';
         
-        {/*Custom*/}
+        /* Custom */
         var use_copyright = post_copyright == undefined || post_copyright;
         var lastModified = __('article.last_modified');
-        var copyrightTitle = __('article.copyright.title');
+         var copyrightTitle = __('article.copyright.title');
         var copyrightAuthor = __('article.copyright.author');
         var copyrightLink = __('article.copyright.link');
         var copyrightCopyrightContent = __('article.copyright.copyright_content');
         var copyrightCopyrightTitle = __('article.copyright.copyright_title');
         const copyrightPermalink = config.url + config.root + page.path;
+
+        const words = getWordCount(page._content);
+        const time = moment.duration((words / 150.0) * 60, 'seconds');
+        const timeStr = time.locale(language).humanize().replace('a few seconds', 'fast').replace('hours', 'h').replace('minutes', 'm').replace('seconds', 's').replace('days', 'd');
+        const wordsCount = (words / 1000.0).toFixed(1);
 
         return <Fragment>
             {/* Main content */}
@@ -51,28 +56,13 @@ module.exports = class extends Component {
                     {page.layout !== 'page' ? <div class="article-meta size-small is-uppercase level is-mobile">
                         <div class="level-left">
                             {/* Date */}
-                            <time class="level-item" dateTime={date_xml(page.date)} title={date_xml(page.date)}>{date(page.date)}</time>
+                            <i class="far fa-calendar-plus">&nbsp;</i>{date(page.date)}&nbsp;&nbsp;
                             {/* Categories */}
-                            {page.categories && page.categories.length ? <span class="level-item">
-                                {(() => {
-                                    const categories = [];
-                                    page.categories.forEach((category, i) => {
-                                        categories.push(<a class="link-muted" href={url_for(category.path)}>{category.name}</a>);
-                                        if (i < page.categories.length - 1) {
-                                            categories.push(<span>&nbsp;/&nbsp;</span>);
-                                        }
-                                    });
-                                    return categories;
-                                })()}
-                            </span> : null}
+
                             {/* Read time */}
                             {article && article.readtime && article.readtime === true ? <span class="level-item">
-                                {(() => {
-                                    const words = getWordCount(page._content);
-                                    const time = moment.duration((words / 150.0) * 60, 'seconds');
-                                    return `${time.locale(index ? indexLaunguage : language).humanize()} ${__('article.read')} (${__('article.about')} ${words} ${__('article.words')})`;
-                                })()}
-                            </span> : null}
+                                <i class="far fa-clock">&nbsp;</i>{timeStr} &nbsp;<i class="fas fa-pencil-alt">&nbsp;</i>{wordsCount}&nbsp;k
+                                </span> : null}
                             {/* Visitor counter */}
                             {!index && plugins && plugins.busuanzi === true ? <span class="level-item" id="busuanzi_container_page_pv" dangerouslySetInnerHTML={{
                                 __html: '<i class="far fa-eye"></i>' + _p('plugin.visit', '&nbsp;&nbsp;<span id="busuanzi_value_page_pv">0</span>')
@@ -85,16 +75,59 @@ module.exports = class extends Component {
                     </h1>
                     {/* Content/Excerpt */}
                     <div class="content" dangerouslySetInnerHTML={{ __html: index && page.excerpt ? page.excerpt : page.content }}></div>
+                    {index ? <div class="index-category-tag">
+                    {/* categories */}
+                    {page.categories && page.categories.length ? <div class="level-item">
+                            {(() => {
+                                const categories = [];
+                                categories.push(<i class="fas fa-folder-open has-text-grey">&nbsp;</i>)
+                                page.categories.forEach((category, i) => {
+                                    categories.push(<a class="article-more button is-small link-muted index-categories" href={url_for(category.path)}>{category.name}</a>);
+                                    if (i < page.categories.length - 1) {
+                                        categories.push(<span>&nbsp;</span>);
+                                    }
+                                });
+                                return categories;
+                            })()}
+                        </div> : null}
+                        &nbsp;&nbsp;
                     {/* Tags */}
-                    {!index && page.tags && page.tags.length ? <div class="article-tags size-small is-uppercase mb-4">
-                        <span class="mr-2">#</span>
-                        {page.tags.map(tag => {
-                            return <a class="link-muted mr-2" rel="tag" href={url_for(tag.path)}>{tag.name}</a>;
-                        })}
+                    {page.tags && page.tags.length ?
+                            <div class="level-item">
+                                {(() => {
+                                    const tags = [];
+                                    tags.push(<i class="fas fa-tags has-text-grey">&nbsp;</i>)
+                                    page.tags.forEach((tag, i) => {
+                                        tags.push(<a class="article-more button is-small link-muted index-tags" href={url_for(tag.path)}>{tag.name}</a>);
+                                        if (i < page.tags.length - 1) {
+                                            tags.push(<span>&nbsp;</span>);
+                                        }
+                                    });
+                                    return tags;
+                                })()}
+                            </div> : null}
+                            <hr />
                     </div> : null}
                     {/* "Read more" button */}
-                    {index && page.excerpt ? <a class="article-more button is-small size-small" href={`${url_for(page.path)}#more`}>{__('article.more')}</a> : null}
-                        {/*copyright*/}
+                    {index && page.excerpt ?
+                    <div class="level is-mobile is-flex">
+                    <div class="level-start">
+                    <div class="level-item">
+                        <a class="article-more button is-small size-small" href={`${url_for(page.path)}#more`}>{__('article.more')}</a> 
+                    </div>
+                    </div>
+                     {/* Begin -- CUSTOM LastEdited*/}
+                    { page.updated && page.updated > page.date ?
+                                <div class="level-start">
+                                    <div class="level-item has-text-grey is-size-7">
+                                        <time datetime={date_xml(page.updated)}><i
+                                            class="far fa-calendar-check">&nbsp;{lastModified}&nbsp;</i>{date(page.updated)}
+                                        </time>
+                                    </div>
+                                </div> : null}
+                    </div> : null}
+                    {/* End -- CUSTOM LastEdited*/}
+                    {/* Begin -- CUSTOM copyright*/}
                         {use_copyright && !index && page.layout == 'post' ?
                         <ul class="post-copyright">
                             <li><strong>{copyrightTitle}</strong><a href={copyrightPermalink}>{page.title}</a></li>
@@ -104,6 +137,7 @@ module.exports = class extends Component {
                             </li>
                         </ul> : null}
                     {/* {!index && page.layout == 'post' ? <RecommendPosts config={config} curPost={page} helper={helper} site={site} /> : null} */}
+                    {/*End -- CUSTOM copyright*/}
                     {/* Share button */}
                     {!index ? <Share config={config} page={page} helper={helper} /> : null}
                 </article>
