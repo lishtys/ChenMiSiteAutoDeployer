@@ -8,6 +8,9 @@ common:
     tag:
         one: 'Tag'
         other: 'Tags'
+    page:
+        one: 'Page'
+        other: 'Pages'
     post:
         one: 'Post'
         other: 'Posts'
@@ -22,6 +25,13 @@ widget:
     subscribe_email: 'Subscribe to Updates'
     subscribe: 'Subscribe'
     adsense: 'Advertisement'
+    
+article:
+    more: 'Read More'
+    comments: 'Comments'
+    read: 'read'
+    about: 'About'
+    words: 'words'
     recommend_posts: 'Recommend Post'
     related_posts: 'Related Post'
     latest_comment: 'Latest Comment'
@@ -30,22 +40,6 @@ widget:
     hot_recommend_tip: 'Loading...Wait a Minute!'
     hitokoto_from: 'From'
     hitokoto_provider: 'Provider'
-
-article:
-    more: 'Read More'
-    comments: 'Comments'
-    comments_closed: 'This page’s comment has closed,it’s can’t comment.'
-    comments_language: 'en'
-    read: 'read'
-    about: 'About'
-    words: 'words'
-    last_modified: 'Last Modified:'
-    copyright:
-        title: 'Post Title: '
-        author: 'Post Author: '
-        link: 'Post Link: '
-        copyright_title: 'Copyright Notice: '
-        copyright_content: 'All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.'
 donate:
     title: 'Like this article? Support the author with'
     alipay: 'Alipay'
@@ -62,10 +56,12 @@ plugin:
 search:
     search: 'Search'
     hint: 'Type something...'
+    no_result: 'No results for'
+    untitled: '(Untitled)'
+    empty_preview: '(No preview)'
 insight:
     hint: 'Type something...'
     posts: 'Posts'
     pages: 'Pages'
     categories: 'Categories'
     tags: 'Tags'
-    untitled: '(Untitled)'
