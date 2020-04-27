@@ -19,11 +19,21 @@ function getWordCount(content) {
 module.exports = class extends Component {
     render() {
         const { config, helper, page, index } = this.props;
-        const { article, plugins } = config;
+        const { article, plugins,post_copyright } = config;
         const { has_thumbnail, get_thumbnail, url_for, date, date_xml, __, _p } = helper;
 
         const indexLaunguage = config.language || 'en';
         const language = page.lang || page.language || config.language || 'en';
+        
+        {/*Custom*/}
+        var use_copyright = post_copyright == undefined || post_copyright;
+        var lastModified = __('article.last_modified');
+        var copyrightTitle = __('article.copyright.title');
+        var copyrightAuthor = __('article.copyright.author');
+        var copyrightLink = __('article.copyright.link');
+        var copyrightCopyrightContent = __('article.copyright.copyright_content');
+        var copyrightCopyrightTitle = __('article.copyright.copyright_title');
+        const copyrightPermalink = config.url + config.root + page.path;
 
         return <Fragment>
             {/* Main content */}
@@ -84,6 +94,16 @@ module.exports = class extends Component {
                     </div> : null}
                     {/* "Read more" button */}
                     {index && page.excerpt ? <a class="article-more button is-small size-small" href={`${url_for(page.path)}#more`}>{__('article.more')}</a> : null}
+                        {/*copyright*/}
+                        {use_copyright && !index && page.layout == 'post' ?
+                        <ul class="post-copyright">
+                            <li><strong>{copyrightTitle}</strong><a href={copyrightPermalink}>{page.title}</a></li>
+                            <li><strong>{copyrightAuthor}</strong><a href={url_for(config.url)}>{config.author}</a></li>
+                            <li><strong>{copyrightLink}</strong><a href={copyrightPermalink}>{copyrightPermalink}</a></li>
+                            <li><strong>{copyrightCopyrightTitle}</strong><span dangerouslySetInnerHTML={{ __html: copyrightCopyrightContent }}></span>
+                            </li>
+                        </ul> : null}
+                    {/* {!index && page.layout == 'post' ? <RecommendPosts config={config} curPost={page} helper={helper} site={site} /> : null} */}
                     {/* Share button */}
                     {!index ? <Share config={config} page={page} helper={helper} /> : null}
                 </article>
