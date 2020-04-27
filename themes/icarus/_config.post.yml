@@ -1,0 +1,66 @@
+# Sidebar configurations.
+# Please be noted that a sidebar is only visible when it has at least one widget
+sidebar:
+    # Left sidebar configurations
+    left:
+        # Whether the sidebar sticks to the top when page scrolls
+        sticky: true
+    # Right sidebar configurations
+    right:
+        # Whether the sidebar sticks to the top when page scrolls
+        sticky: false
+# Sidebar widget configurations
+# http://ppoffice.github.io/hexo-theme-icarus/categories/Widgets/
+widgets:
+    # Profile widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: left
+        type: profile
+        # Author name
+        author: Forrest Mi 
+        # Author title
+        author_title: Game Engineer
+        # Author's current location
+        location: San Jose, CA
+        # URL or path to the avatar image
+        avatar: /img/avatar.png
+        # Whether show the rounded avatar image
+        avatar_rounded: true
+        # Email address for the Gravatar
+        gravatar: 
+        # URL or path for the follow button
+        follow_link: 'https://github.com/lishtys/'
+        # Links to be shown on the bottom of the profile widget
+        # Links to be shown on the bottom of the profile widget
+        social_links:
+            Email:
+                icon: fa fa-envelope
+                url: 'mailto:lishtys@gmail.com'
+            Linkedin:
+                icon: fab fa-linkedin
+                url: 'https://www.linkedin.com/in/chenmi93/'
+            Portfolio:
+                icon: fas fa-cubes
+                url: 'https://chenmi.ink/portfolio/'                
+            Github:
+                icon: fab fa-github
+                url: 'https://github.com/lishtys/'
+            RSS:
+                icon: fas fa-rss
+                url: /
+    # Table of contents widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: left
+        type: toc
+    # Categories widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: left
+        type: categories
+    # Tags widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: left
+        type: tags
