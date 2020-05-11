@@ -7,12 +7,15 @@ categories:
   - Unity
   - DOTS
 toc: true
+abbrlink: 6808
 date: 2020-04-28 00:29:00
 ---
 
 # 1 - Concept
 
 ECS stands for Entity、Component、System. Entity has multiple Components which is similar to GameObject in Unity. However, Component in ECS is different from the classical way. It only contains data, without functions. A game would have many `Systems`, which don't care about Entity but maintain Component related to and iterate each executing method.
+
+<!--more-->
 
 > **Problems with classical ECS**
 > - memory location are disconnected
