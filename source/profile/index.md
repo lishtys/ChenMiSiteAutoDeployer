@@ -11,7 +11,7 @@ widgets:
         author: Forrest Mi
         author_title: Gameplay Engineer
         location: San Jose, CA
-        avatar: /img/avatar.png
+        avatar: /img/avatar_f.png
         # Whether show the rounded avatar image
         avatar_rounded: false
         # Email address for the Gravatar
