@@ -3,17 +3,10 @@ language: node_js
 # 指定需要sudo权限
 sudo: required
 # 指定node_js版本
-node_js: 
-  - 12.13.1
-# 指定缓存模块，可选。缓存可加快编译速度。
-cache:
-  directories:
-    - node_modules
 
-# 指定博客源码分支，因人而异。hexo博客源码托管在独立repo则不用设置此项
-branches:
-  only:
-    - master 
+# 指定缓存模块，可选。缓存可加快编译速度。
+cache: false
+
 
 before_install:
   - npm install -g hexo-cli
@@ -30,13 +23,14 @@ script:
 
 # 设置git提交名，邮箱；替换真实token到_config.yml文件，最后depoy部署
 after_script:
-  - git config user.name "ChenMi"
+  - git config user.name "Forrest Mi"
   - git config user.email "lishtys@gmail.com"
   # 替换同目录下的_config.yml文件中gh_token字符串为travis后台刚才配置的变量，注意此处sed命令用了双引号。单引号无效！
-  - sed -i "s/gh_token/${GH_TOKEN}/g" ./_config.yml
-  - sed -i "s/code_token/${Coding_Token}/g" ./_config.yml
-  - sed -i "s/baidu_token/${baidu_url_token}/g" ./_config.yml
-  - cat ./_config.yml
+    - sed -i "s/gh_token/${GH_TOKEN}/g" ./_config.yml
+  # - sed -i "s/code_token/${Coding_Token}/g" ./_config.yml
+  # - sed -i "s/baidu_token/${baidu_url_token}/g" ./_config.yml
+  # - sed -i'' "s~https://github.com/<YOUR NAME>/<YOUR BLOG REPO>.git~https://${ACCESS_TOKEN}@github.com/<YOUR NAME>/<YOUR REPO>.git~" _config.yml
+  # - cat ./_config.yml
   - hexo deploy
 # End: Build LifeCycle
 
