@@ -8,8 +8,8 @@ tags:
 categories:
   - Game Engine
   - Realtime Rendering
-thumbnail: >-
-  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/RTR08.gif
+thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/RTR08.gif
+cover: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/RTR08.gif
 toc: true
 abbrlink: 55354
 date: 2019-02-19 16:30:00

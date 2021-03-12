@@ -1,5 +1,5 @@
 ---
-title: Resources Mapping In Unity 
+title: Resources Mapping In Unity
 tags:
   - Unity
   - AssetsBundle
@@ -8,6 +8,7 @@ categories:
   - Unity
   - Assets
 toc: true
+abbrlink: 27064
 date: 2020-05-20 15:29:00
 ---
 
@@ -19,7 +20,7 @@ date: 2020-05-20 15:29:00
 > **Object**: Inherit from `Unity.Objects`. It is a serializable data used to describe an instance of a specific resource. It can represent any type supported by Unity.
 
 There is a 1-N relationship between Asset and Object. For example, Prefab is an Asset while it contains many Object; 
-
+<!--more-->
 ## File GUIDs and Local IDs
 
 Unity divides the serialization into two parts. The first part is called `File GUID` in '.meta' files in the project folder.

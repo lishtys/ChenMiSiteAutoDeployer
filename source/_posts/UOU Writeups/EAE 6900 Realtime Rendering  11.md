@@ -9,6 +9,7 @@ categories:
   - Game Engine
   - Realtime Rendering
 thumbnail: 'https://i.loli.net/2019/04/28/5cc4f743788c2.gif'
+cover: 'https://i.loli.net/2019/04/28/5cc4f743788c2.gif'
 toc: true
 abbrlink: 39899
 date: 2019-04-22 14:22:00

@@ -3,6 +3,7 @@ const { Component, Fragment } = require('inferno');
 const Share = require('./share');
 const Donates = require('./donates');
 const Comment = require('./comment');
+const ArticleLicensing = require('hexo-component-inferno/lib/view/misc/article_licensing');
 
 /**
  * Get the word count of text.
@@ -19,53 +20,62 @@ function getWordCount(content) {
 module.exports = class extends Component {
     render() {
         const { config, helper, page, index } = this.props;
-        const { article, plugins,post_copyright } = config;
-        const { has_thumbnail, get_thumbnail, url_for, date, date_xml, __, _p } = helper;
+        const { article, plugins } = config;
+        const { url_for, date, date_xml, __, _p } = helper;
 
         const indexLaunguage = config.language || 'en';
         const language = page.lang || page.language || config.language || 'en';
-        
-        /* Custom */
-        var use_copyright = post_copyright == undefined || post_copyright;
-        var lastModified = __('article.last_modified');
-         var copyrightTitle = __('article.copyright.title');
-        var copyrightAuthor = __('article.copyright.author');
-        var copyrightLink = __('article.copyright.link');
-        var copyrightCopyrightContent = __('article.copyright.copyright_content');
-        var copyrightCopyrightTitle = __('article.copyright.copyright_title');
-        const copyrightPermalink = config.url + config.root + page.path;
-
-        const words = getWordCount(page._content);
-        const time = moment.duration((words / 150.0) * 60, 'seconds');
-        const timeStr = time.locale(language).humanize().replace('a few seconds', 'fast').replace('hours', 'h').replace('minutes', 'm').replace('seconds', 's').replace('days', 'd');
-        const wordsCount = (words / 1000.0).toFixed(1);
+        const cover = page.cover ? url_for(page.cover) : null;
 
         return <Fragment>
             {/* Main content */}
             <div class="card">
                 {/* Thumbnail */}
-                {has_thumbnail(page) ? <div class="card-image">
+                {cover ? <div class="card-image">
                     {index ? <a href={url_for(page.link || page.path)} class="image is-7by3">
-                        <img class="thumbnail" src={get_thumbnail(page)} alt={page.title || get_thumbnail(page)} />
+                        <img class="fill" src={cover} alt={page.title || cover} />
                     </a> : <span class="image is-7by3">
-                        <img class="thumbnail" src={get_thumbnail(page)} alt={page.title || get_thumbnail(page)} />
+                        <img class="fill" src={cover} alt={page.title || cover} />
                     </span>}
                 </div> : null}
                 {/* Metadata */}
                 <article class={`card-content article${'direction' in page ? ' ' + page.direction : ''}`} role="article">
-                    {page.layout !== 'page' ? <div class="article-meta size-small is-uppercase level is-mobile">
+                    {page.layout !== 'page' ? <div class="article-meta is-size-7 is-uppercase level is-mobile">
                         <div class="level-left">
-                            {/* Date */}
-                            <i class="far fa-calendar-plus">&nbsp;</i>{date(page.date)}&nbsp;&nbsp;
+                            {/* Creation Date */}
+                            {page.date && <span class="level-item" dangerouslySetInnerHTML={{
+                                __html: _p('article.created_at', `<time dateTime="${date_xml(page.date)}" title="${new Date(page.date).toLocaleString()}">${date(page.date)}</time>`)
+                            }}></span>}
+                            {/* Last Update Date */}
+                            {page.updated && <span class="level-item" dangerouslySetInnerHTML={{
+                                __html: _p('article.updated_at', `<time dateTime="${date_xml(page.updated)}" title="${new Date(page.updated).toLocaleString()}">${date(page.updated)}</time>`)
+                            }}></span>}
+                            {/* author */}
+                            {page.author ? <span class="level-item"> {page.author} </span> : null}
                             {/* Categories */}
-
+                            {page.categories && page.categories.length ? <span class="level-item">
+                                {(() => {
+                                    const categories = [];
+                                    page.categories.forEach((category, i) => {
+                                        categories.push(<a class="link-muted" href={url_for(category.path)}>{category.name}</a>);
+                                        if (i < page.categories.length - 1) {
+                                            categories.push(<span>&nbsp;/&nbsp;</span>);
+                                        }
+                                    });
+                                    return categories;
+                                })()}
+                            </span> : null}
                             {/* Read time */}
                             {article && article.readtime && article.readtime === true ? <span class="level-item">
-                                <i class="far fa-clock">&nbsp;</i>{timeStr} &nbsp;<i class="fas fa-pencil-alt">&nbsp;</i>{wordsCount}&nbsp;k
-                                </span> : null}
+                                {(() => {
+                                    const words = getWordCount(page._content);
+                                    const time = moment.duration((words / 150.0) * 60, 'seconds');
+                                    return `${_p('article.read_time', time.locale(index ? indexLaunguage : language).humanize())} (${_p('article.word_count', words)})`;
+                                })()}
+                            </span> : null}
                             {/* Visitor counter */}
                             {!index && plugins && plugins.busuanzi === true ? <span class="level-item" id="busuanzi_container_page_pv" dangerouslySetInnerHTML={{
-                                __html: '<i class="far fa-eye"></i>' + _p('plugin.visit', '&nbsp;&nbsp;<span id="busuanzi_value_page_pv">0</span>')
+                                __html: _p('plugin.visit_count', '<span id="busuanzi_value_page_pv">0</span>')
                             }}></span> : null}
                         </div>
                     </div> : null}
@@ -75,69 +85,18 @@ module.exports = class extends Component {
                     </h1>
                     {/* Content/Excerpt */}
                     <div class="content" dangerouslySetInnerHTML={{ __html: index && page.excerpt ? page.excerpt : page.content }}></div>
-                    {index ? <div class="index-category-tag">
-                    {/* categories */}
-                    {page.categories && page.categories.length ? <div class="level-item">
-                            {(() => {
-                                const categories = [];
-                                categories.push(<i class="fas fa-folder-open has-text-grey">&nbsp;</i>)
-                                page.categories.forEach((category, i) => {
-                                    categories.push(<a class="article-more button is-small link-muted index-categories" href={url_for(category.path)}>{category.name}</a>);
-                                    if (i < page.categories.length - 1) {
-                                        categories.push(<span>&nbsp;</span>);
-                                    }
-                                });
-                                return categories;
-                            })()}
-                        </div> : null}
-                        &nbsp;&nbsp;
+                    {/* Licensing block */}
+                    {!index && article && article.licenses && Object.keys(article.licenses)
+                        ? <ArticleLicensing.Cacheable page={page} config={config} helper={helper} /> : null}
                     {/* Tags */}
-                    {page.tags && page.tags.length ?
-                            <div class="level-item">
-                                {(() => {
-                                    const tags = [];
-                                    tags.push(<i class="fas fa-tags has-text-grey">&nbsp;</i>)
-                                    page.tags.forEach((tag, i) => {
-                                        tags.push(<a class="article-more button is-small link-muted index-tags" href={url_for(tag.path)}>{tag.name}</a>);
-                                        if (i < page.tags.length - 1) {
-                                            tags.push(<span>&nbsp;</span>);
-                                        }
-                                    });
-                                    return tags;
-                                })()}
-                            </div> : null}
-                            <hr />
+                    {!index && page.tags && page.tags.length ? <div class="article-tags is-size-7 mb-4">
+                        <span class="mr-2">#</span>
+                        {page.tags.map(tag => {
+                            return <a class="link-muted mr-2" rel="tag" href={url_for(tag.path)}>{tag.name}</a>;
+                        })}
                     </div> : null}
                     {/* "Read more" button */}
-                    {index && page.excerpt ?
-                    <div class="level is-mobile is-flex">
-                    <div class="level-start">
-                    <div class="level-item">
-                        <a class="article-more button is-small size-small" href={`${url_for(page.path)}#more`}>{__('article.more')}</a> 
-                    </div>
-                    </div>
-                     {/* Begin -- CUSTOM LastEdited*/}
-                    { page.updated && page.updated > page.date ?
-                                <div class="level-start">
-                                    <div class="level-item has-text-grey is-size-7">
-                                        <time datetime={date_xml(page.updated)}><i
-                                            class="far fa-calendar-check">&nbsp;{lastModified}&nbsp;</i>{date(page.updated)}
-                                        </time>
-                                    </div>
-                                </div> : null}
-                    </div> : null}
-                    {/* End -- CUSTOM LastEdited*/}
-                    {/* Begin -- CUSTOM copyright*/}
-                        {use_copyright && !index && page.layout == 'post' ?
-                        <ul class="post-copyright">
-                            <li><strong>{copyrightTitle}</strong><a href={copyrightPermalink}>{page.title}</a></li>
-                            <li><strong>{copyrightAuthor}</strong><a href={url_for(config.url)}>{config.author}</a></li>
-                            <li><strong>{copyrightLink}</strong><a href={copyrightPermalink}>{copyrightPermalink}</a></li>
-                            <li><strong>{copyrightCopyrightTitle}</strong><span dangerouslySetInnerHTML={{ __html: copyrightCopyrightContent }}></span>
-                            </li>
-                        </ul> : null}
-                    {/* {!index && page.layout == 'post' ? <RecommendPosts config={config} curPost={page} helper={helper} site={site} /> : null} */}
-                    {/*End -- CUSTOM copyright*/}
+                    {index && page.excerpt ? <a class="article-more button is-small is-size-7" href={`${url_for(page.link || page.path)}#more`}>{__('article.more')}</a> : null}
                     {/* Share button */}
                     {!index ? <Share config={config} page={page} helper={helper} /> : null}
                 </article>

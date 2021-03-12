@@ -8,8 +8,8 @@ tags:
 categories:
   - Game Engine
   - Realtime Rendering
-thumbnail: >-
-  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/GPUMipLevel.gif
+thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/GPUMipLevel.gif
+cover: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/EAE6320/GPUMipLevel.gif
 toc: true
 abbrlink: 20611
 date: 2019-02-12 15:52:00

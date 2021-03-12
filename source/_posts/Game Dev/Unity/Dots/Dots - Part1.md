@@ -98,26 +98,11 @@ IL2CPP is not directly compiled into machine code, but first converted into C ++
 
 IL2CPP's GC uses Boehm, which is a conservative garbage collector applied to C / C ++. It does not support the concept of .NET garbage collection generation, so the GC of IL2CPP is not the same as the .NET native GC, and the .NET native GC supports generation. Also, Boehm's GC has a feature of progressive GC. Later, this option was also opened in Unity 2019, which is now known as progressive GC.
 
-
-### 2.2 Use Case
-
-```
-// todo  --  add later
-```
-
-
 ## 3. Burst Compiler
 
 Brust Compiler is based on LLVM. The process includes three main steps: `front end`, `optimizer`,`backend`. After compiling all the codes are converted to machine codes - `0,1`.  Unfortunately, LLVM does not do well with C# GC, so Burst only supports `value-type` data compilation, not reference type data compilation. This means that if ` [BurstCompile]` is enabled, `reference types object` cannot be supported.
 
 
 For now, the tag `[BurstCompile]` only works in `IJob、IJobParallelFor` interfaces.
-
-
-### Example
-
-```
-todo -- add later
-```
 
 
