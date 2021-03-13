@@ -1,10 +1,13 @@
-﻿title: ""
-layout: "profile"
+---
+title: ''
+layout: post
 comment: false
 busuanzi: false
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/RedMoonCover.PNG
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/RedMoonCover.PNG
 toc: true
 widgets: []
+abbrlink: 5
 ---
 
 

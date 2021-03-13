@@ -1,10 +1,12 @@
-﻿title: ""
-layout: "profile"
+---
+title: ''
+layout: post
 comment: false
 busuanzi: false
-thumbnail: https://i.loli.net/2019/03/14/5c8a2087152f5.jpg
+thumbnail: 'https://i.loli.net/2019/03/14/5c8a2087152f5.jpg'
 toc: true
 widgets: []
+abbrlink: 6
 ---
 
 

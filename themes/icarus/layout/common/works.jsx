@@ -80,9 +80,9 @@ function buildList(worklist){
             let item = work;
             if(name % 2 == 1 || name === worklist.length - 1){
                 if(name % 2 == 1){
-                    result.push(PairComponenet(workItem.title, workItem.description, workItem.thumb, workItem.detail, item.name, item.description, item.thumb, item.detail));
+                    result.push(PairComponenet(workItem.title, workItem.description, workItem.thumb, workItem.detail, item.title, item.description, item.thumb, item.detail));
                 }else{
-                    result.push(ComponentWithTransition(item.name, item.description, item.thumb));  
+                    result.push(ComponentWithTransition(item.title, item.description, item.thumb, item.detail));  
                 }
             }else  {
               workItem = work;

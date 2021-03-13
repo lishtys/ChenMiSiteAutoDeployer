@@ -1,10 +1,13 @@
-﻿title: ""
-layout: "profile"
+---
+title: ''
+layout: post
 comment: false
 busuanzi: false
-thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/Kinect%20Cover.png
+thumbnail: >-
+  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/Kinect%20Cover.png
 toc: true
 widgets: []
+abbrlink: 2
 ---
 
 
