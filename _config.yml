@@ -25,7 +25,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: portfolio
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -127,3 +127,72 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
   version: "7.1.2" # default v7.1.2
   options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
     #startOnload: true  // default true
+
+# works data
+works:
+  - name: Pili_Incredible
+    title: Pili Incredible
+    thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/PiliCover.JPG
+    description: 'Pili Incredible is a online RPG game based on a glove puppetry show from Taiwan. The TV series debuted in 1985, and it still continues today. The game has been shipped in 2016 in Taiwan, entered Apple Store bestseller top 10.'
+    page: https://pli.wegames.com.tw/
+    detail: https://chenmi.ink/portfolio/Pili_Incredible.html
+    youtube: https://www.youtube.com/watch?v=JB6LjrGF0Tc
+    tag: product
+      
+  - name: Era_War
+    title: Era War 
+    thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/WarEra_Cover.jpg
+    description: 'The game is a MMOARPG mobile game developed in Unity, shipped in 2018. Each occupation has multiple skill genres, and a player can freely transfer skills according to their own needs, experience the fun of crazy bosses in PVP and PVE battles.'
+    page: http://zhjy.ingcle.com/
+    youtube: https://www.youtube.com/watch?v=6N3AbiD-U6Y
+    detail: https://chenmi.ink/portfolio/Era_War.html
+    tag: product
+  
+  - name: The_Surgery_Checklist
+    title: The Surgery Checklist
+    thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/SurgeryChecklist_Cover.PNG
+    description: 'We’ve created Surgery Checklist, a software suite for iOS and PC, that adds more features, and corrects many of the problems inherent to the paper checklist.'
+    detail: https://chenmi.ink/portfolio/Surgery_Checklist.html
+    youtube: https://www.youtube.com/watch?v=9_tmlpfFZcg
+    tag: product
+    
+  - name: Kinect_Virtual_Lab
+    title: Kinect Virtual Lab
+    thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/Kinect Cover.png
+    description: ' By further analyzing and processing the image data that Kinect sensor has obtained, it gets spatial coordinates information, skeleton data and other information to track user’s body joints to recognize the pose.'
+    detail: https://chenmi.ink/portfolio/Kinect_Lab.html
+    youtube: https://youtu.be/XqoOjGg4apQ
+    tag: product
+
+  - name: CM_Realtime_Engine
+    title: CM Engine
+    thumb: https://i.loli.net/2019/03/06/5c7f2b6847cb1.gif
+    description: 'This project is an engine project I am working during the realtime rendering class. The first part focus on making an independent platform supports OpenGL & DirectX. The second part will focus on C++, Direct3D 11 API, and HLSL.'
+    detail: https://chenmi.ink/portfolio/CM_Engine.html
+    github: https://github.com/lishtys/CM_Realtime_Engine
+    tag: project
+
+  - name: Meaty_McSkin_Bones
+    title: Meaty McSkin Bones
+    thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/MeatyMcSkinBones.png
+    description: 'Meaty McSkinBones is a single-player puzzle/platformer where the character is split into three separate bodies. They each have unique abilities or can work together to solve puzzles and traverse the environment.'
+    detail: https://www.meatymcskinbones.com/
+    youtube: https://www.youtube.com/watch?v=JuyxBguA4qQ
+    page: https://www.meatymcskinbones.com/
+    steam: https://store.steampowered.com/app/1046370/Meaty_McSkinBones/
+    tag: product
+
+  - name: The_Red_Moon
+    title: The Red Moon
+    thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/RedMoonCover.PNG
+    description: 'The Red Moon is a digital board game about Town Building, Alliances, and Magic made in Unity with MySQL'
+    detail: https://chenmi.ink/portfolio/Red_Moon.html
+    youtube: https://youtu.be/XqoOjGg4apQ
+    tag: project
+      
+  - name: Elec_Force
+    title: Elec Force
+    thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/Elecforce.JPG
+    description: 'The theme of GGJ 2018 is transmission. So we use electrons as main characters. Best Doodles On Global Game Jam 2018'
+    detail: https://chenmi.ink/portfolio/Elecforce.html
+    tag: project

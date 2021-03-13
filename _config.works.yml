@@ -6,10 +6,6 @@ works:
     page: https://pli.wegames.com.tw/
     detail: https://chenmi.ink/portfolio/Pili_Incredible.html
     youtube: https://www.youtube.com/watch?v=JB6LjrGF0Tc
-    tags:
-      - Unity
-      - Mobile
-      - Commercial_Game
       
   - name: Era_War
     title: Era War 
@@ -18,24 +14,13 @@ works:
     page: http://zhjy.ingcle.com/
     youtube: https://www.youtube.com/watch?v=6N3AbiD-U6Y
     detail: https://chenmi.ink/portfolio/Era_War.html
-    tags:
-      - Unity
-      - Mobile
-      - Commercial_Game
-      - CSharp
-      
+  
   - name: The_Surgery_Checklist
     title: The Surgery Checklist
     thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/SurgeryChecklist_Cover.PNG
     description: 'We’ve created Surgery Checklist, a software suite for iOS and PC, that adds more features, and corrects many of the problems inherent to the paper checklist.'
     detail: https://chenmi.ink/portfolio/Surgery_Checklist.html
     youtube: https://www.youtube.com/watch?v=9_tmlpfFZcg
-    tags:
-      - Unity
-      - V.A._Hospital
-      - Mobile
-      - PC
-      - CSharp
     
   - name: Kinect_Virtual_Lab
     title: Kinect Virtual Lab
@@ -43,11 +28,6 @@ works:
     description: ' By further analyzing and processing the image data that Kinect sensor has obtained, it gets spatial coordinates information, skeleton data and other information to track user’s body joints to recognize the pose.'
     detail: https://chenmi.ink/portfolio/Kinect_Lab.html
     youtube: https://youtu.be/XqoOjGg4apQ
-    tags:
-      - Unity
-      - Kinect
-      - PC
-      - CSharp
 
   - name: CM_Realtime_Engine
     title: CM Engine
@@ -55,11 +35,6 @@ works:
     description: 'This project is an engine project I am working during the realtime rendering class. The first part focus on making an independent platform supports OpenGL & DirectX. The second part will focus on C++, Direct3D 11 API, and HLSL.'
     detail: https://chenmi.ink/portfolio/CM_Engine.html
     github: https://github.com/lishtys/CM_Realtime_Engine
-    tags:
-      - Engine
-      - CPP
-      - DirectX
-      - OpenGL  
 
   - name: Meaty_McSkin_Bones
     title: Meaty McSkin Bones
@@ -69,10 +44,6 @@ works:
     youtube: https://www.youtube.com/watch?v=JuyxBguA4qQ
     page: https://www.meatymcskinbones.com/
     steam: https://store.steampowered.com/app/1046370/Meaty_McSkinBones/
-    tags:
-      - Unreal
-      - CPP
-      - PC
 
   - name: The_Red_Moon
     title: The Red Moon
@@ -80,17 +51,9 @@ works:
     description: 'The Red Moon is a digital board game about Town Building, Alliances, and Magic made in Unity with MySQL'
     detail: https://chenmi.ink/portfolio/Red_Moon.html
     youtube: https://youtu.be/XqoOjGg4apQ
-    tags:
-      - Unity
-      - CSharp
-      - Networking
       
   - name: Elec_Force
     title: Elec Force
     thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/Elecforce.JPG
     description: 'The theme of GGJ 2018 is transmission. So we use electrons as main characters. Best Doodles On Global Game Jam 2018'
     detail: https://chenmi.ink/portfolio/Elecforce.html
-    tags:
-      - Unity
-      - CSharp
-      - Global_Game_Jam

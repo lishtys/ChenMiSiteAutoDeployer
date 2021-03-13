@@ -1,0 +1,310 @@
+title: Chen Mi
+subtitle: null
+description: null
+author: Chen(Forrest) Mi
+language: en
+timezone: null
+url: http://chenmi.ink
+root: /
+permalink: posts/:abbrlink/
+permalink_defaults: null
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: ':lang'
+skip_render:
+  - _data
+include: _data
+new_post_name: ':title.md'
+default_layout: post
+titlecase: false
+external_link:
+  enable: true
+  field: post
+filename_case: 0
+render_drafts: false
+post_asset_folder: true
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace: null
+default_category: uncategorized
+category_map: null
+tag_map: null
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+updated_option: empty
+per_page: 10
+pagination_dir: page
+index_generator:
+  per_page: 10
+archive_generator:
+  per_page: 20
+  yearly: true
+  monthly: true
+category_generator:
+  per_page: 10
+tag_generator:
+  per_page: 10
+theme: icarus
+deploy:
+  - type: git
+    repo: https://gh_token@github.com/lishtys/lishtys.github.io.git
+    branch: master
+server:
+  port: 4001
+  compress: true
+  header: true
+menu:
+  Home: .
+  Archives: archives
+  Categories: categories
+  Tags: tags
+  Profile: profile
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
+baidu_url_submit:
+  count: 10
+  host: chenmi.ink
+  token: baidu_token
+  path: baidu_urls.txt
+mermaid:
+  enable: true
+  version: 7.1.2
+  options: null
+version: 4.0.0
+variant: default
+logo: /img/favicon.png
+head:
+  favicon: /img/favicon.png
+  manifest:
+    name: Chen (Forrest) Mi - Personal Website
+    short_name: Chen Mi
+    start_url: null
+    theme_color: '#f7f7f7'
+    background_color: '#f7f7f7'
+    display: standalone
+    icons: null
+  open_graph:
+    title: null
+    type: blog
+    url: null
+    image: null
+    site_name: null
+    author: Chen (Forrst) Mi
+    description: Chen Mi | Forrest Mi | 糜棽 | Lishtys
+    twitter_card: null
+    twitter_id: null
+    twitter_site: null
+    google_plus: null
+    fb_admins: null
+    fb_app_id: null
+structured_data:
+  title: null
+  description: null
+  url: null
+  author: null
+  image: null
+navbar:
+  menu:
+    Home: /
+    Profile: /profile
+    Portfilio: /portfolio
+    Archives: /archives
+    Categories: /categories
+    Tags: /tags
+footer:
+  links:
+    Creative Commons:
+      icon: fab fa-creative-commons
+      url: https://creativecommons.org/
+    Attribution 4.0 International:
+      icon: fab fa-creative-commons-by
+      url: https://creativecommons.org/licenses/by/4.0/
+article:
+  highlight:
+    theme: atom-one-light
+    clipboard: true
+    fold: unfolded
+  readtime: true
+  licenses:
+    Creative Commons:
+      icon: fab fa-creative-commons
+      url: https://creativecommons.org/
+    CC BY-NC-SA 4.0: https://creativecommons.org/licenses/by-nc-sa/4.0/
+search:
+  type: insight
+comment:
+  type: livere
+  uid: MTAyMC80Mjg4Ny8xOTQzMw==
+share:
+  type: sharethis
+  install_url: >-
+    //platform-api.sharethis.com/js/sharethis.js#property=5bd3445bee8c700011929deb&product=inline-share-buttons
+sidebar:
+  left:
+    sticky: false
+  right:
+    sticky: false
+widgets:
+  - position: left
+    type: profile
+    author: Forrest Mi
+    author_title: Gameplay Engineer
+    location: San Jose, CA
+    avatar: /img/avatar.png
+    avatar_rounded: false
+    gravatar: null
+    follow_link: https://github.com/lishtys/
+    social_links:
+      Email:
+        icon: fa fa-envelope
+        url: mailto:lishtys@gmail.com
+      Linkedin:
+        icon: fab fa-linkedin
+        url: https://www.linkedin.com/in/chenmi93/
+      Portfolio:
+        icon: fas fa-cubes
+        url: https://chenmi.ink/portfolio/
+      Github:
+        icon: fab fa-github
+        url: https://github.com/lishtys/
+      RSS:
+        icon: fas fa-rss
+        url: /
+  - position: left
+    type: toc
+    index: true
+  - position: left
+    type: categories
+  - position: right
+    type: recent_posts
+  - position: right
+    type: archives
+  - position: right
+    type: tags
+plugins:
+  animejs: true
+  back_to_top: true
+  baidu_analytics:
+    tracking_id: null
+  bing_webmaster:
+    tracking_id: null
+  busuanzi: true
+  cnzz:
+    id: null
+    web_id: null
+  cookie_consent:
+    type: info
+    theme: edgeless
+    static: false
+    position: bottom-left
+    policyLink: https://www.cookiesandyou.com/
+  gallery: true
+  google_analytics:
+    tracking_id: UA-135283636-1
+  hotjar:
+    site_id: null
+  katex: false
+  mathjax: false
+  outdated_browser: true
+  progressbar: true
+  statcounter:
+    project: null
+    security: null
+  twitter_conversion_tracking:
+    pixel_id: null
+providers:
+  cdn: jsdelivr
+  fontcdn: google
+  iconcdn: fontawesome
+works:
+  - name: Pili_Incredible
+    title: Pili Incredible
+    thumb: >-
+      https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/PiliCover.JPG
+    description: >-
+      Pili Incredible is a online RPG game based on a glove puppetry show from
+      Taiwan. The TV series debuted in 1985, and it still continues today. The
+      game has been shipped in 2016 in Taiwan, entered Apple Store bestseller
+      top 10.
+    page: https://pli.wegames.com.tw/
+    detail: https://chenmi.ink/portfolio/Pili_Incredible.html
+    youtube: https://www.youtube.com/watch?v=JB6LjrGF0Tc
+  - name: Era_War
+    title: Era War
+    thumb: >-
+      https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/WarEra_Cover.jpg
+    description: >-
+      The game is a MMOARPG mobile game developed in Unity, shipped in 2018.
+      Each occupation has multiple skill genres, and a player can freely
+      transfer skills according to their own needs, experience the fun of crazy
+      bosses in PVP and PVE battles.
+    page: http://zhjy.ingcle.com/
+    youtube: https://www.youtube.com/watch?v=6N3AbiD-U6Y
+    detail: https://chenmi.ink/portfolio/Era_War.html
+  - name: The_Surgery_Checklist
+    title: The Surgery Checklist
+    thumb: >-
+      https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/SurgeryChecklist_Cover.PNG
+    description: >-
+      We’ve created Surgery Checklist, a software suite for iOS and PC, that
+      adds more features, and corrects many of the problems inherent to the
+      paper checklist.
+    detail: https://chenmi.ink/portfolio/Surgery_Checklist.html
+    youtube: https://www.youtube.com/watch?v=9_tmlpfFZcg
+  - name: Kinect_Virtual_Lab
+    title: Kinect Virtual Lab
+    thumb: >-
+      https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/Kinect
+      Cover.png
+    description: ' By further analyzing and processing the image data that Kinect sensor has obtained, it gets spatial coordinates information, skeleton data and other information to track user’s body joints to recognize the pose.'
+    detail: https://chenmi.ink/portfolio/Kinect_Lab.html
+    youtube: https://youtu.be/XqoOjGg4apQ
+  - name: CM_Realtime_Engine
+    title: CM Engine
+    thumb: https://i.loli.net/2019/03/06/5c7f2b6847cb1.gif
+    description: >-
+      This project is an engine project I am working during the realtime
+      rendering class. The first part focus on making an independent platform
+      supports OpenGL & DirectX. The second part will focus on C++, Direct3D 11
+      API, and HLSL.
+    detail: https://chenmi.ink/portfolio/CM_Engine.html
+    github: https://github.com/lishtys/CM_Realtime_Engine
+  - name: Meaty_McSkin_Bones
+    title: Meaty McSkin Bones
+    thumb: >-
+      https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/MeatyMcSkinBones.png
+    description: >-
+      Meaty McSkinBones is a single-player puzzle/platformer where the character
+      is split into three separate bodies. They each have unique abilities or
+      can work together to solve puzzles and traverse the environment.
+    detail: https://www.meatymcskinbones.com/
+    youtube: https://www.youtube.com/watch?v=JuyxBguA4qQ
+    page: https://www.meatymcskinbones.com/
+    steam: https://store.steampowered.com/app/1046370/Meaty_McSkinBones/
+  - name: The_Red_Moon
+    title: The Red Moon
+    thumb: >-
+      https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/RedMoonCover.PNG
+    description: >-
+      The Red Moon is a digital board game about Town Building, Alliances, and
+      Magic made in Unity with MySQL
+    detail: https://chenmi.ink/portfolio/Red_Moon.html
+    youtube: https://youtu.be/XqoOjGg4apQ
+  - name: Elec_Force
+    title: Elec Force
+    thumb: >-
+      https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/Elecforce.JPG
+    description: >-
+      The theme of GGJ 2018 is transmission. So we use electrons as main
+      characters. Best Doodles On Global Game Jam 2018
+    detail: https://chenmi.ink/portfolio/Elecforce.html

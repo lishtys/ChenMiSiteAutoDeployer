@@ -85,7 +85,7 @@ navbar:
     menu:
         Home: /
         Profile: /profile
-        Portfilio: /portfolio
+        Portfolio: /portfolio
         Archives: /archives
         Categories: /categories
         Tags: /tags
@@ -347,3 +347,5 @@ providers:
     fontcdn: google
     # Name or URL of the fontawesome icon font CDN provider
     iconcdn: fontawesome
+
+
