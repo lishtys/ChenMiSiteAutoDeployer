@@ -13,7 +13,7 @@ abbrlink: 4
   <div class="tile is-4 is-vertical is-parent">
     <div class="tile is-child box">
       <h3>Overview</h3>
-The game is a MMOARPG mobile game developed in Unity, shipped in 2018. The game continues three classic professions: warrior, mage,archer. Each occupation has mutiple skill genres, and player can freely transfer skills according to their own needs, experience the fun of crazy bosses in PVP and PVE battles.
+The game is a MMOARPG mobile game developed in Unity and released in 2018. The game contains three professions for players to choose from: Warrior, Mage, and Archer. Each profession has multiple skill sets, and players can freely transfer their skills according to their needs to experience the fun of crazy BOSS in PVP and PVE battles.
 </div>
     <div class="tile is-child box">
 
