@@ -41,7 +41,7 @@ function PairComponenet(title1, content1, cover1, link1, title2, content2, cover
                     href={link1}>Read more</a></article></div></div>
 
   <div class="column"><div class="card">
-    <div class="card-image"><a class="image is-7by3" href={link1}>
+    <div class="card-image"><a class="image is-7by3" href={link2}>
         <img class="fill" src= {cover2} alt={title2}/></a></div>
         <article class="card-content article" role="article">
         <h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href={link2}>{title2}</a></h1>
@@ -51,16 +51,16 @@ function PairComponenet(title1, content1, cover1, link1, title2, content2, cover
                 </span></div>
                 </div> */}
                     <div class="content"> <p> {content2} </p></div><a class="article-more button is-small; is-size-7" 
-                    href={link1}>Read more</a></article></div></div>                      
+                    href={link2}>Read more</a></article></div></div>                      
         </div>
 }
 
 
-function formatWidgets(works) {
+function formatWidgets(works, type) {
     const result = {};
     if (Array.isArray(works)) {
         works.filter(work => typeof work === 'object').forEach(work => {
-            if ('tag' in work && (work.tag === 'product')) {
+            if ('tag' in work && (work.tag === type)) {
                 if (!(work.tag in result)) {
                     result[work.tag] = [work];
                 } else {
@@ -105,8 +105,9 @@ module.exports = class extends Component {
         const language = page.lang || page.language || config.language || 'en';
         const cover = page.cover ? url_for(page.cover) : null;
         const {works = []} = config;
-        const productWorks = formatWidgets(works)['product'];
-       
+        const productWorks = formatWidgets(works,'product')['product'];
+        const projectWorks = formatWidgets(works,'project')['project'];
+
         const embeddedConfig = `(() => {
             function switchTab() {
                 if (!location.hash) {
@@ -159,11 +160,16 @@ module.exports = class extends Component {
                     <span style="display:inline-block;padding:2px 3px">Portfolio</span></a> */}
                     
                     <div class="content" dangerouslySetInnerHTML={{ __html: index && page.excerpt ? page.excerpt : page.content }}></div>
+                   
+                    {/* Product Tab */}
+                    <div id="products" class="tab-content  is-hidden">{buildList(productWorks)}</div>
+
                     {/* All Tab */}
                     <div id="all" class="tab-content">{buildList(works)}</div>
 
-                    {/* Product Tab */}
-                    <div id="products" class="tab-content  is-hidden">{buildList(productWorks)}</div>
+                   {/* Projects Tab */}
+                    <div id="projects" class="tab-content is-hidden">{buildList(projectWorks)}</div>
+
                   
                     {/* Share button */}
                     {!index ? <Share config={config} page={page} helper={helper} /> : null}

@@ -3,13 +3,18 @@ title: ''
 layout: post
 comment: false
 busuanzi: false
-thumbnail: >-
-  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/RedMoonCover.PNG
+thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/RedMoonCover.PNG
 toc: true
 widgets: []
 abbrlink: 5
 ---
 
+
+# Video
+
+{% youtube H6AnGr6IwuM %}
+
+---
 
 # Overview
 
@@ -30,12 +35,6 @@ Defeat  Guǐ. Siege other cities. Cast powerful spells. And most of all, beware 
 - Developed resources system that builds client data into AssetBundle and combined to language localization system.
 ---
 
-# Trailler
-
-{% youtube H6AnGr6IwuM %}
-
-
----
 # Awards
 
 • Presented in EAE Play Day

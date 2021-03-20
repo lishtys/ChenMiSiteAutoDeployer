@@ -9,6 +9,12 @@ thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/Websi
 
 <div class="tabs is-boxed  is-centered">
   <ul class="mx-0 my-0">
+      <li>
+      <a href="#products">
+        <span class="icon is-small"><i class="fas fa-bullhorn" aria-hidden="true"></i></span>
+        <span>Products</span>
+      </a>
+    </li>
     <li class="is-active">
       <a href="#all">
         <span class="icon is-small"><i class="fas fa-cubes" aria-hidden="true"></i></span>
@@ -16,9 +22,9 @@ thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/Websi
       </a>
     </li>
     <li>
-      <a href="#products">
-        <span class="icon is-small"><i class="fas fa-bullhorn" aria-hidden="true"></i></span>
-        <span>Products</span>
+      <a href="#projects">
+        <span class="icon is-small"><i class="fas fa-file-code" aria-hidden="true"></i></span>
+        <span>Side Projects</span>
       </a>
     </li>
   </ul>

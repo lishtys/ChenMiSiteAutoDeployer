@@ -11,30 +11,42 @@ abbrlink: 2
 ---
 
 
-# Overview
+
+
+#  Kinect Virtual Lab
 
 This project uses Kinect with Unity to build a virtual lab for education and experiments. 
 
 By further analyzing and processing the image data that Kinect sensor has obtained, it gets spatial coordinates information, skeleton data and other information to track user's body joints to recognize the pose, and then combine Unity's engine to achieve module functions. 
 
-# Link
-
-- Gameplay Video
-
-{% youtube XqoOjGg4apQ %}
-
 ---
 
-# Key Responsibility
+<div class="tile is-ancestor">
 
+  <div class="tile is-parent">
+    <div class="tile is-child box">
+    <h3>Release Video</h3>
+{% youtube XqoOjGg4apQ %}
+    </div>
+  </div>
+</div>
 
+<div class="tile is-ancestor">
+
+  <div class="tile is-parent">
+    <div class="tile is-child box">
+      <p class="title">Key Responsibility</p>
+      
 -  Implements Kinect Virtual Lab gesture recognition system based on Dynamic Time Warping using Kinect.
 -  Use Finite State Machine to manage the game flow.
 -  Assists with art resources data in Unity engines
 
 
+   </div>
+  </div>
+</div>
 
----
+
 
 # Awards
 
