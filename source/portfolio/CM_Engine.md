@@ -4,34 +4,45 @@ layout: post
 comment: false
 busuanzi: false
 thumbnail: 'https://i.loli.net/2019/03/06/5c7f2b6847cb1.gif'
+cover: 'https://i.loli.net/2019/03/06/5c7f2b6847cb1.gif'
 toc: true
 widgets: []
 abbrlink: 1
 ---
+
 # Overview
 
-This project is an engine project I am working during the realtime rendering class. The first part focus on making an independent platform supports OpenGL & DirectX. The second part will focus on C++, Direct3D 11 API, and HLSL.
+This project is an engine project I am working during the realtime rendering class. The first part focus on making an independent platform supports OpenGL & DirectX. The second part will focus on C++, Direct3D 11 API, and HLSL. 
 
----
-
-# Links
-
+<div class="tile is-ancestor">
+  <div class="tile is-6 is-parent">
+    <div class="tile is-child box">
+      <p class="title"> Links</p>
+      <p>
+      
 - Github:
-
 https://github.com/lishtys/CM_Realtime_Engine
 
 - Dev Blogs
-
 http://chenmi.ink/categories/Game-Engine/
+   
+</p>
 
----
 
-# Key 
+</div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child box">
+      <p class="title">Keys</p>
 
 - Build a platform independent graphics renderer that supports DirectX and OpenGL.
 - Implement render threads, render commands, mipmap textures, lighting system.
 - Developed asset manage system using Lua file.
 - Collision detection; SSE calculation optimization.
+
+    </div>
+  </div>
+</div>
 
 ---
 

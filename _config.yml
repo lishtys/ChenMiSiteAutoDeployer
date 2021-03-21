@@ -137,20 +137,27 @@ works:
     detail: /portfolio/Pili_Incredible.html
     youtube: https://www.youtube.com/watch?v=JB6LjrGF0Tc
     tag: product
-      
+    
+  - name: IDEO_Editor
+    title: IDEO Editor (unannounced project)
+    thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/Website/Portfolio/Minestory.png
+    description: 'The research project is to create a real-time animation production platform. This tool supports the analysis of a script text, applying natural language processing algorithms, to get the bare bones of the stories....'
+    detail: /portfolio/TCL-IDEO_Editor.html
+    tag: product
+   
   - name: Era_War
     title: Era War 
     thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/WarEra_Cover.jpg
-    description: 'The game is a MMOARPG mobile game developed in Unity, shipped in 2018. Each occupation has multiple skill genres, and a player can freely transfer skills according to their own needs, experience the fun of crazy bosses in PVP and PVE battles.'
+    description: 'The game is a MMOARPG mobile game developed in Unity and released in 2018. The game contains three professions for players to choose from: Warrior, Mage, and Archer. Each profession has multiple skill sets, and players can freely transfer their skills according to their needs to experience the fun of crazy boss in PVP and PVE battles.'
     page: http://zhjy.ingcle.com/
     youtube: https://www.youtube.com/watch?v=6N3AbiD-U6Y
     detail: /portfolio/Era_War.html
     tag: product
   
   - name: The_Surgery_Checklist
-    title: The Surgery Checklist
+    title: Veterans Advanced Surgical Safety System
     thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/SurgeryChecklist_Cover.PNG
-    description: 'We’ve created Surgery Checklist, a software suite for iOS and PC, that adds more features, and corrects many of the problems inherent to the paper checklist.'
+    description: 'Veterans Advanced Surgical Safety System, a software suite for iOS and PC, that adds more features, and corrects many of the problems inherent to the paper checklist.'
     detail: /portfolio/Surgery_Checklist.html
     youtube: https://www.youtube.com/watch?v=9_tmlpfFZcg
     tag: product
@@ -158,10 +165,10 @@ works:
   - name: Kinect_Virtual_Lab
     title: Kinect Virtual Lab
     thumb: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/Kinect Cover.png
-    description: ' By further analyzing and processing the image data that Kinect sensor has obtained, it gets spatial coordinates information, skeleton data and other information to track user’s body joints to recognize the pose.'
+    description: 'This project uses Kinect with Unity to build a virtual lab for education and experiments. By further analyzing and processing the image data that Kinect sensor has obtained, it tracks user’s body joints to recognize the pose.'
     detail: /portfolio/Kinect_Lab.html
     youtube: https://youtu.be/XqoOjGg4apQ
-    tag: product
+    tag: project
 
   - name: CM_Realtime_Engine
     title: CM Engine

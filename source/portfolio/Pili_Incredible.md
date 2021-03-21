@@ -3,8 +3,7 @@ title: ''
 layout: post
 comment: false
 busuanzi: false
-thumbnail: >-
-  https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/PiliCover.JPG
+thumbnail: https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Works/PiliCover.JPG
 toc: true
 widgets: []
 abbrlink: 3

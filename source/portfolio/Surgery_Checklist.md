@@ -19,7 +19,7 @@ abbrlink: 4
   <div class="tile is-6 is-parent">
     <div class="tile is-child box">
       <p class="title">Overview</p>
-      <p> We've created Veterans Advanced Surgical Safety System, a software suite for iOS and PC, that adds more features, and corrects many of the problems inherent to the paper checklist. </p>
+      <p> Veterans Advanced Surgical Safety System, a software suite for iOS and PC, that adds more features, and corrects many of the problems inherent to the paper checklist. </p>
 
      
 ![](https://i.loli.net/2019/03/12/5c869ee0adc5f.png)

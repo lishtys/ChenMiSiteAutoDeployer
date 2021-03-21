@@ -15,21 +15,23 @@ abbrlink: 2
 
 #  Kinect Virtual Lab
 
+<div class="tile is-ancestor">
+
+  <div class="tile is-parent">
+    <div class="tile is-child box">
+{% youtube XqoOjGg4apQ %}
+    </div>
+  </div>
+</div>
+
+# Overview
+
 This project uses Kinect with Unity to build a virtual lab for education and experiments. 
 
 By further analyzing and processing the image data that Kinect sensor has obtained, it gets spatial coordinates information, skeleton data and other information to track user's body joints to recognize the pose, and then combine Unity's engine to achieve module functions. 
 
 ---
 
-<div class="tile is-ancestor">
-
-  <div class="tile is-parent">
-    <div class="tile is-child box">
-    <h3>Release Video</h3>
-{% youtube XqoOjGg4apQ %}
-    </div>
-  </div>
-</div>
 
 <div class="tile is-ancestor">
 
