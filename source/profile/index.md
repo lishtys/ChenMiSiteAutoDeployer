@@ -46,7 +46,7 @@ When studying  in University of Utah, Entertainment Arts and Engineering program
 Before that, I've worked in a game studio located in Beijing and published two mobile games mobile games: [Pili Incredible](https://chenmi.ink/portfolio/Pili_Incredible.html), and [Era War](https://chenmi.ink/portfolio/Era_War.html). I learned great practical experience from industry, built up professional skills, familiarized with the work pipeline and formed the motivation for further study in the game field from these two products.
 
 
-Please check my [resume](https://chenmi-ink-1252570167.cos.na-siliconvalley.myqcloud.com/_Resume/Chen%20Mi%20-%20Resume.pdf) and [portfolio](/portfolio/index.html) 
+Please check my [resume](https://chenmi.ink/profile/Resume.pdf) and [portfolio](https://chenmi.ink/portfolio/) 
 
 ---
 
